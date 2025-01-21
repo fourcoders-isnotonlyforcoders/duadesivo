@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-// @ts-ignore
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Footer } from "./Components/Footer";
@@ -9,7 +8,7 @@ import { PageContainer } from "./Components/PageContainer";
 
 export const App: React.FC = () => {
   useEffect(() => {
-    AOS.init(); 
+    AOS.init();
   }, []);
 
   return (
