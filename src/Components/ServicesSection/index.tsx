@@ -1,4 +1,5 @@
 import React from 'react'
+import { Carrousel } from './carrousel'
 import { ServicesContainer, PrincipalBanner, PrincipalBannerContainer, BgImage, BgImage2,BgImage3 } from './styles'
 import { TemplateText } from '../TemplateText'
 export const ServicesSection: React.FC = () => {
@@ -13,6 +14,7 @@ export const ServicesSection: React.FC = () => {
       <PrincipalBannerContainer data-aos="zoom-in-up" data-aos-duration="700"> 
         <PrincipalBanner src='/images/bannerHolografico.avif'/>
       </PrincipalBannerContainer>
+      <Carrousel/>
     </ServicesContainer>
   )
 }
