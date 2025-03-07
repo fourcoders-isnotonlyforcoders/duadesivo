@@ -44,7 +44,7 @@ export const BgImage2 = styled.img`
   position: absolute;
   pointer-events: none;
   z-index: -1;
-  bottom: 0;
+  bottom: 222px;
   animation: light 6s ease infinite;
 
 `;
@@ -52,7 +52,7 @@ export const BgImage3 = styled.img`
   position: absolute;
   pointer-events: none;
   z-index: -1;
-  bottom: -33px;
-  right: 2px;
+  bottom: 222px;
+  right: 11px;
   animation: light 5s ease infinite;
 `;
