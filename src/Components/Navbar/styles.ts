@@ -7,10 +7,15 @@ export const NavbarContainer = styled.div`
   align-items: center;
   height: 100px;
   padding: 0 1rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 10;
 
   @media (max-width: 780px) {
     flex-direction: column;
     align-items: center;
+    margin-bottom: 44rem;
+    width: auto;
   }
 `;
 
@@ -64,15 +69,45 @@ export const NavBtn = styled.button`
   color: ${(props) => props.theme.colors.black};
   text-align: center;
   box-shadow: 0 0 4px 1px #111;
-  transition: 0.2s ease;
+  transition: 0.4s ease;
   &:hover {
     border: 2px solid ${(props) => props.theme.colors.yellow};
     color: ${(props) => props.theme.colors.yellow};
     background-color: rgba(17, 17, 17, 0.15);
     cursor: pointer;
-    box-shadow: 0 0 11px 0 rgba(254, 165, 0, 0.22);
+    box-shadow: 0 0 22px 2px rgba(254, 165, 0, 0.22);
   }
   @media (max-width: 780px) {
     display: none;
   }
+`;
+
+export const NavBlur = styled.div`
+  position: absolute;
+  height: 150px;
+  width: 333px;
+  border-radius: 100%;
+  background-color: ${(props) => props.theme.colors.yellow};
+  filter: blur(55px);
+  opacity: .15;
+  z-index: -1;
+  top: -88px;
+  left: 33%;
+`;
+export const NavStars = styled.img`
+  position: absolute;
+  left: -100px;
+  top: 0;
+  z-index: -1;
+  opacity: .7;
+  object-fit: cover;
+  pointer-events: none;
+`;
+export const NavStars2 = styled.img`
+  position: absolute;
+  right: -100px;
+  z-index: -1;
+  opacity: .7;
+  object-fit: cover;
+  pointer-events: none;
 `;
