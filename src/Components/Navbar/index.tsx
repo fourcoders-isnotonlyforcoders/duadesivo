@@ -9,28 +9,28 @@ import {
 
 export const Navbar: React.FC = () => {
   return (
-    <NavbarContainer data-aos="fade-up" data-aos-duration="500">
+    <NavbarContainer >
       <NavStars src="/images/bgEstrelado.avif"/>
       <NavStars2 src="/images/bgEstrelado.avif"/>
       <NavBlur></NavBlur>
-      <NavLogo src="/images/DuLogo.svg" alt="Logo Du Adesivo" />
+      <NavLogo src="/images/DuLogo.svg" alt="Logo Du Adesivo" data-aos="fade-right" data-aos-duration="700"/>
       <NavLinks>
         <NavUl>
-          <NavLi>
+          <NavLi data-aos="fade-down" data-aos-duration="600">
             <a href="/">Serviços</a>
           </NavLi>
-          <NavLi>
+          <NavLi data-aos="fade-down" data-aos-duration="700">
             <a href="/">Processo</a>
           </NavLi>
-          <NavLi>
+          <NavLi data-aos="fade-down" data-aos-duration="800">
             <a href="/">Cases</a>
           </NavLi>
-          <NavLi>
+          <NavLi data-aos="fade-down" data-aos-duration="900">
             <a href="/">Criar</a>
           </NavLi>
         </NavUl>
       </NavLinks>
-      <NavBtn>Garanta o Seu</NavBtn>
+      <NavBtn data-aos="fade-left" data-aos-duration="700">Garanta o Seu</NavBtn>
     </NavbarContainer>
   );
 };

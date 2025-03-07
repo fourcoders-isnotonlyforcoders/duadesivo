@@ -5,8 +5,8 @@ export const PageContainer = styled.div`
   flex-direction: column;
   background-color: #040200;
   color: white;
+  padding: 1rem 7rem;
   height: auto;
-  min-height: 100vh;
-  padding: 1rem 4rem;
+  min-height: 3333px;
   max-width: 1400px;
 `;

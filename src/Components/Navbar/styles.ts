@@ -89,7 +89,7 @@ export const NavBlur = styled.div`
   border-radius: 100%;
   background-color: ${(props) => props.theme.colors.yellow};
   filter: blur(55px);
-  opacity: .15;
+  opacity: .1;
   z-index: -1;
   top: -88px;
   left: 33%;
@@ -99,15 +99,39 @@ export const NavStars = styled.img`
   left: -100px;
   top: 0;
   z-index: -1;
-  opacity: .7;
+  opacity: .4;
   object-fit: cover;
   pointer-events: none;
+  animation: light 5s ease infinite;
+
+@keyframes light {
+  0%{
+    opacity: .4;
+  }50%{
+    filter: brightness(1.2);
+    opacity: 1;
+  }100%{
+    opacity: .4;
+  }
+}
 `;
 export const NavStars2 = styled.img`
   position: absolute;
   right: -100px;
   z-index: -1;
-  opacity: .7;
+  opacity: .5;
   object-fit: cover;
   pointer-events: none;
+  animation: light 7s ease infinite;
+
+  @keyframes light {
+  0%{
+    opacity: .4;
+  }50%{
+    filter: brightness(1.2);
+    opacity: 1;
+  }100%{
+    opacity: .4;
+  }
+}
 `;

@@ -9,7 +9,9 @@ import { PageContainer } from "./Components/PageContainer";
 
 export const App: React.FC = () => {
   useEffect(() => {
-    AOS.init();
+    AOS.init({
+      once: false, 
+    });
   }, []);
 
   return (
