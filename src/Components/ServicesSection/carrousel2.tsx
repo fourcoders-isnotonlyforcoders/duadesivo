@@ -2,8 +2,10 @@ import React from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import styled from "styled-components";
+
 const animation = { duration: 4000, easing: (t: number) => t };
-export const Carrousel: React.FC = () => {
+
+export const Carrousel2: React.FC = () => {
   const [sliderRef] = useKeenSlider({
     loop: true,
     renderMode: "performance",
@@ -15,33 +17,35 @@ export const Carrousel: React.FC = () => {
       },
     },
     created(s) {
-      s.moveToIdx(-1, true, animation);
+      s.moveToIdx(1, true, animation);
     },
     updated(s) {
-      s.moveToIdx(s.track.details.abs - 1, true, animation);
+      s.moveToIdx(s.track.details.abs + 1, true, animation);
     },
     animationEnded(s) {
-      s.moveToIdx(s.track.details.abs - 1, true, animation);
+      s.moveToIdx(s.track.details.abs + 1, true, animation);
     },
   });
 
   return (
     <>
       <InfoContainer>
-        <Title> Serviços</Title>
+        <Title> Produtos </Title>
       </InfoContainer>
+
       <KeenSliderContainer ref={sliderRef} className="keen-slider">
-        <Slide className="keen-slider__slide ">1</Slide>
-        <Slide className="keen-slider__slide ">2</Slide>
-        <Slide className="keen-slider__slide ">3</Slide>
-        <Slide className="keen-slider__slide ">4</Slide>
-        <Slide className="keen-slider__slide ">5</Slide>
-        <Slide className="keen-slider__slide ">6</Slide>
-        <Slide className="keen-slider__slide ">7</Slide>
-        <Slide className="keen-slider__slide ">8</Slide>
-        <Slide className="keen-slider__slide ">10</Slide>
-        <Slide className="keen-slider__slide ">11</Slide>
-        <Slide className="keen-slider__slide ">12</Slide>
+        <Slide className="keen-slider__slide">1</Slide>
+        <Slide className="keen-slider__slide">2</Slide>
+        <Slide className="keen-slider__slide">3</Slide>
+        <Slide className="keen-slider__slide">4</Slide>
+        <Slide className="keen-slider__slide">5</Slide>
+        <Slide className="keen-slider__slide">6</Slide>
+        <Slide className="keen-slider__slide">7</Slide>
+        <Slide className="keen-slider__slide">8</Slide>
+        <Slide className="keen-slider__slide">9</Slide>
+        <Slide className="keen-slider__slide">10</Slide>
+        <Slide className="keen-slider__slide">11</Slide>
+        <Slide className="keen-slider__slide">12</Slide>
       </KeenSliderContainer>
     </>
   );
@@ -54,7 +58,7 @@ const KeenSliderContainer = styled.div`
 
 const Slide = styled.div`
   height: 250px;
-  border: 2px solid;
+  border: 2px solid ;
   border-radius: 8px;
   display: flex;
   justify-content: center;
@@ -63,19 +67,21 @@ const Slide = styled.div`
   color: #fff;
   transition: border 0.3s ease;
 
-  &:hover{
-    border: 2px solid ${(props) => props.theme.colors.yellow};
-  }
+&:hover{
+  border: 2px solid ${(props) => props.theme.colors.yellow};
+}
 `;
+
 const InfoContainer = styled.div`
 max-width: 1100px;
-margin: 0 auto;
+margin:  auto;
 padding: 0;
 `;
 
 const Title = styled.h3`
   font-size: 2rem;
   margin: 0;
+  padding: 2rem 0 0 0 ;
   font-family: 'Montserrat';
   background: linear-gradient(to right, #ffcc00, #FF7D02);
   -webkit-background-clip: text;
