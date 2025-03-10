@@ -86,3 +86,7 @@ export const Button = styled.button`
     color: ${(props) => props.theme.colors.yellow};
   }
 `;
+
+export const TitleContainer = styled.div`
+  width: 50%;
+`;

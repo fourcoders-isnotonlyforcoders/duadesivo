@@ -12,7 +12,7 @@ const TemplateTitle = styled.h2`
   font-size: 3rem;
   color: white;
   padding: .5rem 11rem 1rem 0;
-  width: 50%;
+  width: 100%;
   line-height: 1;
   font-weight: 700;
   margin: 0;
