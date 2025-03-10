@@ -30,10 +30,10 @@ export const Carrousel2: React.FC = () => {
   return (
     <>
       <InfoContainer>
-        <Title> Produtos </Title>
+        <Title data-aos="fade-right" data-aos-duration="600"> Produtos </Title>
       </InfoContainer>
 
-      <KeenSliderContainer ref={sliderRef} className="keen-slider">
+      <KeenSliderContainer ref={sliderRef} className="keen-slider"  data-aos="fade-left" data-aos-duration="600">
         <Slide className="keen-slider__slide">1</Slide>
         <Slide className="keen-slider__slide">2</Slide>
         <Slide className="keen-slider__slide">3</Slide>

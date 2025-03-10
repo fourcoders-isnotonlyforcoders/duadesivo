@@ -27,6 +27,7 @@ export const ProcessSection = () => {
               key={index}
               onMouseEnter={() => setCurrentSrc(hoverSrc)}
               onMouseLeave={() => setCurrentSrc(src)}
+              data-aos="zoom-in" 
             >
               <img src={currentSrc} alt={alt} />
             </Photos>
@@ -36,14 +37,14 @@ export const ProcessSection = () => {
       <CardsContainer>
         <CardTemplate src="./icons/security.avif" alt="test"
         title="Compra 100% segura." sub="Compre parcelado, em até 4x, no cartão de crédito ou à vista com desconto de 5%, no Pix."/>
-        <Separator></Separator>
+        <Separator data-aos="zoom-in" ></Separator>
         <CardTemplate src="./icons/quality.png" alt="test"
         title="Qualidade garantida." sub="Alta qualidade e durabilidade. Os adesivos não desbotam e são à prova de riscos."/>
-        <Separator></Separator>
+        <Separator data-aos="zoom-in" data-aos-duration="600"></Separator>
         <CardTemplate src="./icons/truck.avif" alt="test"
         title="Frete Grátis." sub="Para pedidos acima de R$ 400, oferecemos condições especiais de pagamento."/>
       </CardsContainer>
-      <Button>Fale Conosco</Button>
+      <Button data-aos="zoom-in" data-aos-duration="1000">Fale Conosco</Button>
     </ProcessContainer>
   );
 };

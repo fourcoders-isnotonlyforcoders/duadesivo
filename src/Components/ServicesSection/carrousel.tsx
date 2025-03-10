@@ -28,9 +28,9 @@ export const Carrousel: React.FC = () => {
   return (
     <>
       <InfoContainer>
-        <Title> Serviços</Title>
+        <Title data-aos="fade-right" data-aos-duration="600"> Serviços</Title>
       </InfoContainer>
-      <KeenSliderContainer ref={sliderRef} className="keen-slider">
+      <KeenSliderContainer ref={sliderRef} className="keen-slider"  data-aos="fade-right" data-aos-duration="600">
         <Slide className="keen-slider__slide ">1</Slide>
         <Slide className="keen-slider__slide ">2</Slide>
         <Slide className="keen-slider__slide ">3</Slide>
