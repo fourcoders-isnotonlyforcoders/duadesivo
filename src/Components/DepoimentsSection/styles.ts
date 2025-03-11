@@ -44,7 +44,8 @@ export const Zip = styled.img`
 `;
 export const PartnersContainer = styled.div`
   display: flex;
-  height: 200px;
+  height: auto;
+  padding: 7rem 0;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;

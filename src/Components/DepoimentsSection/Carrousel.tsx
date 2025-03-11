@@ -16,7 +16,7 @@ const BrandImage = styled.img`
   }
 `;
 const SliderContainer = styled.div`
-  width: 100%;
+  width: auto;
   padding: 1rem 0.4rem ;
 `;
 
