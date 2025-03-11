@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { CardProps } from '../ProcessSection/template'
 const Card = styled.div`
   border: 1.5px solid ${(props)=> props.theme.colors.white};
-  width: 40%;
+  width: 100%;
   border-radius: 8px;
   height: auto;
   padding: 2rem 1rem;
