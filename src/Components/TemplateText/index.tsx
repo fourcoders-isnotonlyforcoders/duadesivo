@@ -7,10 +7,10 @@ const TemplatePreTitle = styled.p`
   font-weight: 400;
   margin: 0;
   z-index: 10;
+  color: ${(props) => props.theme.colors.white};
 `;
 const TemplateTitle = styled.h2`
   font-size: 3rem;
-  color: white;
   padding: .5rem 11rem 1rem 0;
   width: 100%;
   line-height: 1;

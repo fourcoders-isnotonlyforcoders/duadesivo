@@ -4,7 +4,7 @@ import {
   TitleContainer,
   Zip,
   ZipContainer,
-  PartnersContainer, ContainerPrincipal, PartnersTitle
+  PartnersContainer, ContainerPrincipal, PartnersTitle, Selo
 } from "./styles";
 import { TemplateText } from "../TemplateText";
 import { Carroussel } from "./Carrousel";
@@ -14,7 +14,7 @@ export const DepoimentsSection: React.FC = () => {
       <DepoimentsContainer>
         <TitleContainer>
           <TemplateText
-            Title="Veja oque nossos clientes criaram"
+            Title="Inspire-se com os adesivos personalizados dos nossos clientes!"
             PreTitle="DEPOIMENTOS"
           />
         </TitleContainer>
@@ -25,17 +25,40 @@ export const DepoimentsSection: React.FC = () => {
             data-aos-duration="600"
           />
           <Zip
-            src="./images/zip.svg"
+            src="./images/zip6.svg"
             data-aos="fade-up"
             data-aos-duration="600"
           />
           <Zip
-            src="./images/zip.svg"
+            src="./images/zip7.svg"
             data-aos="fade-down"
             data-aos-duration="600"
           />
           <Zip
-            src="./images/zip.svg"
+            src="./images/zip8.svg"
+            data-aos="fade-left"
+            data-aos-duration="600"
+          />
+          <Selo src="images/selo.svg" className="selo"/>
+        </ZipContainer>
+        <ZipContainer>
+          <Zip
+            src="./images/zip2.svg"
+            data-aos="fade-right"
+            data-aos-duration="600"
+          />
+          <Zip
+            src="./images/zip3.svg"
+            data-aos="fade-up"
+            data-aos-duration="600"
+          />
+          <Zip
+            src="./images/zip4.svg"
+            data-aos="fade-down"
+            data-aos-duration="600"
+          />
+          <Zip
+            src="./images/zip5.svg"
             data-aos="fade-left"
             data-aos-duration="600"
           />

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const SectionContainer = styled.section`
-  
+  margin: 0 auto;
+  height: auto;
 `;
 
 export const Container = styled.div`
@@ -12,8 +13,6 @@ export const Container = styled.div`
 export const InfoContainer = styled.div`
   width: 60%;
 `;
-
-
 
 export const CardsContainer = styled.aside`
   display: flex;
@@ -115,7 +114,7 @@ export const Submit = styled.input`
   background-color: ${(props) => props.theme.colors.yellow};
   margin-top: 1rem;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
   &:hover{
     transform: scale(1.02);
     box-shadow: 0 0 7px 2px rgba(254, 165, 0, 0.22);
@@ -123,5 +122,16 @@ export const Submit = styled.input`
     background: url(/images/bgEstrelado.avif);
     border: 2px solid ${(props) => props.theme.colors.yellow};
     color: ${(props) => props.theme.colors.yellow};
+  }
+  animation: pulse 4s infinite;
+
+  @keyframes pulse{
+    0%{
+      transform: scale(1);
+    }50%{
+      transform: scale(1.04);
+    }100%{
+      transform: scale(1);
+    }
   }
 `;

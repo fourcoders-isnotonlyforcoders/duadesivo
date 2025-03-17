@@ -4,7 +4,6 @@ export const FooterContainer = styled.div`
   padding: 4rem 7rem 2rem 7rem;
   margin-top: 7rem;
   position: relative;
-
   &::before {
     content: "";
     position: absolute;
@@ -117,6 +116,7 @@ export const Map = styled.div`
 
 export const SecondContainer = styled.div`
   display: flex;
+  position: relative;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 0;
@@ -206,4 +206,11 @@ export const Term = styled.a`
   filter: brightness(.7);
   transform: translateX(5px);
 }
+`;
+
+export const BgImage = styled.img`
+  position: absolute;
+  left: -111px;
+  opacity: .7;
+  z-index: 1;
 `;

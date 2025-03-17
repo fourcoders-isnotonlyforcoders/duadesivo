@@ -9,7 +9,6 @@ body {
     margin: 0;
     font-size: 10px;
     font-family: 'Space Grotesk', sans-serif;
-    background-color: inherit; 
     overflow-x: hidden;
 }
 

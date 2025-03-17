@@ -20,7 +20,7 @@ import {
   DadosContainer,
   Copy,
   Security,
-  SecurityContainer, Strong, ThirdContainer, Privacity, Term
+  SecurityContainer, Strong, ThirdContainer, Privacity, Term, BgImage
 } from "./styles";
 
 export const Footer: React.FC = () => {
@@ -68,8 +68,10 @@ export const Footer: React.FC = () => {
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </Map>
+
       </FirstContainer>
       <SecondContainer>
+      <BgImage src="images/bgEstrelado.avif"/>
         <LogoContainer>
           <LogoDu src="/images/DuLogo.svg"/>
           <DadosContainer>
@@ -96,6 +98,7 @@ export const Footer: React.FC = () => {
         Termos e Condições
       </Term>
       </ThirdContainer>
+
     </FooterContainer>
   );
 };

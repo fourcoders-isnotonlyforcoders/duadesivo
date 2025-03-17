@@ -27,12 +27,13 @@ export const FormSection: React.FC = () => {
         />
       </InfoContainer>
       <Container>
-        <CardsContainer>
+        <CardsContainer >
           <Cards
             src="./images/holografico.png"
             alt="imagem de uma cor holográfica"
             title="Holográfico"
             sub="Laminação Brilho/ Fosca"
+            
           />
           <Cards
             src="./images/branco.png"
@@ -55,38 +56,48 @@ export const FormSection: React.FC = () => {
         </CardsContainer>
         <FormContainer>
           <FormInfo>
-            <FormTitle>Preencha o formulário abaixo</FormTitle>
-            <FormSubTitle>
+            <FormTitle data-aos="fade-left" >Preencha o formulário abaixo</FormTitle>
+            <FormSubTitle data-aos="fade-up-left">
               Os cards ao lado ajudarão na sua escolha do adesivo.
             </FormSubTitle>
           </FormInfo>
 
           <Form>
             <FormInputs>
-              <InputField type="text" placeholder="Nome" />
+              <InputField type="text" placeholder="Nome"
+              data-aos="fade-left"
+              data-aos-duration="700" />
               <Inputs>
-                <InputField type="email" placeholder="E-mail" />
-                <InputField type="tel" placeholder="Telefone" />
+                <InputField type="email" placeholder="E-mail" data-aos="fade-right"
+              data-aos-duration="700"/>
+                <InputField type="tel" placeholder="Telefone" data-aos="fade-left"
+              data-aos-duration="700"/>
               </Inputs>
             </FormInputs>
-            <SelectField>
+            <SelectField data-aos="fade-left"
+              data-aos-duration="700">
               <Options selected>Tipo do Adesivo</Options>
               <Options>2</Options>
               <Options>3</Options>
               <Options>4</Options>
             </SelectField>
-            <SelectField>
+            <SelectField data-aos="fade-right"
+              data-aos-duration="700">
               <Options selected>Modelo Desejado</Options>
               <Options>2</Options>
               <Options>3</Options>
               <Options>4</Options>
             </SelectField>
-            <InputField type="number" placeholder="Quantidade" />
+            <InputField type="number" placeholder="Quantidade" data-aos="fade-left"
+              data-aos-duration="700"/>
             <Inputs>
-              <InputField type="number" placeholder="Altura (cm)" />
-              <InputField type="number" placeholder="Largura (cm)" />
+              <InputField type="number" placeholder="Altura (cm)" data-aos="fade-right"
+              data-aos-duration="700"/>
+              <InputField type="number" placeholder="Largura (cm)" data-aos="fade-left"
+              data-aos-duration="700"/>
             </Inputs>
-            <Submit type="submit" />
+            <Submit type="submit" data-aos="fade-up"
+              data-aos-duration="500"/>
           </Form>
         </FormContainer>
       </Container>
