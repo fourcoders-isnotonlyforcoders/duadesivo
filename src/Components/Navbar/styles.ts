@@ -6,7 +6,7 @@ export const NavbarContainer = styled.div`
   font-family: "Space Grotesk", sans-serif;
   align-items: center;
   height: 100px;
-  padding: 0 1rem;
+  padding: 0 7rem;
   margin-bottom: 2rem;
   position: relative;
   z-index: 10;

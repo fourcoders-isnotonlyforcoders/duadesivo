@@ -13,6 +13,14 @@ import {
   Logo,
   LinksContainer,
   HoursInfo,
+  SecondContainer,
+  LogoContainer,
+  LogoDu,
+  Dado,
+  DadosContainer,
+  Copy,
+  Security,
+  SecurityContainer, Strong, ThirdContainer, Privacity, Term
 } from "./styles";
 
 export const Footer: React.FC = () => {
@@ -63,22 +71,31 @@ export const Footer: React.FC = () => {
       </FirstContainer>
       <SecondContainer>
         <LogoContainer>
-          <Logo/>
+          <LogoDu src="/images/DuLogo.svg"/>
           <DadosContainer>
             <Dado>
               DuÁdesivo- Produção de Adesivos Especiais do Brasil EIRELI - ME.
               22.502.695/0001-42. Av. Juca Pato, 637 Produzido com em
               Uberaba/MG. © Du`Adesivo 2025. Todos os direitos reservados
             </Dado>
-            <Copy>
-            Desenvolvido por FourCoders
-            </Copy>
+
           </DadosContainer>
         </LogoContainer>
         <SecurityContainer>
-          <Security/>
+          <Security src="/images/google-reviews.avif"/>
+          <Security src="/images/google-safe.avif"/>
+          <Security src="/images/secure.avif"/>
         </SecurityContainer>
       </SecondContainer>
+      <ThirdContainer>
+        <Privacity href="/">
+          Política de Privacidade
+        </Privacity>
+      <Copy href="https://fourcoders.com/" target="_blank">Desenvolvido por <Strong>FourCoders</Strong></Copy>
+      <Term href="/">
+        Termos e Condições
+      </Term>
+      </ThirdContainer>
     </FooterContainer>
   );
 };

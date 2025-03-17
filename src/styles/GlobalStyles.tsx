@@ -8,8 +8,9 @@ body {
     padding: 0;
     margin: 0;
     font-size: 10px;
-    overflow-x: hidden;
     font-family: 'Space Grotesk', sans-serif;
+    background-color: inherit; 
+    overflow-x: hidden;
 }
 
 a {
