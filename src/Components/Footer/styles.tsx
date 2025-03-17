@@ -213,4 +213,5 @@ export const BgImage = styled.img`
   left: -111px;
   opacity: .7;
   z-index: 1;
+  pointer-events: none;
 `;
