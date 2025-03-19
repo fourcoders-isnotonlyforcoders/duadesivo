@@ -1,14 +1,22 @@
 import styled from "styled-components";
 
 export const ContainerPrincipal = styled.section`
-overflow: hidden;
+  overflow: hidden;
   padding: 4rem 0.5rem;
+  @media screen and (max-width: 906px) {
+  border: 1px solid;
+}
 `;
 export const DepoimentsContainer = styled.div`
   height: auto;
+  @media screen and (max-width: 906px) {
+}
 `;
 export const TitleContainer = styled.div`
   width: 60%;
+  @media screen and (max-width: 906px) {
+  width: 100%;
+}
 `;
 export const ZipContainer = styled.div`
   display: flex;
@@ -18,11 +26,14 @@ export const ZipContainer = styled.div`
   width: 100%;
   margin: 0 auto;
   padding: 4rem 0;
-position: relative;
-  &:has(img:hover) img:not(:hover,.selo) {
+  position: relative;
+  &:has(img:hover) img:not(:hover, .selo) {
     filter: blur(5px);
     opacity: 0.4;
   }
+  @media screen and (max-width: 906px) {
+    flex-wrap: wrap;
+}
 `;
 
 export const Selo = styled.img`
@@ -31,7 +42,20 @@ export const Selo = styled.img`
   top: -10px;
   width: 14rem;
   object-fit: cover;
-  pointer-events: none; 
+  pointer-events: none;
+  @media screen and (max-width: 480px) {
+  width: 10rem;
+  left: -22px;
+  pointer-events: none;
+}
+@media screen and (min-width: 481px) and (max-width: 600px) {
+    width: 12rem;
+    left: -22px;
+}
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    width: 13rem;
+    left: -11px;
+}
 `;
 export const Zip = styled.img`
   height: auto;
@@ -49,13 +73,16 @@ export const Zip = styled.img`
     filter: brightness(1.1);
     box-shadow: 0 0 44px 4px rgba(254, 165, 0, 0.77);
   }
+  @media screen and (max-width: 906px) {
+  width: 40%;
+}
 `;
 export const PartnersContainer = styled.div`
   display: flex;
   height: auto;
   padding: 7rem 0 7rem 2rem;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
   gap: 1rem;
 `;
 export const PartnersTitle = styled.div`
