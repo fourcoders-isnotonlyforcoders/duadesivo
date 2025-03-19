@@ -3,7 +3,7 @@ export const FirstContainer = styled.section`
   height: auto;
   min-height: 70vh;
   padding: 10rem 0 1rem 0;
-
+  position: relative;
   @media screen and (max-width: 906px) {
   min-height: 30vh;
 }
@@ -24,12 +24,12 @@ export const InfosContainer = styled.div`
 `;
 
 export const PrincipalText = styled.h1`
-  font-size: 5rem;
+  font-size: 4.8rem;
   font-weight: 700;
   color: ${(props) => props.theme.colors.yellow};
   margin: 0;
   line-height: 1.1;
-  padding: 1rem 7rem 1rem 0;
+  padding: 1rem 8rem 1rem 0;
   text-shadow: 0px 5px 4px #000;
   @media screen and (max-width: 906px) {
   font-size: 3.3rem;
@@ -93,4 +93,12 @@ export const Button = styled.button`
 
 export const SubStrong = styled.strong`
   
+`;
+
+export const BgPascoa = styled.img`
+  position: absolute;
+  right: -70px;
+  top: -50px;
+  width: auto;
+  height: 540px;
 `;
