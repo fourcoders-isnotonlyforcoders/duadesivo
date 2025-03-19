@@ -13,6 +13,10 @@ export const PrincipalBannerContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 908px) {
+    padding: 2rem 0;
+  }
 `;
 
 export const PrincipalBanner = styled.img`
@@ -39,6 +43,9 @@ export const BgImage = styled.img`
     opacity: .4;
   }
 }
+@media screen and (max-width: 908px) {
+  height: 200px;
+  }
 `;
 export const BgImage2 = styled.img`
   position: absolute;
@@ -85,8 +92,17 @@ export const Button = styled.button`
     border: 2px solid ${(props) => props.theme.colors.yellow};
     color: ${(props) => props.theme.colors.yellow};
   }
+  @media screen and (max-width: 908px) {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 2rem;
+    font-weight: bold;
+  }
 `;
 
 export const TitleContainer = styled.div`
   width: 50%;
+  @media screen and (max-width: 908px) {
+    width: 100%;
+  }
 `;

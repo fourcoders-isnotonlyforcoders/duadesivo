@@ -4,7 +4,7 @@ export const FirstContainer = styled.section`
   min-height: 70vh;
   padding: 10rem 0 1rem 0;
 
-  @media screen and (max-width: 728px) {
+  @media screen and (max-width: 906px) {
   min-height: 30vh;
 }
 `;

@@ -19,6 +19,11 @@ const TemplateTitle = styled.h2`
   color: ${(props) => props.theme.colors.yellow};
   text-shadow: 0 0 4px #000;
   ;
+  @media screen and (max-width: 908px) {
+    font-size: 2.4rem;
+    padding: 0.5rem 1rem 1rem 0;
+    text-align: left;
+  }
 `;
 export const TemplateText: React.FC<TemplateProps> = ({Title, PreTitle}) => {
   return (
