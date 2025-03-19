@@ -10,25 +10,43 @@ export const FooterContainer = styled.div`
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 70%; 
-    height: 1px; 
-    background: linear-gradient(to right, transparent 0%, rgba(212, 212, 212, 0.44) 50%, transparent 100%);
-    
+    width: 70%;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(212, 212, 212, 0.44) 50%,
+      transparent 100%
+    );
+  }
+  @media screen and (max-width: 906px) {
+    padding: 2rem ;
+    margin: 0 auto;
+    width: 100%;
   }
 `;
-
 
 export const FirstContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 7rem;
   padding: 2rem 1rem;
+  @media screen and (max-width: 906px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
 `;
 
 export const Infos = styled.div`
   display: flex;
   justify-content: space-between;
   width: 60%;
+  @media screen and (max-width: 906px) {
+    width: 100%;
+    flex-direction: column;
+    gap: 1rem;
+  }
 `;
 
 export const Contacts = styled.div`
@@ -37,6 +55,10 @@ export const Contacts = styled.div`
   justify-content: flex-start;
   align-items: center;
   gap: 2rem;
+  @media screen and (max-width: 906px) {
+    justify-content: center;
+    gap: 1rem;
+  }
 `;
 export const Container = styled.div`
   padding: 1rem;
@@ -48,7 +70,8 @@ export const Container = styled.div`
 export const Contact = styled.p`
   font-size: 1.4rem;
   margin: 0;
-  color: ${(props) => props.theme.colors.white2};font-weight: 400;
+  color: ${(props) => props.theme.colors.white2};
+  font-weight: 400;
 `;
 
 export const Title = styled.h2`
@@ -64,6 +87,10 @@ export const Socials = styled.div`
   justify-content: flex-start;
   align-items: center;
   gap: 2rem;
+  @media screen and (max-width: 906px) {
+    justify-content: center;
+    gap: 1rem;
+  }
 `;
 
 export const LinksContainer = styled.div`
@@ -74,26 +101,30 @@ export const LinksContainer = styled.div`
   gap: 1rem;
 `;
 export const Link = styled.a`
-color: ${(props) => props.theme.colors.white2};
-filter: brightness(1);
-transition: 0.3s ease;
-&:hover{
-  opacity: .7;
-  filter: brightness(.7);
-}
+  color: ${(props) => props.theme.colors.white2};
+  filter: brightness(1);
+  transition: 0.3s ease;
+  &:hover {
+    opacity: 0.7;
+    filter: brightness(0.7);
+  }
 `;
 export const Logo = styled.img`
   width: 2.5rem;
   transition: 0.3s ease;
-  &:hover{
+  &:hover {
     transform: translateY(-5px);
   }
 `;
 export const Hours = styled.div`
-display: flex;
-flex-direction: column;
-text-align: center;
-gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 2rem;
+  @media screen and (max-width: 906px) {
+    justify-content: center;
+    gap: 1rem;
+  }
 `;
 export const HoursInfo = styled.p`
   font-size: 1.4rem;
@@ -112,6 +143,9 @@ export const Map = styled.div`
     border-radius: 8px;
     border: none;
   }
+  @media screen and (max-width: 906px) {
+    width: 100%;
+  }
 `;
 
 export const SecondContainer = styled.div`
@@ -120,37 +154,58 @@ export const SecondContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 1rem 0;
+  @media screen and (max-width: 906px) {
+    flex-direction: column;
+  }
 `;
 
 export const LogoContainer = styled.div`
   display: flex;
   width: 60%;
   gap: 1rem;
+  @media screen and (max-width: 906px) {
+    width: 100%;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 export const LogoDu = styled.img`
   width: 8rem;
   height: auto;
   object-fit: cover;
+  @media screen and (max-width: 906px) {
+    width: 30;
+    object-fit: cover;
+    height: 30%;
+    gap: 1rem;
+  }
 `;
 
 export const DadosContainer = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
+  @media screen and (max-width: 906px) {
+    padding: 2rem 0;
+  }
 `;
 export const Dado = styled.p`
   font-size: 1.3rem;
   font-weight: 400;
   color: ${(props) => props.theme.colors.white2};
   margin: 0;
+  @media screen and (max-width: 906px) {
+    font-size: 1.2rem;
+  }
 `;
 export const Copy = styled.a`
   font-size: 1.2rem;
   color: ${(props) => props.theme.colors.white2};
   transition: 0.3s ease;
-&:hover{
-  transform: translateY(-5px);
-}
+  &:hover {
+    transform: translateY(-5px);
+  }
 `;
 export const SecurityContainer = styled.div`
   display: flex;
@@ -166,11 +221,11 @@ export const Security = styled.img`
   object-fit: cover;
 `;
 export const Strong = styled.strong`
-  color: #ED145B;
+  color: #ed145b;
   transition: 0.3s ease;
-&:hover{
-  transform: translateY(-5px) !important;
-}
+  &:hover {
+    transform: translateY(-5px) !important;
+  }
 `;
 
 export const ThirdContainer = styled.div`
@@ -180,38 +235,41 @@ export const ThirdContainer = styled.div`
   gap: 1rem;
   border: 1px solid;
   padding: 4rem 2rem 1rem 2rem;
-  
+  @media screen and (max-width: 906px) {
+    padding: 2rem 0 1rem 0;
+    text-align: center;
+  }
 `;
 
 export const Privacity = styled.a`
   margin: 0;
   color: ${(props) => props.theme.colors.white2};
   font-weight: 200;
-  font-size: .9rem;
+  font-size: 0.9rem;
   transition: 0.3s ease;
-&:hover{
-  opacity: .7;
-  filter: brightness(.7);
-  transform: translateX(-5px);
-}
+  &:hover {
+    opacity: 0.7;
+    filter: brightness(0.7);
+    transform: translateX(-5px);
+  }
 `;
 export const Term = styled.a`
   margin: 0;
   color: ${(props) => props.theme.colors.white2};
   font-weight: 200;
-  font-size: .9rem;
+  font-size: 0.9rem;
   transition: 0.3s ease;
-&:hover{
-  opacity: .7;
-  filter: brightness(.7);
-  transform: translateX(5px);
-}
+  &:hover {
+    opacity: 0.7;
+    filter: brightness(0.7);
+    transform: translateX(5px);
+  }
 `;
 
 export const BgImage = styled.img`
   position: absolute;
   left: -111px;
-  opacity: .7;
+  opacity: 0.7;
   z-index: 1;
   pointer-events: none;
 `;
