@@ -3,6 +3,10 @@ export const FirstContainer = styled.section`
   height: auto;
   min-height: 70vh;
   padding: 10rem 0 1rem 0;
+
+  @media screen and (max-width: 728px) {
+  min-height: 30vh;
+}
 `;
 
 export const InfosContainer = styled.div`
@@ -10,8 +14,13 @@ export const InfosContainer = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+
   margin: 0;
   letter-spacing: -1px;
+  @media screen and (max-width: 728px) {
+  width: 100%;
+  gap: 1rem;
+}
 `;
 
 export const PrincipalText = styled.h1`
@@ -22,6 +31,14 @@ export const PrincipalText = styled.h1`
   line-height: 1.1;
   padding: 1rem 7rem 1rem 0;
   text-shadow: 0px 5px 4px #000;
+  @media screen and (max-width: 906px) {
+  font-size: 3.3rem;
+  padding: 0;
+}
+  @media screen and (max-width: 480px) {
+  font-size: 3rem;
+  padding: 0;
+}
 `;
 
 export const SubTitle = styled.p`
@@ -33,6 +50,15 @@ export const SubTitle = styled.p`
   color: ${(props) => props.theme.colors.white2};
   margin: 0;
   text-shadow: 0px 5px 4px #000;
+  @media screen and (max-width: 906px) {
+  width: 100%;
+  font-size: 2rem;
+}
+@media screen and (max-width: 480px) {
+  font-size: 2rem;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+}
 `;
 
 export const Button = styled.button`
@@ -58,6 +84,11 @@ export const Button = styled.button`
     border: 2px solid ${(props) => props.theme.colors.yellow};
     color: ${(props) => props.theme.colors.yellow};
   }
+  @media screen and (max-width: 906px) {
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
 `;
 
 export const SubStrong = styled.strong`

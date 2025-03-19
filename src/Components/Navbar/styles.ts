@@ -14,7 +14,6 @@ export const NavbarContainer = styled.div`
   @media (max-width: 780px) {
     flex-direction: column;
     align-items: center;
-    margin-bottom: 44rem;
     width: auto;
   }
 `;
