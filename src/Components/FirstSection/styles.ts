@@ -17,8 +17,12 @@ export const InfosContainer = styled.div`
 
   margin: 0;
   letter-spacing: -1px;
-  @media screen and (max-width: 728px) {
+  @media screen and (max-width: 600px) {
   width: 100%;
+  gap: 1rem;
+}
+  @media screen and (min-width: 601px) and (max-width: 1024px){
+  width: 70%;
   gap: 1rem;
 }
 `;
@@ -85,6 +89,7 @@ export const Button = styled.button`
     color: ${(props) => props.theme.colors.yellow};
   }
   @media screen and (max-width: 906px) {
+  padding: 1.6rem 1rem;
   width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
@@ -101,4 +106,35 @@ export const BgPascoa = styled.img`
   top: -50px;
   width: auto;
   height: 540px;
+  pointer-events: none;
+  animation: pulseImage 11s infinite;
+
+  @keyframes pulseImage {
+    0%{
+      opacity: .7;
+    }25%{
+      transform: translateY(-22px);
+      filter: brightness(1.2);
+      opacity: 1;
+    }
+    50%{
+      filter: brightness(1.2);
+      opacity: 1;
+      transform: translateX(-22px);
+    }
+    100%{
+      opacity: .7;
+    }
+  }
+  @media screen and (min-width: 601px) and (max-width: 1024px) {
+  height: 300px;
+  top: 2px;
+  right: -44px;
+}
+  @media screen and (max-width: 600px) {
+  height: 300px;
+  top: 2px;
+  right: -44px;
+  opacity: .3;
+}
 `;

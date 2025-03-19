@@ -3,15 +3,25 @@ import styled from "styled-components";
 export const SectionContainer = styled.section`
   margin: 0 auto;
   height: auto;
+  box-sizing: border-box;
 `;
 
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 4rem;
+  @media screen and (max-width: 906px) {
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 export const InfoContainer = styled.div`
   width: 60%;
+  @media screen and (max-width: 906px) {
+    width: 90%;
+  }
 `;
 
 export const CardsContainer = styled.aside`
@@ -20,11 +30,18 @@ export const CardsContainer = styled.aside`
   gap: 2rem;
   width: 40%;
   padding: 1rem;
+  @media screen and (max-width: 906px) {
+    width: 90%;
+    box-sizing: border-box;
+  }
 `;
 
 export const FormContainer = styled.div`
   width: 60%;
   padding: 1rem 0;
+  @media screen and (max-width: 906px) {
+    width: 100%;
+  }
 `;
 
 export const FormInfo = styled.div`
