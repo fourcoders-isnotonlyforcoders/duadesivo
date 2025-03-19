@@ -1,6 +1,7 @@
 import React from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
+import { SlideInfos, SlideSub, SlideTitle, Icon } from "./carrousel";
 import styled from "styled-components";
 
 const animation = { duration: 4000, easing: (t: number) => t };
@@ -34,18 +35,96 @@ export const Carrousel2: React.FC = () => {
       </InfoContainer>
 
       <KeenSliderContainer ref={sliderRef} className="keen-slider"  data-aos="fade-left" data-aos-duration="600">
-        <Slide className="keen-slider__slide">1</Slide>
-        <Slide className="keen-slider__slide">2</Slide>
-        <Slide className="keen-slider__slide">3</Slide>
-        <Slide className="keen-slider__slide">4</Slide>
-        <Slide className="keen-slider__slide">5</Slide>
-        <Slide className="keen-slider__slide">6</Slide>
-        <Slide className="keen-slider__slide">7</Slide>
-        <Slide className="keen-slider__slide">8</Slide>
-        <Slide className="keen-slider__slide">9</Slide>
-        <Slide className="keen-slider__slide">10</Slide>
-        <Slide className="keen-slider__slide">11</Slide>
-        <Slide className="keen-slider__slide">12</Slide>
+      <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/example.png" />
+            <SlideTitle>TESTE</SlideTitle>
+            <SlideSub>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
+              deleniti quas enim eum!
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/example.png" />
+            <SlideTitle>TESTE</SlideTitle>
+            <SlideSub>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
+              deleniti quas enim eum!
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/example.png" />
+            <SlideTitle>TESTE</SlideTitle>
+            <SlideSub>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
+              deleniti quas enim eum!
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/example.png" />
+            <SlideTitle>TESTE</SlideTitle>
+            <SlideSub>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
+              deleniti quas enim eum!
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/example.png" />
+            <SlideTitle>TESTE</SlideTitle>
+            <SlideSub>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
+              deleniti quas enim eum!
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/example.png" />
+            <SlideTitle>TESTE</SlideTitle>
+            <SlideSub>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
+              deleniti quas enim eum!
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/example.png" />
+            <SlideTitle>TESTE</SlideTitle>
+            <SlideSub>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
+              deleniti quas enim eum!
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/example.png" />
+            <SlideTitle>TESTE</SlideTitle>
+            <SlideSub>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
+              deleniti quas enim eum!
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/example.png" />
+            <SlideTitle>TESTE</SlideTitle>
+            <SlideSub>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
+              deleniti quas enim eum!
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
       </KeenSliderContainer>
     </>
   );

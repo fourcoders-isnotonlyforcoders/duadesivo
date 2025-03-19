@@ -28,20 +28,107 @@ export const Carrousel: React.FC = () => {
   return (
     <>
       <InfoContainer>
-        <Title data-aos="fade-right" data-aos-duration="600"> Serviços</Title>
+        <Title data-aos="fade-right" data-aos-duration="600">
+          {" "}
+          Serviços
+        </Title>
       </InfoContainer>
-      <KeenSliderContainer ref={sliderRef} className="keen-slider"  data-aos="fade-right" data-aos-duration="600">
-        <Slide className="keen-slider__slide ">1</Slide>
-        <Slide className="keen-slider__slide ">2</Slide>
-        <Slide className="keen-slider__slide ">3</Slide>
-        <Slide className="keen-slider__slide ">4</Slide>
-        <Slide className="keen-slider__slide ">5</Slide>
-        <Slide className="keen-slider__slide ">6</Slide>
-        <Slide className="keen-slider__slide ">7</Slide>
-        <Slide className="keen-slider__slide ">8</Slide>
-        <Slide className="keen-slider__slide ">10</Slide>
-        <Slide className="keen-slider__slide ">11</Slide>
-        <Slide className="keen-slider__slide ">12</Slide>
+      <KeenSliderContainer
+        ref={sliderRef}
+        className="keen-slider"
+        data-aos="fade-right"
+        data-aos-duration="600"
+      >
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/example.png" />
+            <SlideTitle>TESTE</SlideTitle>
+            <SlideSub>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
+              deleniti quas enim eum!
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/example.png" />
+            <SlideTitle>TESTE</SlideTitle>
+            <SlideSub>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
+              deleniti quas enim eum!
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/example.png" />
+            <SlideTitle>TESTE</SlideTitle>
+            <SlideSub>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
+              deleniti quas enim eum!
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/example.png" />
+            <SlideTitle>TESTE</SlideTitle>
+            <SlideSub>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
+              deleniti quas enim eum!
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/example.png" />
+            <SlideTitle>TESTE</SlideTitle>
+            <SlideSub>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
+              deleniti quas enim eum!
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/example.png" />
+            <SlideTitle>TESTE</SlideTitle>
+            <SlideSub>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
+              deleniti quas enim eum!
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/example.png" />
+            <SlideTitle>TESTE</SlideTitle>
+            <SlideSub>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
+              deleniti quas enim eum!
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/example.png" />
+            <SlideTitle>TESTE</SlideTitle>
+            <SlideSub>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
+              deleniti quas enim eum!
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/example.png" />
+            <SlideTitle>TESTE</SlideTitle>
+            <SlideSub>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
+              deleniti quas enim eum!
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
       </KeenSliderContainer>
     </>
   );
@@ -63,21 +150,50 @@ const Slide = styled.div`
   color: #fff;
   transition: border 0.3s ease;
 
-  &:hover{
+  &:hover {
     border: 2px solid ${(props) => props.theme.colors.yellow};
   }
 `;
 const InfoContainer = styled.div`
-max-width: 1100px;
-margin: 0 auto;
-padding: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0;
 `;
 
 const Title = styled.h3`
   font-size: 2rem;
   margin: 0;
-  font-family: 'Montserrat';
-  background: linear-gradient(to right, #ffcc00, #FF7D02);
+  font-family: "Montserrat";
+  background: linear-gradient(to right, #ffcc00, #ff7d02);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+`;
+
+export const Icon = styled.img`
+  height: 3.3rem;
+  width: 3.3rem;
+  object-fit: cover;
+`;
+export const SlideTitle = styled.h4`
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+
+  color: ${(props) => props.theme.colors.yellow};
+`;
+export const SlideSub = styled.p`
+  font-size: 1.4rem;
+  margin: 0;
+  text-align: center;
+  font-weight: 400;
+  padding: 1rem;
+`;
+export const SlideInfos = styled.div`
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 `;
