@@ -82,7 +82,7 @@ align-items: center;
 margin: 0 auto;
 gap: 2rem;
 margin-bottom: 4rem;
-@media screen and (max-width: 908px) {
+@media screen and (max-width: 780px) {
     width: 100%;
     border: 1px solid;
     box-sizing: border-box;
@@ -91,6 +91,14 @@ margin-bottom: 4rem;
     padding: 1rem 2rem;
     gap: 1rem;
     flex-direction: column;
+  }
+  @media screen and (min-width: 790px) and (max-width: 1024px) {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 8rem;
   }
 `;
 export const Cards = styled.div`
@@ -102,11 +110,16 @@ export const Cards = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  @media screen and (max-width: 908px) {
+  @media screen and (max-width: 790px) {
     height: 300px;
     width: 100%;
     width: auto;
     padding: 1rem;
+  }
+  @media screen and (min-width: 800px) and (max-width: 1024px) {
+    height: 300px;
+    width: 33%;
+    padding: 2rem 0;
   }
 `;
 
@@ -135,6 +148,13 @@ export const CardSub = styled.p`
   margin: 0;
   color: ${(props) => props.theme.colors.white2};
   font-weight: 300;
+  @media screen and (min-width: 500px) and (max-width: 790px) {
+    padding: 0 10rem;
+  }
+  @media screen and (min-width: 790px) and (max-width: 1024px) {
+    padding: 0 4rem;
+  }
+  
 `;
 export const Separator = styled.div`
   height: 150px;
@@ -143,5 +163,9 @@ export const Separator = styled.div`
   @media screen and (max-width: 908px) {
     width: 70%;
     height: 1px;
+  }
+  @media screen and (min-width: 790px) and (max-width: 1024px) {
+    width: 1px;
+    height: 222px;
   }
 `;
