@@ -1,13 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 import { TemplateProps } from "./template";
-const TemplateContainer = styled.div``;
+const TemplateContainer = styled.div`
+display: flex;
+flex-direction: column;
+gap: .4rem;
+`;
 const TemplatePreTitle = styled.p`
   font-size: 1.7rem;
   font-weight: 400;
   margin: 0;
   z-index: 10;
   color: ${(props) => props.theme.colors.white};
+  @media screen and (max-width: 908px) {
+    font-size: 1.6rem;
+  }
 `;
 const TemplateTitle = styled.h2`
   font-size: 3rem;

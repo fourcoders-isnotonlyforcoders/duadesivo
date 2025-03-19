@@ -7,6 +7,9 @@ export const ProcessContainer = styled.section`
 
 export const TitleContainer = styled.div`
   width: 70%;
+  @media screen and (max-width: 908px) {
+    width: 100%;
+  }
 `;
 
 export const PhotosContainer = styled.div`
@@ -18,6 +21,9 @@ export const PhotosContainer = styled.div`
   display: flex;
   gap: 2.2rem;
   justify-content: center;
+  @media screen and (max-width: 908px) {
+    min-height: 100vh;
+  }
 `;
 
 export const Photos = styled.div`
@@ -62,6 +68,10 @@ export const Button = styled.button`
     border: 2px solid ${(props) => props.theme.colors.yellow};
     color: ${(props) => props.theme.colors.yellow};
   }
+  @media screen and (max-width: 908px) {
+    box-sizing: border-box;
+    width: 100%;
+  }
 `;
 
 export const CardsContainer = styled.div`
@@ -72,6 +82,16 @@ align-items: center;
 margin: 0 auto;
 gap: 2rem;
 margin-bottom: 4rem;
+@media screen and (max-width: 908px) {
+    width: 100%;
+    border: 1px solid;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
+    gap: 1rem;
+    flex-direction: column;
+  }
 `;
 export const Cards = styled.div`
   padding: 2rem 1rem;
@@ -82,12 +102,21 @@ export const Cards = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
+  @media screen and (max-width: 908px) {
+    height: 300px;
+    width: 100%;
+    width: auto;
+    padding: 1rem;
+  }
 `;
 
 export const CardIcon = styled.img`
   height: 33px;
   width: auto;
   object-fit: cover;
+  @media screen and (max-width: 908px) {
+    height: 44px;
+  }
 `;
 
 export const CardTitle = styled.h4`
@@ -96,6 +125,9 @@ export const CardTitle = styled.h4`
   padding: 2rem 0;
   font-weight: 600;
   color: ${(props) => props.theme.colors.white};
+  @media screen and (max-width: 908px) {
+    font-size: 2rem;
+  }
 `;
 
 export const CardSub = styled.p`
@@ -108,4 +140,8 @@ export const Separator = styled.div`
   height: 150px;
   background-color: ${(props) => props.theme.colors.white2};
   width: 1px;
+  @media screen and (max-width: 908px) {
+    width: 70%;
+    height: 1px;
+  }
 `;
