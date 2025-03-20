@@ -20,7 +20,12 @@ import {
   DadosContainer,
   Copy,
   Security,
-  SecurityContainer, Strong, ThirdContainer, Privacity, Term, BgImage
+  SecurityContainer,
+  Strong,
+  ThirdContainer,
+  Privacity,
+  Term,
+  BgImage,
 } from "./styles";
 
 export const Footer: React.FC = () => {
@@ -68,37 +73,32 @@ export const Footer: React.FC = () => {
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </Map>
-
       </FirstContainer>
       <SecondContainer>
-      <BgImage src="images/bgEstrelado.avif"/>
+        <BgImage src="images/bgEstrelado.avif" />
         <LogoContainer>
-          <LogoDu src="/images/DuLogo.svg"/>
+          <LogoDu src="/images/DuLogo.svg" />
           <DadosContainer>
             <Dado>
               DuÁdesivo- Produção de Adesivos Especiais do Brasil EIRELI - ME.
               22.502.695/0001-42. Av. Juca Pato, 637 Produzido com em
               Uberaba/MG. © Du`Adesivo 2025. Todos os direitos reservados
             </Dado>
-
           </DadosContainer>
         </LogoContainer>
         <SecurityContainer>
-          <Security src="/images/google-reviews.avif"/>
-          <Security src="/images/google-safe.avif"/>
-          <Security src="/images/secure.avif"/>
+          <Security src="/images/google-reviews.avif" />
+          <Security src="/images/google-safe.avif" />
+          <Security src="/images/secure.avif" />
         </SecurityContainer>
       </SecondContainer>
       <ThirdContainer>
-        <Privacity href="/">
-          Política de Privacidade
-        </Privacity>
-      <Copy href="https://fourcoders.com/" target="_blank">Desenvolvido por <Strong>FourCoders</Strong></Copy>
-      <Term href="/">
-        Termos e Condições
-      </Term>
+        <Privacity href="/">Política de Privacidade</Privacity>
+        <Copy href="https://fourcoders.com/" target="_blank">
+          Desenvolvido por <Strong>FourCoders</Strong>
+        </Copy>
+        <Term href="/">Termos e Condições</Term>
       </ThirdContainer>
-
     </FooterContainer>
   );
 };
