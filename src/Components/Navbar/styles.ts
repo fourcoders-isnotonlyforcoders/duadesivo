@@ -40,16 +40,14 @@ export const NavLi = styled.li`
   font-size: 1.8rem;
   font-weight: 500;
   transition: transform 0.2s ease-in-out, text-shadow 0.2s ease-in-out,
-    color 0.2s ease-in-out;
+    color 0.2s ease-in-out, opacity 0.7s,
+    transform 0.7s !important;
 
   a {
     text-shadow: 0 0 0 black;
     color: ${(props) => props.theme.colors.white};
     text-decoration: none;
     transition: color 0.2s ease-in-out;
-  }
-  &:first-child a {
-    color: ${(props) => props.theme.colors.yellow};
   }
   &:hover a {
     text-shadow: 0 0 5px ${(props) => props.theme.colors.black};
@@ -69,6 +67,8 @@ export const NavBtn = styled.button`
   text-align: center;
   box-shadow: 0 0 4px 1px #111;
   transition: 0.4s ease;
+  transition: background-color 0.4s, color 0.4s, border 0.4s, box-shadow 0.4s, opacity 0.7s,
+    transform 0.7s !important;
   &:hover {
     border: 2px solid ${(props) => props.theme.colors.yellow};
     color: ${(props) => props.theme.colors.yellow};

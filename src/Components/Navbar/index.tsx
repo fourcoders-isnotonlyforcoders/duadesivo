@@ -17,16 +17,16 @@ export const Navbar: React.FC = () => {
       <NavLinks>
         <NavUl>
           <NavLi data-aos="fade-down" data-aos-duration="600">
-            <a href="/">Serviços</a>
+            <a href="#servicos">Serviços</a>
           </NavLi>
           <NavLi data-aos="fade-down" data-aos-duration="700">
-            <a href="/">Processo</a>
+            <a href="#processo">Processo</a>
           </NavLi>
           <NavLi data-aos="fade-down" data-aos-duration="800">
-            <a href="/">Cases</a>
+            <a href="#cases">Cases</a>
           </NavLi>
           <NavLi data-aos="fade-down" data-aos-duration="900">
-            <a href="/">Criar</a>
+            <a href="#criar">Criar</a>
           </NavLi>
         </NavUl>
       </NavLinks>

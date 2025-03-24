@@ -13,7 +13,6 @@ export const TitleContainer = styled.div`
 `;
 
 export const PhotosContainer = styled.div`
-  height: auto;
   width: 100%;
   min-height: 90vh;
   padding: 4rem 0;
@@ -27,6 +26,7 @@ export const PhotosContainer = styled.div`
 `;
 
 export const Photos = styled.div`
+  height: fit-content;
   border: 2px solid;
   border-radius: 8px;
   transition: 0.3s ease;
@@ -35,14 +35,15 @@ export const Photos = styled.div`
     transform: scale(1.1);
     border: 2px solid ${(props) => props.theme.colors.yellow};
   }
+`;
 
-  img {
-    height: 300px;
-    width: 300px;
-    object-fit: cover;
-    background-size: cover;
-    transition: opacity 0.3s ease;
-  }
+export const PhotoImage = styled.img`
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+  background-size: cover;
+  transition: opacity 0.3s ease;
+  border-radius: 8px;
 `;
 
 export const Button = styled.button`
@@ -59,7 +60,8 @@ export const Button = styled.button`
   background-color: ${(props) => props.theme.colors.yellow};
   margin: 0 auto;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: background 0.4s, color 0.4s, border 0.4s, box-shadow 0.4s, opacity 0.7s,
+    transform 0.7s !important;
   &:hover {
     transform: scale(1.02);
     box-shadow: 0 0 7px 2px rgba(254, 165, 0, 0.22);

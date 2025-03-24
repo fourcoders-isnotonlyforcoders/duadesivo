@@ -131,7 +131,9 @@ export const Submit = styled.input`
   background-color: ${(props) => props.theme.colors.yellow};
   margin-top: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  height: fit-content;
+  transition: filter 0.4s, color 0.4s, border 0.4s, box-shadow 0.4s, background 0.4s, opacity 0.5s,
+    transform 0.5s !important;
   &:hover{
     transform: scale(1.02);
     box-shadow: 0 0 7px 2px rgba(254, 165, 0, 0.22);

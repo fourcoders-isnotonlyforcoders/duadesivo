@@ -27,9 +27,10 @@ width: auto;
 padding: 1rem 0;
 `;
 
-const animation = { duration: 5000, easing: (t: number) => t };
+const animation = { duration: 30000, easing: (t: number) => t };
 
 export const Carroussel: React.FC = () => {
+  const numberOfCards = 10;
   const [sliderRef] = useKeenSlider({
     loop: true,
     renderMode: "performance",
@@ -39,48 +40,23 @@ export const Carroussel: React.FC = () => {
       spacing: 15,
     },
     created(s) {
-      s.moveToIdx(1, true, animation);
+      s.moveToIdx(numberOfCards - 1, true, animation);
     },
     updated(s) {
-      s.moveToIdx(s.track.details.abs + 1, true, animation);
+      s.moveToIdx(s.track.details.abs + numberOfCards - 1, true, animation);
     },
     animationEnded(s) {
-      s.moveToIdx(s.track.details.abs + 1, true, animation);
+      s.moveToIdx(s.track.details.abs + numberOfCards - 1, true, animation);
     },
   });
 
   return (
     <SliderContainer ref={sliderRef} className="keen-slider">
-      <Slide className="keen-slider__slide">
-        <BrandImage src="/icons/example.png" />
-      </Slide>
-      <Slide className="keen-slider__slide">
-        <BrandImage src="/icons/example.png" />
-      </Slide>
-      <Slide className="keen-slider__slide">
-        <BrandImage src="/icons/example.png" />
-      </Slide>
-      <Slide className="keen-slider__slide">
-        <BrandImage src="/icons/example.png" />
-      </Slide>
-      <Slide className="keen-slider__slide">
-        <BrandImage src="/icons/example.png" />
-      </Slide>
-      <Slide className="keen-slider__slide">
-        <BrandImage src="/icons/example.png" />
-      </Slide>
-      <Slide className="keen-slider__slide">
-        <BrandImage src="/icons/example.png" />
-      </Slide>
-      <Slide className="keen-slider__slide">
-        <BrandImage src="/icons/example.png" />
-      </Slide>
-      <Slide className="keen-slider__slide">
-        <BrandImage src="/icons/example.png" />
-      </Slide>
-      <Slide className="keen-slider__slide">
-        <BrandImage src="/icons/example.png" />
-      </Slide>
+      {([...Array(10)].map(() => (
+        <Slide className="keen-slider__slide">
+          <BrandImage src="/icons/example.png" />
+        </Slide>
+      )))}
     </SliderContainer>
   );
 };

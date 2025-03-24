@@ -12,7 +12,7 @@ import {
 import { TemplateText } from "../TemplateText";
 export const ServicesSection: React.FC = () => {
   return (
-    <ServicesContainer>
+    <ServicesContainer id="servicos">
       <BgImage src="/images/bgEstrelado.avif" />
       <BgImage2 src="/images/bgEstrelado.avif" />
       <BgImage3 src="/images/bgEstrelado.avif" />

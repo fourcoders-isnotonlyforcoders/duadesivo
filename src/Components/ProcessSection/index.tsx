@@ -4,14 +4,17 @@ import {
   TitleContainer,
   PhotosContainer,
   Photos,
-  Button,CardsContainer, Separator
+  Button,CardsContainer, Separator,
+  PhotoImage
 } from "./styles";
 import { Process } from "../../constants/process";
 import { TemplateText } from "../TemplateText";
 import { CardTemplate } from "./card";
 export const ProcessSection = () => {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   return (
-    <ProcessContainer>
+    <ProcessContainer id="processo">
       <TitleContainer>
         <TemplateText
           PreTitle="NOSSO PROCESSO"
@@ -20,16 +23,15 @@ export const ProcessSection = () => {
       </TitleContainer>
       <PhotosContainer>
         {Process.map(({ src, hoverSrc, alt }, index) => {
-          const [currentSrc, setCurrentSrc] = useState(src);
 
           return (
             <Photos
               key={index}
-              onMouseEnter={() => setCurrentSrc(hoverSrc)}
-              onMouseLeave={() => setCurrentSrc(src)}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
               data-aos="zoom-in" 
             >
-              <img src={currentSrc} alt={alt} />
+              <PhotoImage src={hoveredIndex === index ? hoverSrc : src} alt={alt} />
             </Photos>
           );
         })}
