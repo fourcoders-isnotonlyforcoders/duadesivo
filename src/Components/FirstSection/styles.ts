@@ -4,8 +4,11 @@ export const FirstContainer = styled.section`
   min-height: 70vh;
   padding: 10rem 0 1rem 0;
   position: relative;
-  @media screen and (max-width: 906px) {
+  @media screen and (max-width: 600px) {
   min-height: 30vh;
+}
+@media screen and (min-width: 601px) and (max-width: 906px){
+  min-height: 40vh;
 }
 `;
 
@@ -28,19 +31,22 @@ export const InfosContainer = styled.div`
 `;
 
 export const PrincipalText = styled.h1`
-  font-size: 4.8rem;
+  font-size: 5rem;
   font-weight: 700;
   color: ${(props) => props.theme.colors.yellow};
   margin: 0;
-  line-height: 1.1;
-  padding: 1rem 8rem 1rem 0;
+  line-height: 1;
+  padding: 1rem 4rem 1rem 0;
   text-shadow: 0px 5px 4px #000;
-  @media screen and (max-width: 906px) {
+  width: 70%;
+  @media screen and (min-width: 320px) and (max-width: 550px){
   font-size: 3.3rem;
+  width: 100%;
   padding: 0;
 }
-  @media screen and (max-width: 480px) {
-  font-size: 3rem;
+  @media screen and (min-width: 551px) and (max-width: 1024px){
+  font-size: 3.3rem;
+  width: 80%;
   padding: 0;
 }
 `;
@@ -132,9 +138,9 @@ export const BgPascoa = styled.img`
   right: -44px;
 }
   @media screen and (max-width: 600px) {
-  height: 300px;
+  height: 250px;
   top: 2px;
   right: -44px;
-  opacity: .3;
+  opacity: .7!important;
 }
 `;
