@@ -185,9 +185,10 @@ export const LogoDu = styled.img`
 export const DadosContainer = styled.div`
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 90%;
   @media screen and (max-width: 906px) {
     padding: 2rem 0;
+    width: 100%;
   }
 `;
 export const Dado = styled.p`

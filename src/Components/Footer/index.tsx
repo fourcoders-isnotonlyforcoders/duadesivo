@@ -36,8 +36,8 @@ export const Footer: React.FC = () => {
           <Contacts>
             <Title>Contato</Title>
             <Container>
-              <Contact>email@exemplo.com</Contact>
-              <Contact>+55 XX XXXXX-XXXX</Contact>
+              <Contact>duadesivooficial@gmail.com</Contact>
+              <Contact>+55 15 99821-6723</Contact>
             </Container>
           </Contacts>
 
@@ -80,9 +80,10 @@ export const Footer: React.FC = () => {
           <LogoDu src="/images/DuLogo.svg" />
           <DadosContainer>
             <Dado>
-              DuÁdesivo- Produção de Adesivos Especiais do Brasil EIRELI - ME.
-              22.502.695/0001-42. Av. Juca Pato, 637 Produzido com em
-              Uberaba/MG. © Du`Adesivo 2025. Todos os direitos reservados
+              © 2025 DuÁdesivo. Todos os direitos reservados. CNPJ:
+              37.405.483/0001-14 | Especializados na produção de adesivos
+              personalizados em Tatuí-SP. Qualidade, durabilidade e
+              personalização para destacar sua marca!
             </Dado>
           </DadosContainer>
         </LogoContainer>
