@@ -60,7 +60,7 @@ export const Footer: React.FC = () => {
           </Socials>
           <Hours>
             <Title>Atendimento</Title>
-            <HoursInfo>de Seg a Sex, das 9h às 16h</HoursInfo>
+            <HoursInfo>de Seg a Sex, das 8:30h às 18h</HoursInfo>
           </Hours>
         </Infos>
         <Map>
