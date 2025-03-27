@@ -10,6 +10,7 @@ import {
 import { Process } from "../../constants/process";
 import { TemplateText } from "../TemplateText";
 import { CardTemplate } from "./card";
+import { WA_LINK } from "../../constants/social";
 export const ProcessSection = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
@@ -46,7 +47,7 @@ export const ProcessSection = () => {
         <CardTemplate src="./icons/truck.avif" alt="test"
         title="Frete Grátis." sub="Para pedidos acima de R$ 400, oferecemos condições especiais de pagamento."/>
       </CardsContainer>
-      <Button data-aos="zoom-in" data-aos-duration="1000">Fale Conosco</Button>
+      <Button onClick={() => window.open(WA_LINK)} data-aos="zoom-in" data-aos-duration="1000">Fale Conosco</Button>
     </ProcessContainer>
   );
 };

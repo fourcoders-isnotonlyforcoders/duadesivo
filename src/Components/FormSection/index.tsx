@@ -97,7 +97,7 @@ export const FormSection: React.FC = () => {
               data-aos-duration="700"/>
             </Inputs>
             <Submit type="submit" data-aos="fade-up"
-              data-aos-duration="500"/>
+              data-aos-duration="500" value="Enviar"/>
           </Form>
         </FormContainer>
       </Container>

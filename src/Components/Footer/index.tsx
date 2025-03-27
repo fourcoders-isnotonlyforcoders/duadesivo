@@ -1,3 +1,4 @@
+import { EMAIL, WA_LINK, WA_NUMBER } from "../../constants/social";
 import {
   FooterContainer,
   FirstContainer,
@@ -36,8 +37,8 @@ export const Footer: React.FC = () => {
           <Contacts>
             <Title>Contato</Title>
             <Container>
-              <Contact>email@exemplo.com</Contact>
-              <Contact>+55 XX XXXXX-XXXX</Contact>
+              <Contact>{EMAIL}</Contact>
+              <Contact>{WA_NUMBER}</Contact>
             </Container>
           </Contacts>
 
@@ -47,7 +48,7 @@ export const Footer: React.FC = () => {
               <Link href="#">
                 <Logo src="/icons/instagram.svg" alt="icone do instagram" />
               </Link>
-              <Link href="#">
+              <Link onClick={() => window.open(WA_LINK)}>
                 <Logo src="/icons/whatsapp.svg" alt="icone do whatsapp" />
               </Link>
               <Link href="#">

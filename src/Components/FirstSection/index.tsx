@@ -1,3 +1,4 @@
+import { WA_LINK } from "../../constants/social"
 import { FirstContainer, InfosContainer, PrincipalText, SubTitle, Button, SubStrong, BgPascoa } from "./styles"
 export const FirstSection: React.FC = () => {
   return (
@@ -10,7 +11,7 @@ export const FirstSection: React.FC = () => {
         <SubTitle data-aos="fade-up-right" data-aos-duration="700">
         Cartelas e adesivos personalizados com entrega para todo o Brasil. <SubStrong>Em até 24h</SubStrong>
         </SubTitle>
-        <Button >
+        <Button onClick={() => window.open(WA_LINK)}>
         Criar Meu Adesivo Agora
         </Button>
       </InfosContainer>

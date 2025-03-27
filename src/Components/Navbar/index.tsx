@@ -1,3 +1,4 @@
+import { WA_LINK } from "../../constants/social";
 import {
   NavbarContainer,
   NavLogo,
@@ -30,7 +31,7 @@ export const Navbar: React.FC = () => {
           </NavLi>
         </NavUl>
       </NavLinks>
-      <NavBtn data-aos="fade-left" data-aos-duration="700">Garanta o Seu</NavBtn>
+      <NavBtn onClick={() => window.open(WA_LINK)} data-aos="fade-left" data-aos-duration="700">Garanta o Seu</NavBtn>
     </NavbarContainer>
   );
 };

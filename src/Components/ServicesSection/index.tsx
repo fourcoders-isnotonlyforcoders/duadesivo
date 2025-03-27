@@ -10,6 +10,7 @@ import {
   BgImage3, Button, ButtonContainer, TitleContainer
 } from "./styles";
 import { TemplateText } from "../TemplateText";
+import { WA_LINK } from "../../constants/social";
 export const ServicesSection: React.FC = () => {
   return (
     <ServicesContainer id="servicos">
@@ -29,7 +30,7 @@ export const ServicesSection: React.FC = () => {
       <Carrousel />
       <Carrousel2 />
       <ButtonContainer>
-      <Button>Faça seu pedido agora</Button>
+      <Button onClick={() => window.open(WA_LINK)}>Faça seu pedido agora</Button>
       </ButtonContainer>
 
     </ServicesContainer>
