@@ -41,8 +41,9 @@ export const Carrousel: React.FC = () => {
       >
         <Slide className="keen-slider__slide ">
           <SlideInfos>
-            <Icon src="/icons/example.png" />
-            <SlideTitle>TESTE</SlideTitle>
+            <Icon src="/icons/design.svg" />
+            <SlideTitle>Artes Personalizadas
+            </SlideTitle>
             <SlideSub>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
               deleniti quas enim eum!
@@ -51,8 +52,8 @@ export const Carrousel: React.FC = () => {
         </Slide>
         <Slide className="keen-slider__slide ">
           <SlideInfos>
-            <Icon src="/icons/example.png" />
-            <SlideTitle>TESTE</SlideTitle>
+            <Icon src="/icons/chat.svg" />
+            <SlideTitle>Atendimento Rápido</SlideTitle>
             <SlideSub>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
               deleniti quas enim eum!
@@ -61,8 +62,8 @@ export const Carrousel: React.FC = () => {
         </Slide>
         <Slide className="keen-slider__slide ">
           <SlideInfos>
-            <Icon src="/icons/example.png" />
-            <SlideTitle>TESTE</SlideTitle>
+            <Icon src="/icons/plus.svg" />
+            <SlideTitle>Durabilidade</SlideTitle>
             <SlideSub>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
               deleniti quas enim eum!
@@ -71,8 +72,8 @@ export const Carrousel: React.FC = () => {
         </Slide>
         <Slide className="keen-slider__slide ">
           <SlideInfos>
-            <Icon src="/icons/example.png" />
-            <SlideTitle>TESTE</SlideTitle>
+            <Icon src="/icons/tree.svg" />
+            <SlideTitle>Sustentabilidade</SlideTitle>
             <SlideSub>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
               deleniti quas enim eum!
@@ -81,8 +82,8 @@ export const Carrousel: React.FC = () => {
         </Slide>
         <Slide className="keen-slider__slide ">
           <SlideInfos>
-            <Icon src="/icons/example.png" />
-            <SlideTitle>TESTE</SlideTitle>
+            <Icon src="/icons/fast.svg" />
+            <SlideTitle>Envio Rápido</SlideTitle>
             <SlideSub>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
               deleniti quas enim eum!
@@ -91,8 +92,8 @@ export const Carrousel: React.FC = () => {
         </Slide>
         <Slide className="keen-slider__slide ">
           <SlideInfos>
-            <Icon src="/icons/example.png" />
-            <SlideTitle>TESTE</SlideTitle>
+            <Icon src="/icons/security.svg" />
+            <SlideTitle>Segurança</SlideTitle>
             <SlideSub>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
               deleniti quas enim eum!
@@ -101,28 +102,8 @@ export const Carrousel: React.FC = () => {
         </Slide>
         <Slide className="keen-slider__slide ">
           <SlideInfos>
-            <Icon src="/icons/example.png" />
-            <SlideTitle>TESTE</SlideTitle>
-            <SlideSub>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-              deleniti quas enim eum!
-            </SlideSub>
-          </SlideInfos>
-        </Slide>
-        <Slide className="keen-slider__slide ">
-          <SlideInfos>
-            <Icon src="/icons/example.png" />
-            <SlideTitle>TESTE</SlideTitle>
-            <SlideSub>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-              deleniti quas enim eum!
-            </SlideSub>
-          </SlideInfos>
-        </Slide>
-        <Slide className="keen-slider__slide ">
-          <SlideInfos>
-            <Icon src="/icons/example.png" />
-            <SlideTitle>TESTE</SlideTitle>
+            <Icon src="/icons/coin.svg" />
+            <SlideTitle>Frete Grátis</SlideTitle>
             <SlideSub>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
               deleniti quas enim eum!

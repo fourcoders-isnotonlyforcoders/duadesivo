@@ -37,8 +37,8 @@ export const Carrousel2: React.FC = () => {
       <KeenSliderContainer ref={sliderRef} className="keen-slider"  data-aos="fade-left" data-aos-duration="600">
       <Slide className="keen-slider__slide ">
           <SlideInfos>
-            <Icon src="/icons/example.png" />
-            <SlideTitle>TESTE</SlideTitle>
+            <Icon src="/icons/card.svg" />
+            <SlideTitle>Cartelas Temáticas</SlideTitle>
             <SlideSub>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
               deleniti quas enim eum!
@@ -47,8 +47,9 @@ export const Carrousel2: React.FC = () => {
         </Slide>
         <Slide className="keen-slider__slide ">
           <SlideInfos>
-            <Icon src="/icons/example.png" />
-            <SlideTitle>TESTE</SlideTitle>
+            <Icon src="/icons/car.svg" />
+            <SlideTitle> Adesivos de Carro
+            </SlideTitle>
             <SlideSub>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
               deleniti quas enim eum!
@@ -57,8 +58,8 @@ export const Carrousel2: React.FC = () => {
         </Slide>
         <Slide className="keen-slider__slide ">
           <SlideInfos>
-            <Icon src="/icons/example.png" />
-            <SlideTitle>TESTE</SlideTitle>
+            <Icon src="/icons/moto.svg" />
+            <SlideTitle> Adesivos de Moto</SlideTitle>
             <SlideSub>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
               deleniti quas enim eum!
@@ -67,8 +68,8 @@ export const Carrousel2: React.FC = () => {
         </Slide>
         <Slide className="keen-slider__slide ">
           <SlideInfos>
-            <Icon src="/icons/example.png" />
-            <SlideTitle>TESTE</SlideTitle>
+            <Icon src="/icons/bike.svg" />
+            <SlideTitle> Adesivos de Bike</SlideTitle>
             <SlideSub>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
               deleniti quas enim eum!
@@ -77,8 +78,9 @@ export const Carrousel2: React.FC = () => {
         </Slide>
         <Slide className="keen-slider__slide ">
           <SlideInfos>
-            <Icon src="/icons/example.png" />
-            <SlideTitle>TESTE</SlideTitle>
+            <Icon src="/icons/skate.png" />
+            <SlideTitle> Adesivos de Skate
+            </SlideTitle>
             <SlideSub>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
               deleniti quas enim eum!
@@ -87,8 +89,9 @@ export const Carrousel2: React.FC = () => {
         </Slide>
         <Slide className="keen-slider__slide ">
           <SlideInfos>
-            <Icon src="/icons/example.png" />
-            <SlideTitle>TESTE</SlideTitle>
+            <Icon src="/icons/music.svg" />
+            <SlideTitle> Adesivos de Bandas
+            </SlideTitle>
             <SlideSub>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
               deleniti quas enim eum!
@@ -97,8 +100,8 @@ export const Carrousel2: React.FC = () => {
         </Slide>
         <Slide className="keen-slider__slide ">
           <SlideInfos>
-            <Icon src="/icons/example.png" />
-            <SlideTitle>TESTE</SlideTitle>
+            <Icon src="/icons/tv.svg" />
+            <SlideTitle>Adesivos de Desenhos</SlideTitle>
             <SlideSub>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
               deleniti quas enim eum!
@@ -107,8 +110,8 @@ export const Carrousel2: React.FC = () => {
         </Slide>
         <Slide className="keen-slider__slide ">
           <SlideInfos>
-            <Icon src="/icons/example.png" />
-            <SlideTitle>TESTE</SlideTitle>
+            <Icon src="/icons/personalize.svg" />
+            <SlideTitle>Personalizados</SlideTitle>
             <SlideSub>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
               deleniti quas enim eum!
@@ -117,8 +120,20 @@ export const Carrousel2: React.FC = () => {
         </Slide>
         <Slide className="keen-slider__slide ">
           <SlideInfos>
-            <Icon src="/icons/example.png" />
-            <SlideTitle>TESTE</SlideTitle>
+            <Icon src="/icons/holo.svg" />
+            <SlideTitle>Adesivos Holográficos 
+            </SlideTitle>
+            <SlideSub>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
+              deleniti quas enim eum!
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/vinil.svg" />
+            <SlideTitle>Adesivos em Vinil 
+            </SlideTitle>
             <SlideSub>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
               deleniti quas enim eum!
