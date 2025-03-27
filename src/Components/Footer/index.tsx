@@ -64,14 +64,7 @@ export const Footer: React.FC = () => {
           </Hours>
         </Infos>
         <Map>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d468141.85064551677!2d-46.516192431969515!3d-23.555575042241333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdd81269172647%3A0xb3859ba7fe8bbb07!2sMogi%20das%20Cruzes%20-%20State%20of%20S%C3%A3o%20Paulo!5e0!3m2!1sen!2sbr!4v1741977536777!5m2!1sen!2sbr"
-            width="100%"
-            height="100%"
-            allowFullScreen={true}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d234454.79125025836!2d-48.05561825576195!3d-23.339109491302665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c5d85d684d6c69%3A0x9b69b0dd15b43d0a!2zVGF0dcOtLCBTdGF0ZSBvZiBTw6NvIFBhdWxv!5e0!3m2!1sen!2sbr!4v1743088482314!5m2!1sen!2sbr"></iframe>
         </Map>
       </FirstContainer>
       <SecondContainer>
