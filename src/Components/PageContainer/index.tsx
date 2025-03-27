@@ -6,5 +6,4 @@ export const PageContainer = styled.div`
   background-color: #040200;
   width: 100%; 
   margin: 0 auto;
-  height: 100%;
 `;
