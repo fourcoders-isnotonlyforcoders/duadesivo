@@ -140,13 +140,14 @@ export const Submit = styled.input`
     border: 2px solid ${(props) => props.theme.colors.yellow};
     color: ${(props) => props.theme.colors.yellow};
   }
-  animation: pulse 4s infinite;
+  animation: pulse4 4s infinite;
 
-  @keyframes pulse{
+  @keyframes pulse4{
     0%{
       transform: scale(1);
     }50%{
       transform: scale(1.04);
+      box-shadow: 0 0 11px 1px rgba(254, 165, 0, 0.22);
     }100%{
       transform: scale(1);
     }

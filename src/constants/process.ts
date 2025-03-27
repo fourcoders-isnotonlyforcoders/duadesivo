@@ -7,12 +7,12 @@ type ProcessType = {
 // TODO: alterar imagens 
 export const Process : ProcessType[] = [
   {
-    src: './images/test.avif',
+    src: './images/process.avif',
     alt: 'images teste',
     hoverSrc: './images/testActivate.avif'
   },
   {
-    src: './images/test.avif',
+    src: './images/impressao.avif',
     alt: 'images teste',
     hoverSrc: './images/testActivate.avif'
   },
