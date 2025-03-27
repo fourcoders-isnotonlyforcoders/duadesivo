@@ -42,11 +42,9 @@ export const Carrousel: React.FC = () => {
         <Slide className="keen-slider__slide ">
           <SlideInfos>
             <Icon src="/icons/design.svg" />
-            <SlideTitle>Artes Personalizadas
-            </SlideTitle>
+            <SlideTitle>Artes Personalizadas</SlideTitle>
             <SlideSub>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-              deleniti quas enim eum!
+              Criamos designs exclusivos para atender todos os estilos e gostos.
             </SlideSub>
           </SlideInfos>
         </Slide>
@@ -55,8 +53,7 @@ export const Carrousel: React.FC = () => {
             <Icon src="/icons/chat.svg" />
             <SlideTitle>Atendimento Rápido</SlideTitle>
             <SlideSub>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-              deleniti quas enim eum!
+              Garantimos um atendimento ágil e eficiente para resolver suas dúvidas.
             </SlideSub>
           </SlideInfos>
         </Slide>
@@ -65,8 +62,7 @@ export const Carrousel: React.FC = () => {
             <Icon src="/icons/plus.svg" />
             <SlideTitle>Durabilidade</SlideTitle>
             <SlideSub>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-              deleniti quas enim eum!
+              Nossos adesivos têm durabilidade mínima de 3 anos, resistindo ao tempo.
             </SlideSub>
           </SlideInfos>
         </Slide>
@@ -75,8 +71,7 @@ export const Carrousel: React.FC = () => {
             <Icon src="/icons/tree.svg" />
             <SlideTitle>Sustentabilidade</SlideTitle>
             <SlideSub>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-              deleniti quas enim eum!
+              Utilizamos maquinário menos prejudicial ao meio ambiente no processo.
             </SlideSub>
           </SlideInfos>
         </Slide>
@@ -85,8 +80,7 @@ export const Carrousel: React.FC = () => {
             <Icon src="/icons/fast.svg" />
             <SlideTitle>Envio Rápido</SlideTitle>
             <SlideSub>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-              deleniti quas enim eum!
+              Garantimos envio em até 24 horas após a confirmação do pedido.
             </SlideSub>
           </SlideInfos>
         </Slide>
@@ -95,8 +89,7 @@ export const Carrousel: React.FC = () => {
             <Icon src="/icons/security.svg" />
             <SlideTitle>Segurança</SlideTitle>
             <SlideSub>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-              deleniti quas enim eum!
+              Oferecemos total segurança na compra, com dados protegidos.
             </SlideSub>
           </SlideInfos>
         </Slide>
@@ -105,8 +98,7 @@ export const Carrousel: React.FC = () => {
             <Icon src="/icons/coin.svg" />
             <SlideTitle>Frete Grátis</SlideTitle>
             <SlideSub>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-              deleniti quas enim eum!
+              Frete grátis para compras acima de R$ 300,00 em toda a loja.
             </SlideSub>
           </SlideInfos>
         </Slide>
@@ -114,6 +106,7 @@ export const Carrousel: React.FC = () => {
     </>
   );
 };
+
 
 const KeenSliderContainer = styled.div`
   max-width: 1100px;

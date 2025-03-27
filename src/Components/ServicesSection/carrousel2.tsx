@@ -35,66 +35,57 @@ export const Carrousel2: React.FC = () => {
       </InfoContainer>
 
       <KeenSliderContainer ref={sliderRef} className="keen-slider"  data-aos="fade-left" data-aos-duration="600">
-      <Slide className="keen-slider__slide ">
+        <Slide className="keen-slider__slide ">
           <SlideInfos>
             <Icon src="/icons/card.svg" />
             <SlideTitle>Cartelas Temáticas</SlideTitle>
             <SlideSub>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-              deleniti quas enim eum!
+              Cartelas com designs exclusivos para todos os gostos e estilos de vida.
             </SlideSub>
           </SlideInfos>
         </Slide>
         <Slide className="keen-slider__slide ">
           <SlideInfos>
             <Icon src="/icons/car.svg" />
-            <SlideTitle> Adesivos de Carro
-            </SlideTitle>
+            <SlideTitle>Adesivos de Carro</SlideTitle>
             <SlideSub>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-              deleniti quas enim eum!
+              Adesivos resistentes e estilosos, ideais para personalizar seu veículo.
             </SlideSub>
           </SlideInfos>
         </Slide>
         <Slide className="keen-slider__slide ">
           <SlideInfos>
             <Icon src="/icons/moto.svg" />
-            <SlideTitle> Adesivos de Moto</SlideTitle>
+            <SlideTitle>Adesivos de Moto</SlideTitle>
             <SlideSub>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-              deleniti quas enim eum!
+              Personalize sua moto com adesivos modernos e de alta qualidade.
             </SlideSub>
           </SlideInfos>
         </Slide>
         <Slide className="keen-slider__slide ">
           <SlideInfos>
             <Icon src="/icons/bike.svg" />
-            <SlideTitle> Adesivos de Bike</SlideTitle>
+            <SlideTitle>Adesivos de Bike</SlideTitle>
             <SlideSub>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-              deleniti quas enim eum!
+              Designs únicos para deixar sua bike ainda mais estilosa e personalizada.
             </SlideSub>
           </SlideInfos>
         </Slide>
         <Slide className="keen-slider__slide ">
           <SlideInfos>
             <Icon src="/icons/skate.png" />
-            <SlideTitle> Adesivos de Skate
-            </SlideTitle>
+            <SlideTitle>Adesivos de Skate</SlideTitle>
             <SlideSub>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-              deleniti quas enim eum!
+              Adesivos duráveis e com estilo para dar um toque pessoal ao seu skate.
             </SlideSub>
           </SlideInfos>
         </Slide>
         <Slide className="keen-slider__slide ">
           <SlideInfos>
             <Icon src="/icons/music.svg" />
-            <SlideTitle> Adesivos de Bandas
-            </SlideTitle>
+            <SlideTitle>Adesivos de Bandas</SlideTitle>
             <SlideSub>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-              deleniti quas enim eum!
+              Mostre seu amor pela música com adesivos das suas bandas favoritas.
             </SlideSub>
           </SlideInfos>
         </Slide>
@@ -103,8 +94,7 @@ export const Carrousel2: React.FC = () => {
             <Icon src="/icons/tv.svg" />
             <SlideTitle>Adesivos de Desenhos</SlideTitle>
             <SlideSub>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-              deleniti quas enim eum!
+              Personalize seu espaço com adesivos de desenhos e personagens icônicos.
             </SlideSub>
           </SlideInfos>
         </Slide>
@@ -113,30 +103,25 @@ export const Carrousel2: React.FC = () => {
             <Icon src="/icons/personalize.svg" />
             <SlideTitle>Personalizados</SlideTitle>
             <SlideSub>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-              deleniti quas enim eum!
+              Crie adesivos totalmente personalizados para você e seus amigos.
             </SlideSub>
           </SlideInfos>
         </Slide>
         <Slide className="keen-slider__slide ">
           <SlideInfos>
             <Icon src="/icons/holo.svg" />
-            <SlideTitle>Adesivos Holográficos 
-            </SlideTitle>
+            <SlideTitle>Adesivos Holográficos</SlideTitle>
             <SlideSub>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-              deleniti quas enim eum!
+              Dê um toque especial aos seus objetos com adesivos holográficos incríveis.
             </SlideSub>
           </SlideInfos>
         </Slide>
         <Slide className="keen-slider__slide ">
           <SlideInfos>
             <Icon src="/icons/vinil.svg" />
-            <SlideTitle>Adesivos em Vinil 
-            </SlideTitle>
+            <SlideTitle>Adesivos em Vinil</SlideTitle>
             <SlideSub>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-              deleniti quas enim eum!
+              Adesivos resistentes e de alta qualidade para decorar qualquer superfície.
             </SlideSub>
           </SlideInfos>
         </Slide>
@@ -144,6 +129,7 @@ export const Carrousel2: React.FC = () => {
     </>
   );
 };
+
 
 const KeenSliderContainer = styled.div`
   max-width: 1100px;
