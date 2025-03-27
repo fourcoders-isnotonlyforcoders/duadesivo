@@ -3,16 +3,21 @@ import "keen-slider/keen-slider.min.css";
 import styled from "styled-components";
 
 const BrandImage = styled.img`
-  width: 4rem;
+  width: 50%;
   object-fit: cover;
   height: auto;
   margin: 0;
   opacity: .4;
   transition: 0.3s ease;
+  padding: 1rem 0;
+  @media screen and (max-width: 708px) {
+  margin: 0;
+  width: 80%;
+}
   &:hover{
     opacity: 1;
-    transform: scale(1.1);
-    filter: brightness(2);
+    transform: scale(1.02);
+    filter: brightness(1.2);
   }
 `;
 const SliderContainer = styled.div`
@@ -23,8 +28,14 @@ const SliderContainer = styled.div`
 const Slide = styled.div`
 display: flex;
 justify-content: center;
-width: auto;
-padding: 1rem 0;
+width: 50%;
+height: 50%;
+margin: 0;
+margin-right: -55px;
+@media screen and (max-width: 708px) {
+  margin: 0;
+  width: 60%;
+}
 `;
 
 const animation = { duration: 5000, easing: (t: number) => t };
@@ -35,8 +46,8 @@ export const Carroussel: React.FC = () => {
     renderMode: "performance",
     drag: false,
     slides: {
-      perView: 5,
-      spacing: 15,
+      perView: 3,
+      spacing: 1,
     },
     created(s) {
       s.moveToIdx(1, true, animation);
@@ -52,34 +63,34 @@ export const Carroussel: React.FC = () => {
   return (
     <SliderContainer ref={sliderRef} className="keen-slider">
       <Slide className="keen-slider__slide">
-        <BrandImage src="/icons/example.png" />
+        <BrandImage src="/images/dg.png" />
       </Slide>
       <Slide className="keen-slider__slide">
-        <BrandImage src="/icons/example.png" />
+        <BrandImage src="/images/taurus.png" />
       </Slide>
       <Slide className="keen-slider__slide">
-        <BrandImage src="/icons/example.png" />
+        <BrandImage src="/images/dg.png" />
       </Slide>
       <Slide className="keen-slider__slide">
-        <BrandImage src="/icons/example.png" />
+        <BrandImage src="/images/taurus.png" />
       </Slide>
       <Slide className="keen-slider__slide">
-        <BrandImage src="/icons/example.png" />
+        <BrandImage src="/images/dg.png" />
       </Slide>
       <Slide className="keen-slider__slide">
-        <BrandImage src="/icons/example.png" />
+        <BrandImage src="/images/taurus.png" />
       </Slide>
       <Slide className="keen-slider__slide">
-        <BrandImage src="/icons/example.png" />
+        <BrandImage src="/images/dg.png" />
       </Slide>
       <Slide className="keen-slider__slide">
-        <BrandImage src="/icons/example.png" />
+        <BrandImage src="/images/taurus.png" />
       </Slide>
       <Slide className="keen-slider__slide">
-        <BrandImage src="/icons/example.png" />
+        <BrandImage src="/images/dg.png" />
       </Slide>
       <Slide className="keen-slider__slide">
-        <BrandImage src="/icons/example.png" />
+        <BrandImage src="/images/taurus.png" />
       </Slide>
     </SliderContainer>
   );
