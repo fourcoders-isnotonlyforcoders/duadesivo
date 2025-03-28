@@ -25,6 +25,11 @@ export const PrincipalBanner = styled.img`
   width: 100%;
   object-fit: cover;
   background-size: cover;
+  box-shadow: 0 0 22px 2px #000;
+  @media screen and (max-width: 780px){
+    content: url(/images/bannerHolograficoMobile.avif);
+    border-radius: 8px;
+  }
 `;
 export const BgImage = styled.img`
   position: absolute;

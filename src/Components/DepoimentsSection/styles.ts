@@ -84,6 +84,10 @@ export const PartnersContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  @media screen and (max-width: 708px){
+    padding: 3rem 0;
+    flex-direction: column;
+  }
 `;
 export const PartnersTitle = styled.div`
   width: 100%;

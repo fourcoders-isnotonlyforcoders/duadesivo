@@ -49,7 +49,7 @@ const SplashScreen: React.FC = () => {
 
   return (
     <SplashScreenWrapper>
-      <Logo src="/public/images/DuLogo2.svg"/>
+      <Logo src="/images/DuLogo2.svg"/>
     </SplashScreenWrapper>
   );
 };

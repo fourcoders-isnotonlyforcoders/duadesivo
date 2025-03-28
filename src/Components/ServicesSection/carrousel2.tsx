@@ -36,22 +36,101 @@ export const Carrousel2: React.FC = () => {
       </InfoContainer>
 
       <KeenSliderContainer ref={sliderRef} className="keen-slider"  data-aos="fade-left" data-aos-duration="600">
-        {([...Array(9)]).map(() => (
-          <Slide className="keen-slider__slide ">
-            <SlideInfos>
-              <Icon src="/icons/example.png" />
-              <SlideTitle>TESTE</SlideTitle>
-              <SlideSub>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-                deleniti quas enim eum!
-              </SlideSub>
-            </SlideInfos>
-          </Slide>
-        ))}
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/card.svg" />
+            <SlideTitle>Cartelas Temáticas</SlideTitle>
+            <SlideSub>
+              Cartelas com designs exclusivos para todos os gostos e estilos de vida.
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/car.svg" />
+            <SlideTitle>Adesivos de Carro</SlideTitle>
+            <SlideSub>
+              Adesivos resistentes e estilosos, ideais para personalizar seu veículo.
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/moto.svg" />
+            <SlideTitle>Adesivos de Moto</SlideTitle>
+            <SlideSub>
+              Personalize sua moto com adesivos modernos e de alta qualidade.
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/bike.svg" />
+            <SlideTitle>Adesivos de Bike</SlideTitle>
+            <SlideSub>
+              Designs únicos para deixar sua bike ainda mais estilosa e personalizada.
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/skate.png" />
+            <SlideTitle>Adesivos de Skate</SlideTitle>
+            <SlideSub>
+              Adesivos duráveis e com estilo para dar um toque pessoal ao seu skate.
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/music.svg" />
+            <SlideTitle>Adesivos de Bandas</SlideTitle>
+            <SlideSub>
+              Mostre seu amor pela música com adesivos das suas bandas favoritas.
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/tv.svg" />
+            <SlideTitle>Adesivos de Desenhos</SlideTitle>
+            <SlideSub>
+              Personalize seu espaço com adesivos de desenhos e personagens icônicos.
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/personalize.svg" />
+            <SlideTitle>Personalizados</SlideTitle>
+            <SlideSub>
+              Crie adesivos totalmente personalizados para você e seus amigos.
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/holo.svg" />
+            <SlideTitle>Adesivos Holográficos</SlideTitle>
+            <SlideSub>
+              Dê um toque especial aos seus objetos com adesivos holográficos incríveis.
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/vinil.svg" />
+            <SlideTitle>Adesivos em Vinil</SlideTitle>
+            <SlideSub>
+              Adesivos resistentes e de alta qualidade para decorar qualquer superfície.
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
       </KeenSliderContainer>
     </>
   );
 };
+
 
 const KeenSliderContainer = styled.div`
   max-width: 1100px;

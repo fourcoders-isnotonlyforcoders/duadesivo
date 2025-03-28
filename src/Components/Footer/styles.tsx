@@ -1,9 +1,14 @@
 import styled from "styled-components";
-
 export const FooterContainer = styled.div`
-  padding: 4rem 7rem 2rem 7rem;
-  margin-top: 7rem;
+  padding:  4rem 7rem 2rem 7rem;
+  margin-top: 12rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  box-sizing: border-box;
+  flex-grow: 1;
   position: relative;
+  z-index: 10;
   &::before {
     content: "";
     position: absolute;
@@ -25,6 +30,7 @@ export const FooterContainer = styled.div`
     width: 100%;
   }
 `;
+
 
 export const FirstContainer = styled.div`
   display: flex;
@@ -185,9 +191,10 @@ export const LogoDu = styled.img`
 export const DadosContainer = styled.div`
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 90%;
   @media screen and (max-width: 906px) {
     padding: 2rem 0;
+    width: 100%;
   }
 `;
 export const Dado = styled.p`
@@ -202,6 +209,7 @@ export const Dado = styled.p`
 export const Copy = styled.a`
   font-size: 1.2rem;
   color: ${(props) => props.theme.colors.white2};
+  transform: translate(0);
   transition: 0.3s ease;
   &:hover {
     transform: translateY(-5px);
@@ -230,27 +238,35 @@ export const Strong = styled.strong`
 
 export const ThirdContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  gap: 1rem;
-  border: 1px solid;
-  padding: 4rem 2rem 1rem 2rem;
+  gap: 15rem;
+  width: 100%;
+  padding: 1rem;
   @media screen and (max-width: 906px) {
-    padding: 2rem 0 1rem 0;
+    padding: 1rem;
+    gap: 2rem;
+    width: 100%;
+    margin: 0 auto;
     text-align: center;
   }
 `;
 
 export const Privacity = styled.a`
   margin: 0;
-  color: ${(props) => props.theme.colors.white2};
+  color: ${(props) => props.theme.colors.white2} !important;
   font-weight: 200;
   font-size: 0.9rem;
   transition: 0.3s ease;
+  padding: 2rem 0;
+  transform: translate(0);
   &:hover {
     opacity: 0.7;
     filter: brightness(0.7);
     transform: translateX(-5px);
+  }
+  @media screen and (max-width: 708px) {
+    font-size: .8rem;
   }
 `;
 export const Term = styled.a`
@@ -259,17 +275,21 @@ export const Term = styled.a`
   font-weight: 200;
   font-size: 0.9rem;
   transition: 0.3s ease;
+  transform: translate(0);
   &:hover {
     opacity: 0.7;
     filter: brightness(0.7);
     transform: translateX(5px);
   }
+  @media screen and (max-width: 708px) {
+    font-size: .8rem;
+  }
 `;
 
 export const BgImage = styled.img`
-  position: absolute;
+  /* position: absolute;
   left: -111px;
   opacity: 0.7;
-  z-index: 1;
-  pointer-events: none;
+  z-index: -1;
+  pointer-events: none; */
 `;

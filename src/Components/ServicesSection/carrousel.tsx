@@ -40,24 +40,74 @@ export const Carrousel: React.FC = () => {
         data-aos="fade-right"
         data-aos-duration="600"
       >
-        {
-          ([...Array(9)].map(() => (
-            <Slide className="keen-slider__slide ">
-              <SlideInfos>
-                <Icon src="/icons/example.png" />
-                <SlideTitle>TESTE</SlideTitle>
-                <SlideSub>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-                  deleniti quas enim eum!
-                </SlideSub>
-              </SlideInfos>
-            </Slide>
-          )))
-        }
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/design.svg" />
+            <SlideTitle>Artes Personalizadas</SlideTitle>
+            <SlideSub>
+              Criamos designs exclusivos para atender todos os estilos e gostos.
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/chat.svg" />
+            <SlideTitle>Atendimento Rápido</SlideTitle>
+            <SlideSub>
+              Garantimos um atendimento ágil e eficiente para resolver suas dúvidas.
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/plus.svg" />
+            <SlideTitle>Durabilidade</SlideTitle>
+            <SlideSub>
+              Nossos adesivos têm durabilidade mínima de 3 anos, resistindo ao tempo.
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/tree.svg" />
+            <SlideTitle>Sustentabilidade</SlideTitle>
+            <SlideSub>
+              Utilizamos maquinário menos prejudicial ao meio ambiente no processo.
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/fast.svg" />
+            <SlideTitle>Envio Rápido</SlideTitle>
+            <SlideSub>
+              Garantimos envio em até 24 horas após a confirmação do pedido.
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/security.svg" />
+            <SlideTitle>Segurança</SlideTitle>
+            <SlideSub>
+              Oferecemos total segurança na compra, com dados protegidos.
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
+        <Slide className="keen-slider__slide ">
+          <SlideInfos>
+            <Icon src="/icons/coin.svg" />
+            <SlideTitle>Frete Grátis</SlideTitle>
+            <SlideSub>
+              Frete grátis para compras acima de R$ 300,00 em toda a loja.
+            </SlideSub>
+          </SlideInfos>
+        </Slide>
       </KeenSliderContainer>
     </>
   );
 };
+
 
 const KeenSliderContainer = styled.div`
   max-width: 1100px;

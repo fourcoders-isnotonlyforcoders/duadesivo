@@ -26,7 +26,6 @@ import {
   ThirdContainer,
   Privacity,
   Term,
-  BgImage,
 } from "./styles";
 
 export const Footer: React.FC = () => {
@@ -35,70 +34,65 @@ export const Footer: React.FC = () => {
       <FirstContainer>
         <Infos>
           <Contacts>
-            <Title>Contato</Title>
+            <Title data-aos= "fade-down" data-aos-duration= "600">Contato</Title>
             <Container>
-              <Contact>{EMAIL}</Contact>
-              <Contact>{WA_NUMBER}</Contact>
+              <Contact data-aos= "fade-right" data-aos-duration= "600">{EMAIL}</Contact>
+              <Contact data-aos= "fade-right" data-aos-duration= "700">{WA_NUMBER}</Contact>
             </Container>
           </Contacts>
 
           <Socials>
-            <Title>Redes Sociais</Title>
+            <Title data-aos= "fade-down" data-aos-duration= "700">Redes Sociais</Title>
             <LinksContainer>
-              <Link href={IG_LINK} target="_blank">
+              <Link href={IG_LINK} target="_blank" data-aos= "fade-right" data-aos-duration= "700">
                 <Logo src="/icons/instagram.svg" alt="icone do instagram" />
               </Link>
-              <Link href={WA_LINK} target="_blank">
+              <Link href={WA_LINK} target="_blank" data-aos= "fade-down" data-aos-duration= "700">
                 <Logo src="/icons/whatsapp.svg" alt="icone do whatsapp" />
               </Link>
-              <Link href="">
+              <Link href="" data-aos= "fade-up" data-aos-duration= "700">
                 <Logo src="/icons/tiktok.svg" alt="icone do tiktok" />
               </Link>
-              <Link href={FB_LINK} target="_blank">
+              <Link href={FB_LINK} target="_blank" data-aos= "fade-left" data-aos-duration= "700">
                 <Logo src="/icons/facebook.svg" alt="icone do facebook" />
               </Link>
             </LinksContainer>
           </Socials>
           <Hours>
-            <Title>Atendimento</Title>
-            <HoursInfo>de Seg a Sex, das 9h às 16h</HoursInfo>
+            <Title data-aos= "fade-down" data-aos-duration= "800">Atendimento</Title>
+            <HoursInfo data-aos= "fade-left" data-aos-duration= "700">de Seg a Sex, das 8:30h às 18h</HoursInfo>
           </Hours>
         </Infos>
-        <Map>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d468141.85064551677!2d-46.516192431969515!3d-23.555575042241333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdd81269172647%3A0xb3859ba7fe8bbb07!2sMogi%20das%20Cruzes%20-%20State%20of%20S%C3%A3o%20Paulo!5e0!3m2!1sen!2sbr!4v1741977536777!5m2!1sen!2sbr"
-            width="100%"
-            height="100%"
-            allowFullScreen={true}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
+        <Link href="#" />
+        <Map >
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d234454.79125025836!2d-48.05561825576195!3d-23.339109491302665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c5d85d684d6c69%3A0x9b69b0dd15b43d0a!2zVGF0dcOtLCBTdGF0ZSBvZiBTw6NvIFBhdWxv!5e0!3m2!1sen!2sbr!4v1743088482314!5m2!1sen!2sbr" data-aos= "fade-left" data-aos-duration= "700"></iframe>
         </Map>
       </FirstContainer>
       <SecondContainer>
-        <BgImage src="images/bgEstrelado.avif" />
+
         <LogoContainer>
-          <LogoDu src="/images/DuLogo.svg" />
+          <LogoDu src="/images/DuLogo.svg" data-aos= "fade-up-right" data-aos-duration= "700"/>
           <DadosContainer>
-            <Dado>
-              DuÁdesivo- Produção de Adesivos Especiais do Brasil EIRELI - ME.
-              22.502.695/0001-42. Av. Juca Pato, 637 Produzido com em
-              Uberaba/MG. © Du`Adesivo 2025. Todos os direitos reservados
+            <Dado data-aos= "fade-left" data-aos-duration= "700">
+              © 2025 DuÁdesivo. Todos os direitos reservados. CNPJ:
+              37.405.483/0001-14 | Especializados na produção de adesivos
+              personalizados em Tatuí-SP. Qualidade, durabilidade e
+              personalização para destacar sua marca!
             </Dado>
           </DadosContainer>
         </LogoContainer>
         <SecurityContainer>
           <Security src="/images/google-reviews.avif" />
-          <Security src="/images/google-safe.avif" />
-          <Security src="/images/secure.avif" />
+          <Security src="/images/google-safe.avif"  />
+          <Security src="/images/secure.avif"/>
         </SecurityContainer>
       </SecondContainer>
       <ThirdContainer>
-        <Privacity href="/">Política de Privacidade</Privacity>
-        <Copy href="https://fourcoders.com/" target="_blank">
+        <Privacity href="/" >Política de Privacidade</Privacity>
+        <Copy href="https://fourcoders.com/" target="_blank" >
           Desenvolvido por <Strong>FourCoders</Strong>
         </Copy>
-        <Term href="/">Termos e Condições</Term>
+        <Term href="/" >Termos e Condições</Term>
       </ThirdContainer>
     </FooterContainer>
   );
