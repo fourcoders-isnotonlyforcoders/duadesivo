@@ -1,4 +1,4 @@
-import { EMAIL, WA_LINK, WA_NUMBER } from "../../constants/social";
+import { EMAIL, FB_LINK, IG_LINK, WA_LINK, WA_NUMBER } from "../../constants/social";
 import {
   FooterContainer,
   FirstContainer,
@@ -45,16 +45,16 @@ export const Footer: React.FC = () => {
           <Socials>
             <Title>Redes Sociais</Title>
             <LinksContainer>
-              <Link href="#">
+              <Link href={IG_LINK} target="_blank">
                 <Logo src="/icons/instagram.svg" alt="icone do instagram" />
               </Link>
-              <Link onClick={() => window.open(WA_LINK)}>
+              <Link href={WA_LINK} target="_blank">
                 <Logo src="/icons/whatsapp.svg" alt="icone do whatsapp" />
               </Link>
-              <Link href="#">
+              <Link href="">
                 <Logo src="/icons/tiktok.svg" alt="icone do tiktok" />
               </Link>
-              <Link href="#">
+              <Link href={FB_LINK} target="_blank">
                 <Logo src="/icons/facebook.svg" alt="icone do facebook" />
               </Link>
             </LinksContainer>
