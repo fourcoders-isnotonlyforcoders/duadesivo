@@ -270,7 +270,7 @@ export const Privacity = styled(Link)`
     font-size: .8rem;
   }
 `;
-export const Term = styled.a`
+export const Term = styled(Link)`
   margin: 0;
   color: ${(props) => props.theme.colors.white2};
   font-weight: 200;

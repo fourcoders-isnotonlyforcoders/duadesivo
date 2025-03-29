@@ -92,7 +92,7 @@ export const Footer: React.FC = () => {
         <Copy href="https://fourcoders.com/" target="_blank" >
           Desenvolvido por <Strong>FourCoders</Strong>
         </Copy>
-        <Term href="/" >Termos e Condições</Term>
+        <Term to="/termos" >Termos e Condições</Term>
       </ThirdContainer>
     </FooterContainer>
   );
