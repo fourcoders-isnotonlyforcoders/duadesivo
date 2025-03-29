@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { CardProps } from '../ProcessSection/template'
 import { useFormContext } from '../../contexts/FormContext';
+import { CardProps } from './types';
 
 const Card = styled.div<{ selected: boolean }>`
   border: 1.5px solid ${({ theme, selected }) => theme.colors[selected ? "yellow" : "white"]};
