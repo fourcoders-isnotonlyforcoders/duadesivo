@@ -44,4 +44,8 @@ a {
         text-shadow: none;
     }
 }
+
+.toastify {
+    font-size: 1.2rem;
+}
 `;

@@ -3,6 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import SplashScreen from "./Components/SplashScreen"; 
 import { AppRoutes } from "./AppRoutes";
+import FormContextProvider from "./contexts/FormContext";
 
 export const App: React.FC = () => {
   const [isSplashVisible, setIsSplashVisible] = useState(true);
@@ -19,9 +20,9 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <>
+    <FormContextProvider>
       {isSplashVisible && <SplashScreen />} 
       <AppRoutes />
-    </>
+    </FormContextProvider>
   );
 };

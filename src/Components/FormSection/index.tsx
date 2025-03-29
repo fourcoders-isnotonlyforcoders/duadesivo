@@ -17,7 +17,13 @@ import {
   Options, Submit
 } from "./styles";
 import { Cards } from "./Cards";
+import { useEnviarForm } from "../../hooks/useEnviarForm";
+import { useFormContext } from "../../contexts/FormContext";
+
 export const FormSection: React.FC = () => {
+  const { save } = useEnviarForm();
+  const { tipo, setTipo } = useFormContext();
+
   return (
     <SectionContainer id="criar">
       <InfoContainer>
@@ -33,25 +39,28 @@ export const FormSection: React.FC = () => {
             alt="imagem de uma cor holográfica"
             title="Holográfico"
             sub="Laminação Brilho/ Fosca"
-            
+            value="Holográfico (Brilho / Fosco)"
           />
           <Cards
             src="./images/branco.png"
             alt="imagem de uma cor holográfica"
             title="Vinil Branco "
             sub="Laminação Brilho"
+            value="Vinil Branco (Brilho)"
           />
           <Cards
             src="./images/branco.png"
             alt="imagem de uma cor holográfica"
             title="Vinil Branco "
             sub="Laminação Fosca "
+            value="Vinil Branco (Fosco)"
           />
           <Cards
             src="./images/transparent.png"
             alt="imagem de uma cor holográfica"
             title="Transparente"
             sub=" Laminação Brilho"
+            value="Transparente (Brilho)"
           />
         </CardsContainer>
         <FormContainer>
@@ -62,39 +71,39 @@ export const FormSection: React.FC = () => {
             </FormSubTitle>
           </FormInfo>
 
-          <Form>
+          <Form onSubmit={save}>
             <FormInputs>
-              <InputField type="text" placeholder="Nome"
-              data-aos="fade-left"
-              data-aos-duration="700" />
+              <InputField type="text" placeholder="Nome" data-aos="fade-left"
+              data-aos-duration="700" name="nome" required/>
               <Inputs>
                 <InputField type="email" placeholder="E-mail" data-aos="fade-right"
-              data-aos-duration="700"/>
+              data-aos-duration="700" name="email" required/>
                 <InputField type="tel" placeholder="Telefone" data-aos="fade-left"
-              data-aos-duration="700"/>
+              data-aos-duration="700" name="telefone" required/>
               </Inputs>
             </FormInputs>
-            <SelectField data-aos="fade-left"
-              data-aos-duration="700">
-              <Options selected>Tipo do Adesivo</Options>
-              <Options>2</Options>
-              <Options>3</Options>
-              <Options>4</Options>
+            <SelectField data-aos="fade-left" data-aos-duration="700" name="tipo" required 
+              defaultValue="Não Selecionado" value={tipo} onChange={(e) => setTipo(e.target.value)}> 
+              <Options value="Não Selecionado" disabled>Tipo do Adesivo</Options>
+              <Options value="Holográfico (Brilho / Fosco)">Holográfico (Brilho / Fosco)</Options>
+              <Options value="Vinil Branco (Brilho)">Vinil Branco (Brilho)</Options>
+              <Options value="Vinil Branco (Fosco)">Vinil Branco (Fosco)</Options>
+              <Options value="Transparente (Brilho)">Transparente (Brilho)</Options>
             </SelectField>
             <SelectField data-aos="fade-right"
-              data-aos-duration="700">
-              <Options selected>Modelo Desejado</Options>
-              <Options>2</Options>
-              <Options>3</Options>
-              <Options>4</Options>
+              data-aos-duration="700" name="modelo" required defaultValue="Não Selecionado">
+              <Options value="Não Selecionado" disabled>Modelo Desejado</Options>
+              <Options value="2">2</Options>
+              <Options value="3">3</Options>
+              <Options value="4">4</Options>
             </SelectField>
             <InputField type="number" placeholder="Quantidade" data-aos="fade-left"
-              data-aos-duration="700"/>
+              data-aos-duration="700" name="quantidade" required/>
             <Inputs>
               <InputField type="number" placeholder="Altura (cm)" data-aos="fade-right"
-              data-aos-duration="700"/>
+              data-aos-duration="700" name="altura" required/>
               <InputField type="number" placeholder="Largura (cm)" data-aos="fade-left"
-              data-aos-duration="700"/>
+              data-aos-duration="700" name="largura" required/>
             </Inputs>
             <Submit type="submit" data-aos="fade-up"
               data-aos-duration="500" value="Enviar"/>
