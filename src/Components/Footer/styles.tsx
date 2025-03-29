@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 export const FooterContainer = styled.div`
   padding:  4rem 7rem 2rem 7rem;
@@ -106,7 +107,7 @@ export const LinksContainer = styled.div`
   align-items: center;
   gap: 1rem;
 `;
-export const Link = styled.a`
+export const LinkCustom = styled.a`
   color: ${(props) => props.theme.colors.white2};
   filter: brightness(1);
   transition: 0.3s ease;
@@ -252,7 +253,7 @@ export const ThirdContainer = styled.div`
   }
 `;
 
-export const Privacity = styled.a`
+export const Privacity = styled(Link)`
   margin: 0;
   color: ${(props) => props.theme.colors.white2} !important;
   font-weight: 200;
