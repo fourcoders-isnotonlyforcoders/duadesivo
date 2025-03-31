@@ -92,10 +92,10 @@ export const FormSection: React.FC = () => {
             </SelectField>
             <SelectField data-aos="fade-right"
               data-aos-duration="700" name="modelo" required defaultValue="Não Selecionado">
-              <Options value="Não Selecionado" disabled>Modelo Desejado</Options>
-              <Options value="2">2</Options>
-              <Options value="3">3</Options>
-              <Options value="4">4</Options>
+              <Options value="Não Selecionado" disabled>Modelo Desejado (corte do adesivo)</Options>
+              <Options value="redondo">redondo</Options>
+              <Options value="quadrado">quadrado</Options>
+              <Options value="personalizado">personalizado</Options>
             </SelectField>
             <InputField type="number" placeholder="Quantidade" data-aos="fade-left"
               data-aos-duration="700" name="quantidade" required/>

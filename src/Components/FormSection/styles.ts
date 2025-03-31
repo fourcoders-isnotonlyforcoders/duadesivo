@@ -122,10 +122,12 @@ export const SelectField = styled.select`
   padding: 2rem 1.5rem;
   color: #f2f2f2;
   border-radius: 8px;
+  font-size: 1.7rem;
 `;
 
 export const Options = styled.option`
   background-color: black;
+  color: #fff;
 `;
 
 export const Submit = styled.input`
