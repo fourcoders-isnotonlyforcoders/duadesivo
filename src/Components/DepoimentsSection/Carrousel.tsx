@@ -7,7 +7,7 @@ const BrandImage = styled.img`
   object-fit: cover;
   height: auto;
   margin: 0;
-  opacity: 0.4;
+  opacity: 0.7;
   transition: 0.3s ease;
   padding: 1rem 0;
   @media screen and (max-width: 708px) {
@@ -16,8 +16,8 @@ const BrandImage = styled.img`
   }
   &:hover {
     opacity: 1;
-    transform: scale(1.02);
-    filter: brightness(1.2);
+    transform: scale(1.04);
+    filter: brightness(1.1);
   }
 `;
 const SliderContainer = styled.div`
@@ -42,7 +42,7 @@ const Slide = styled.div`
 const animation = { duration: 30000, easing: (t: number) => t };
 
 export const Carroussel: React.FC = () => {
-  const numberOfCards = 11;
+  const numberOfCards = 12;
   const [sliderRef] = useKeenSlider({
     loop: true,
     renderMode: "performance",
@@ -66,6 +66,9 @@ export const Carroussel: React.FC = () => {
     <SliderContainer ref={sliderRef} className="keen-slider">
       <Slide className="keen-slider__slide">
         <BrandImage src="/images/dg.png" />
+      </Slide>
+      <Slide className="keen-slider__slide">
+        <BrandImage src="/images/4c.png" />
       </Slide>
       <Slide className="keen-slider__slide">
         <BrandImage src="/images/taurus.png" />
