@@ -56,13 +56,23 @@ export const FormTitle = styled.h2`
   font-size: 2.2rem;
   margin: 0;
   color: ${(props) => props.theme.colors.yellow};
+  @media screen and (max-width:400px){
+    text-align: center;
+    font-size: 2rem;
+  }
 `;
 
 export const FormSubTitle = styled.p`
   font-weight: 400;
   font-size: 1.5rem;
+  text-align: center;
   margin: 0;
   color: ${(props) => props.theme.colors.white2};
+
+  @media screen and (max-width:480px){
+    padding: 0 4rem;
+    font-size: 1.4rem;
+  }
 `;
 
 export const Form = styled.form`

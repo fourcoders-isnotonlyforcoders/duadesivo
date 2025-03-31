@@ -4,7 +4,7 @@ export const ContainerPrincipal = styled.section`
   overflow: hidden;
   padding: 4rem 0.5rem;
   @media screen and (max-width: 906px) {
-  border: 1px solid;
+
 }
 `;
 export const DepoimentsContainer = styled.div`
@@ -25,7 +25,7 @@ export const ZipContainer = styled.div`
   gap: 2.5rem;
   width: 100%;
   margin: 0 auto;
-  padding: 4rem 0;
+  padding: 1rem 0;
   position: relative;
   &:has(img:hover) img:not(:hover, .selo) {
     filter: blur(5px);
@@ -44,13 +44,14 @@ export const Selo = styled.img`
   object-fit: cover;
   pointer-events: none;
   @media screen and (max-width: 480px) {
-  width: 10rem;
-  left: -22px;
+  width: 9.5rem;
+  left: -15px;
   pointer-events: none;
 }
 @media screen and (min-width: 481px) and (max-width: 600px) {
     width: 12rem;
     left: -22px;
+    
 }
 @media screen and (min-width: 601px) and (max-width: 1024px) {
     width: 13rem;
@@ -85,7 +86,7 @@ export const PartnersContainer = styled.div`
   justify-content: center;
   gap: 1rem;
   @media screen and (max-width: 708px){
-    padding: 3rem 0;
+    padding: 4rem 0;
     flex-direction: column;
   }
 `;
