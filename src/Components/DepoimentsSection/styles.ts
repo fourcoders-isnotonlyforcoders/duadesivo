@@ -4,7 +4,6 @@ export const ContainerPrincipal = styled.section`
   overflow: hidden;
   padding: 4rem 0.5rem;
   @media screen and (max-width: 906px) {
-
 }
 `;
 export const DepoimentsContainer = styled.div`
@@ -81,12 +80,12 @@ export const Zip = styled.img`
 export const PartnersContainer = styled.div`
   display: flex;
   height: auto;
-  padding: 7rem 0 7rem 2rem;
+  padding: 11rem 0 11rem 2rem;
   align-items: center;
   justify-content: center;
   gap: 1rem;
   @media screen and (max-width: 708px){
-    padding: 4rem 0;
+    padding: 5rem 0;
     flex-direction: column;
   }
 `;
