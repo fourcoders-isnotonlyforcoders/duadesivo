@@ -31,10 +31,7 @@ export const Photos = styled.div`
   border-radius: 8px;
   transition: 0.3s ease;
   cursor: pointer;
-  &:hover {
-    transform: scale(1.1);
-    border: 2px solid ${(props) => props.theme.colors.yellow};
-  }
+
 `;
 
 export const PhotoImage = styled.img`
@@ -42,8 +39,12 @@ export const PhotoImage = styled.img`
   width: 300px;
   object-fit: cover;
   background-size: cover;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease !important;
   border-radius: 8px;
+  &:hover {
+    transform: scale(1.02);
+    border: 2px solid ${(props) => props.theme.colors.yellow};
+  }
 `;
 
 export const Button = styled.button`
