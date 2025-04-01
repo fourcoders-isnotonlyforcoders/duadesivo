@@ -88,11 +88,11 @@ export const Footer: React.FC = () => {
         </SecurityContainer>
       </SecondContainer>
       <ThirdContainer>
-        <Privacity to="/politicas" data-aos="fade-right" >Política de Privacidade</Privacity>
-        <Copy href="https://fourcoders.com/" target="_blank" data-aos="fade-up">
+        <Privacity to="/politicas"  >Política de Privacidade</Privacity>
+        <Copy href="https://fourcoders.com/" target="_blank" >
           Desenvolvido por <Strong>FourCoders</Strong>
         </Copy>
-        <Term to="/termos" data-aos="fade-left" >Termos e Condições</Term>
+        <Term to="/termos"  >Termos e Condições</Term>
       </ThirdContainer>
     </FooterContainer>
   );
