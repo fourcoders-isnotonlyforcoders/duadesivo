@@ -5,7 +5,7 @@ import {
   NavLinks,
   NavUl,
   NavLi,
-  NavBtn, NavBlur, NavStars, NavStars2
+  NavBtn, NavBlur, NavStars, NavStars2, BtnImg,BtnImgWrapper
 } from "./styles";
 import { Props } from "./types";
 
@@ -26,7 +26,7 @@ export const Navbar: React.FC<Props> = ({ readonly }) => {
               <a href="#processo">Processo</a>
             </NavLi>
             <NavLi data-aos="fade-down" data-aos-duration="800">
-              <a href="#cases">Cases</a>
+              <a href="#cases">Cartelas</a>
             </NavLi>
             <NavLi data-aos="fade-down" data-aos-duration="900">
               <a href="#criar">Criar</a>
@@ -34,7 +34,13 @@ export const Navbar: React.FC<Props> = ({ readonly }) => {
           </NavUl>
         </NavLinks>
       )}
-      <NavBtn onClick={() => window.open(WA_LINK)} data-aos="fade-left" data-aos-duration="700">Garanta o Seu</NavBtn>
+    <NavBtn onClick={() => window.open(WA_LINK)} data-aos="fade-left" data-aos-duration="700">
+      Garanta o Seu
+      <BtnImgWrapper>
+        <BtnImg src="icons/wp.svg" alt="WhatsApp Icon" className="default" />
+        <BtnImg src="icons/wpY.svg" alt="WhatsApp Icon Hover" className="hover" />
+      </BtnImgWrapper>
+    </NavBtn>
     </NavbarContainer>
   );
 };

@@ -74,10 +74,38 @@ export const ButtonContainer = styled.div`
   align-items: center;
   padding: 4rem 0;
 `;
+export const BtnImgWrapper = styled.div`
+  position: relative;
+  height: 2.5rem;
+  width: 2.5rem;
+  margin: 0;
+`;
+
+export const BtnImg = styled.img`
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  transition: opacity 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.default {
+    opacity: 1;
+  }
+
+  &.hover {
+    opacity: 0;
+  }
+`;
 export const Button = styled.button`
   all: unset;
   border: 2px solid #000;
   color: #000;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  justify-content: center;
   font-weight: bolder;
   box-shadow: 0 0 4px 2px #000;
   width: 40%;
@@ -96,6 +124,12 @@ export const Button = styled.button`
     background: url(/images/bgEstrelado.avif);
     border: 2px solid ${(props) => props.theme.colors.yellow};
     color: ${(props) => props.theme.colors.yellow};
+        ${BtnImg}.default {
+          opacity: 0;
+        }
+        ${BtnImg}.hover {
+          opacity: 1;
+        }
   }
   @media screen and (max-width: 908px) {
     width: 100%;

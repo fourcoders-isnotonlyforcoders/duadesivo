@@ -12,7 +12,7 @@ export const DepoimentsContainer = styled.div`
 }
 `;
 export const TitleContainer = styled.div`
-  width: 60%;
+  width:50%;
   @media screen and (max-width: 906px) {
   width: 100%;
 }

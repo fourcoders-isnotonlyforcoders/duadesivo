@@ -14,8 +14,8 @@ export const DepoimentsSection: React.FC = () => {
       <DepoimentsContainer>
         <TitleContainer>
           <TemplateText
-            Title="Inspire-se com os adesivos personalizados dos nossos clientes!"
-            PreTitle="DEPOIMENTOS"
+            Title="Inspire-se com as Mega Cartelas que criamos para você!"
+            PreTitle="CARTELAS TEMÁTICAS"
           />
         </TitleContainer>
         <ZipContainer>

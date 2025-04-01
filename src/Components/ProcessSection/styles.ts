@@ -15,7 +15,7 @@ export const TitleContainer = styled.div`
 export const PhotosContainer = styled.div`
   width: 100%;
   min-height: 90vh;
-  padding: 4rem .4rem;
+  padding: 4rem 0.4rem;
   flex-wrap: wrap;
   display: flex;
   gap: 2.4rem;
@@ -47,10 +47,39 @@ export const PhotoImage = styled.img`
   transition: opacity 0.3s ease !important;
   border-radius: 8px;
 `;
+export const BtnImgWrapper = styled.div`
+  position: relative;
+  height: 2.2rem;
+  width: 2.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
+export const BtnImg = styled.img`
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  transition: opacity 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.default {
+    opacity: 1;
+  }
+
+  &.hover {
+    opacity: 0;
+  }
+`;
 export const Button = styled.button`
   all: unset;
   border: 2px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .4rem;
   color: #000;
   font-weight: bolder;
   box-shadow: 0 0 4px 2px #000;
@@ -62,8 +91,8 @@ export const Button = styled.button`
   background-color: ${(props) => props.theme.colors.yellow};
   margin: 0 auto;
   cursor: pointer;
-  transition: background 0.4s, color 0.4s, border 0.4s, box-shadow 0.4s, opacity 0.7s,
-    transform 0.7s !important;
+  transition: background 0.4s, color 0.4s, border 0.4s, box-shadow 0.4s,
+    opacity 0.7s, transform 0.7s !important;
   &:hover {
     transform: scale(1.02);
     box-shadow: 0 0 7px 2px rgba(254, 165, 0, 0.22);
@@ -71,6 +100,12 @@ export const Button = styled.button`
     background: url(/images/bgEstrelado.avif);
     border: 2px solid ${(props) => props.theme.colors.yellow};
     color: ${(props) => props.theme.colors.yellow};
+    ${BtnImg}.default {
+      opacity: 0;
+    }
+    ${BtnImg}.hover {
+      opacity: 1;
+    }
   }
   @media screen and (max-width: 908px) {
     box-sizing: border-box;
@@ -79,14 +114,14 @@ export const Button = styled.button`
 `;
 
 export const CardsContainer = styled.div`
-display: flex;
-justify-content: space-around;
-width: 70%;
-align-items: center;
-margin: 0 auto;
-gap: 2rem;
-margin-bottom: 4rem;
-@media screen and (max-width: 780px) {
+  display: flex;
+  justify-content: space-around;
+  width: 70%;
+  align-items: center;
+  margin: 0 auto;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  @media screen and (max-width: 780px) {
     width: 100%;
     border: 1px solid;
     box-sizing: border-box;
@@ -158,7 +193,6 @@ export const CardSub = styled.p`
   @media screen and (min-width: 790px) and (max-width: 1024px) {
     padding: 0 4rem;
   }
-  
 `;
 export const Separator = styled.div`
   height: 150px;

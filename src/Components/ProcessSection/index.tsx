@@ -5,7 +5,7 @@ import {
   PhotosContainer,
   Photos,
   Button,CardsContainer, Separator,
-  PhotoImage
+  PhotoImage, BtnImg, BtnImgWrapper
 } from "./styles";
 import { Process } from "../../constants/process";
 import { TemplateText } from "../TemplateText";
@@ -47,7 +47,20 @@ export const ProcessSection = () => {
         <CardTemplate src="./icons/truck.avif" alt="test"
         title="Frete Grátis." sub="Para pedidos acima de R$ 400, oferecemos condições especiais de pagamento."/>
       </CardsContainer>
-      <Button onClick={() => window.open(WA_LINK)} data-aos="zoom-in" data-aos-duration="1000">Fale Conosco</Button>
+      <Button onClick={() => window.open(WA_LINK)} data-aos="zoom-in" data-aos-duration="1000">Fale Conosco
+                  <BtnImgWrapper>
+                    <BtnImg
+                      src="icons/wp.svg"
+                      alt="WhatsApp Icon"
+                      className="default"
+                    />
+                    <BtnImg
+                      src="icons/wpY.svg"
+                      alt="WhatsApp Icon Hover"
+                      className="hover"
+                    />
+                  </BtnImgWrapper>
+      </Button>
     </ProcessContainer>
   );
 };
