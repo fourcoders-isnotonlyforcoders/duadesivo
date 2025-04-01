@@ -8,34 +8,34 @@ type ProcessType = {
 export const Process : ProcessType[] = [
   {
     src: './images/tijoloP.jpg',
-    alt: 'images teste',
-    hoverSrc: './images/tijoloH.png'
+    alt: 'recebimento',
+    hoverSrc: './images/1.png'
   },
   {
     src: './images/gomesP.jpg',
-    alt: 'images teste',
-    hoverSrc: './images/testActivate.avif'
+    alt: 'impressão',
+    hoverSrc: './images/2.png'
   },
   {
     src: './images/process.avif',
-    alt: 'images teste',
-    hoverSrc: './images/testActivate.avif'
+    alt: 'recorte',
+    hoverSrc: './images/3.png'
   },
   {
     src: './images/impressao.avif',
-    alt: 'images teste',
-    hoverSrc: './images/testActivate.avif'
+    alt: 'revisão',
+    hoverSrc: './images/4.png'
   },
 
 
   {
     src: './images/acaiP.jpg',
-    alt: 'images teste',
-    hoverSrc: './images/testActivate.avif'
+    alt: 'finalização',
+    hoverSrc: './images/5.png'
   }, 
   {
     src: './images/aladinP.jpg',
-    alt: 'images teste',
-    hoverSrc: './images/testActivate.avif'
+    alt: 'entrega',
+    hoverSrc: './images/6.png'
   }
 ]

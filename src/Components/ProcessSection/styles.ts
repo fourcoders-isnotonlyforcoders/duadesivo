@@ -15,10 +15,10 @@ export const TitleContainer = styled.div`
 export const PhotosContainer = styled.div`
   width: 100%;
   min-height: 90vh;
-  padding: 4rem 0;
+  padding: 4rem .4rem;
   flex-wrap: wrap;
   display: flex;
-  gap: 2.2rem;
+  gap: 2.4rem;
   justify-content: center;
   @media screen and (max-width: 908px) {
     min-height: 100vh;
@@ -26,25 +26,26 @@ export const PhotosContainer = styled.div`
 `;
 
 export const Photos = styled.div`
-  height: fit-content;
-  border: 2px solid;
+  height: 300px;
+  width: 300px;
+  border: 2px solid #000;
   border-radius: 8px;
-  transition: 0.3s ease;
-  cursor: pointer;
 
+  transition: 0.3s ease !important;
+  cursor: inherit;
+  &:hover {
+    border: 2px solid ${(props) => props.theme.colors.yellow};
+    box-shadow: 0 0 14px 2px #000;
+  }
 `;
 
 export const PhotoImage = styled.img`
-  height: 300px;
-  width: 300px;
+  height: 100%;
+  width: 100%;
   object-fit: cover;
   background-size: cover;
   transition: opacity 0.3s ease !important;
   border-radius: 8px;
-  &:hover {
-    transform: scale(1.02);
-    border: 2px solid ${(props) => props.theme.colors.yellow};
-  }
 `;
 
 export const Button = styled.button`
