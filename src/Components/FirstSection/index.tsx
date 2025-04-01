@@ -1,4 +1,3 @@
-import { WA_LINK } from "../../constants/social";
 import {
   FirstContainer,
   InfosContainer,
