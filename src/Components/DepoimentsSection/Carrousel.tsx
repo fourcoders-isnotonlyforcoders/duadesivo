@@ -50,7 +50,7 @@ export const Carroussel: React.FC = () => {
     mode: "free",
     slides: {
       perView: 4,
-      spacing: 0,
+      spacing: 11,
     },
     created(s) {
       s.moveToIdx(numberOfCards - 1, true, animation);
