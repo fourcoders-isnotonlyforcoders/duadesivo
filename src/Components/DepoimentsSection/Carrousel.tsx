@@ -39,7 +39,7 @@ const Slide = styled.div`
   }
 `;
 
-const animation = { duration: 22000, easing: (t: number) => t };
+const animation = { duration: 25000, easing: (t: number) => t };
 
 export const Carroussel: React.FC = () => {
   const numberOfCards = 14;
@@ -54,7 +54,7 @@ export const Carroussel: React.FC = () => {
     },
     breakpoints: {
       "(max-width: 768px)": {
-        slides: { perView: 3, spacing: 15 }, 
+        slides: { perView: 3, spacing: -11 }, 
       },
     },
     created(s) {
