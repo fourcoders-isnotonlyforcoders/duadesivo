@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
 export const ContainerPrincipal = styled.section`
-  overflow: hidden;
-  padding: 4rem 0.5rem;
+  padding: 4rem 0;
   @media screen and (max-width: 906px) {
-  border: 1px solid;
+  padding: 4rem 0;
 }
 `;
 export const DepoimentsContainer = styled.div`
@@ -22,10 +21,10 @@ export const ZipContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2.5rem;
+  gap: 1.2rem;
   width: 100%;
   margin: 0 auto;
-  padding: 4rem 0;
+  padding: 4rem .4rem 2rem .4rem;
   position: relative;
   &:has(img:hover) img:not(:hover, .selo) {
     filter: blur(5px);
@@ -38,14 +37,14 @@ export const ZipContainer = styled.div`
 
 export const Selo = styled.img`
   position: absolute;
-  left: 4px;
-  top: -10px;
-  width: 14rem;
+  left: -22px;
+  top: -22px;
+  width: 13rem;
   object-fit: cover;
   pointer-events: none;
   @media screen and (max-width: 480px) {
-  width: 10rem;
-  left: -22px;
+  width: 9rem;
+  left: -11px;
   pointer-events: none;
 }
 @media screen and (min-width: 481px) and (max-width: 600px) {
@@ -60,7 +59,7 @@ export const Selo = styled.img`
 export const Zip = styled.img`
   height: auto;
   object-fit: cover;
-  width: 20%;
+  width: 23%;
   margin: 0;
   opacity: 0.8;
   transition: 0.3s ease;
@@ -68,13 +67,13 @@ export const Zip = styled.img`
   box-shadow: 0 0 22px 2px rgba(254, 165, 0, 0.11);
 
   &:hover {
-    transform: scale(1.1) !important;
+    transform: scale(1.05) !important;
     opacity: 1;
     filter: brightness(1.1);
     box-shadow: 0 0 44px 4px rgba(254, 165, 0, 0.77);
   }
   @media screen and (max-width: 906px) {
-  width: 40%;
+  width: 44%;
 }
 `;
 export const PartnersContainer = styled.div`
