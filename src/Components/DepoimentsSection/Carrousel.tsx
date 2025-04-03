@@ -24,7 +24,7 @@ const SliderContainer = styled.div`
   width: auto;
   display: flex;
   align-items: center;
-  padding: 1rem 0.4rem;
+  padding: 1rem 0;
 `;
 
 const Slide = styled.div`
@@ -39,17 +39,18 @@ const Slide = styled.div`
   }
 `;
 
-const animation = { duration: 30000, easing: (t: number) => t };
+const animation = { duration: 22000, easing: (t: number) => t };
 
 export const Carroussel: React.FC = () => {
-  const numberOfCards = 12;
+  const numberOfCards = 14;
   const [sliderRef] = useKeenSlider({
     loop: true,
     renderMode: "performance",
     drag: false,
+    mode: "free",
     slides: {
       perView: 4,
-      spacing: -11,
+      spacing: 0,
     },
     created(s) {
       s.moveToIdx(numberOfCards - 1, true, animation);
@@ -87,6 +88,12 @@ export const Carroussel: React.FC = () => {
       </Slide>
       <Slide className="keen-slider__slide">
         <BrandImage src="/images/mm.png" />
+      </Slide>
+      <Slide className="keen-slider__slide">
+        <BrandImage src="/images/wb.png" />
+      </Slide>
+      <Slide className="keen-slider__slide">
+        <BrandImage src="/images/balaclava.png" />
       </Slide>
     </SliderContainer>
   );

@@ -20,22 +20,22 @@ export const DepoimentsSection: React.FC = () => {
         </TitleContainer>
         <ZipContainer>
           <Zip
-            src="./images/cartelaTest.jpg"
+            src="./images/14.png"
             data-aos="fade-right"
             data-aos-duration="600"
           />
           <Zip
-            src="./images/cartelaTest.jpg"
+            src="./images/8.png"
             data-aos="fade-up"
             data-aos-duration="600"
           />
           <Zip
-            src="./images/cartelaTest.jpg"
+            src="./images/9.png"
             data-aos="fade-down"
             data-aos-duration="600"
           />
           <Zip
-            src="./images/cartelaTest.jpg"
+            src="./images/10.png"
             data-aos="fade-left"
             data-aos-duration="600"
           />
@@ -43,22 +43,22 @@ export const DepoimentsSection: React.FC = () => {
         </ZipContainer>
         <ZipContainer>
           <Zip
-            src="./images/cartelaTest.jpg"
+            src="./images/11.png"
             data-aos="fade-right"
             data-aos-duration="600"
           />
           <Zip
-            src="./images/cartelaTest.jpg"
+            src="./images/12.png"
             data-aos="fade-up"
             data-aos-duration="600"
           />
           <Zip
-            src="./images/cartelaTest.jpg"
+            src="./images/13.png"
             data-aos="fade-down"
             data-aos-duration="600"
           />
           <Zip
-            src="./images/cartelaTest.jpg"
+            src="./images/7.png"
             data-aos="fade-left"
             data-aos-duration="600"
           />
