@@ -20,22 +20,22 @@ export const DepoimentsSection: React.FC = () => {
         </TitleContainer>
         <ZipContainer>
           <Zip
-            src="./images/zip.svg"
+            src="./images/cartelaTest.jpg"
             data-aos="fade-right"
             data-aos-duration="600"
           />
           <Zip
-            src="./images/zip6.svg"
+            src="./images/cartelaTest.jpg"
             data-aos="fade-up"
             data-aos-duration="600"
           />
           <Zip
-            src="./images/zip7.svg"
+            src="./images/cartelaTest.jpg"
             data-aos="fade-down"
             data-aos-duration="600"
           />
           <Zip
-            src="./images/zip8.svg"
+            src="./images/cartelaTest.jpg"
             data-aos="fade-left"
             data-aos-duration="600"
           />
@@ -43,22 +43,22 @@ export const DepoimentsSection: React.FC = () => {
         </ZipContainer>
         <ZipContainer>
           <Zip
-            src="./images/zip2.svg"
+            src="./images/cartelaTest.jpg"
             data-aos="fade-right"
             data-aos-duration="600"
           />
           <Zip
-            src="./images/zip3.svg"
+            src="./images/cartelaTest.jpg"
             data-aos="fade-up"
             data-aos-duration="600"
           />
           <Zip
-            src="./images/zip4.svg"
+            src="./images/cartelaTest.jpg"
             data-aos="fade-down"
             data-aos-duration="600"
           />
           <Zip
-            src="./images/zip5.svg"
+            src="./images/cartelaTest.jpg"
             data-aos="fade-left"
             data-aos-duration="600"
           />
