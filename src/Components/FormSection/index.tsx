@@ -85,7 +85,7 @@ export const FormSection: React.FC = () => {
             <SelectField data-aos="fade-left" data-aos-duration="700" name="tipo" required 
               defaultValue="Não Selecionado" value={tipo} onChange={(e) => setTipo(e.target.value)}> 
               <Options value="Não Selecionado" disabled>Tipo do Adesivo</Options>
-              <Options value="Holográfico (Brilho / Fosco)">Holográfico (Brilho / Fosco)</Options>
+              <Options value="Holográfico (Brilho / Fosco)">Holográfico (Brilho)</Options>
               <Options value="Vinil Branco (Brilho)">Vinil Branco (Brilho)</Options>
               <Options value="Vinil Branco (Fosco)">Vinil Branco (Fosco)</Options>
               <Options value="Transparente (Brilho)">Transparente (Brilho)</Options>
