@@ -38,8 +38,8 @@ export const FormSection: React.FC = () => {
             src="./images/holografico.png"
             alt="imagem de uma cor holográfica"
             title="Holográfico"
-            sub="Laminação Brilho/ Fosca"
-            value="Holográfico (Brilho / Fosco)"
+            sub="Laminação Brilho"
+            value="Holográfico (Brilho)"
           />
           <Cards
             src="./images/branco.png"
