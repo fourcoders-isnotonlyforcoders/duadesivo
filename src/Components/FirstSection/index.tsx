@@ -13,7 +13,7 @@ export const FirstSection: React.FC = () => {
       <BgPascoa src="/images/pascoa.svg" />
       <InfosContainer>
         <PrincipalText data-aos="fade-right" data-aos-duration="600">
-          Muito mais que adesivos, somos uma comunidade.
+          Muito mais que adesivos, somos uma equipe.
         </PrincipalText>
         <SubTitle data-aos="fade-up-right" data-aos-duration="700">
           Cartelas e adesivos personalizados com envio para todo o Brasil.{" "}
