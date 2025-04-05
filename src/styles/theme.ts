@@ -1,18 +1,14 @@
 export const theme = {
   colors: {
-    black: "#000000",
-    white: "#FFFFFF",
-    offBlack: "#1B1B1B",
-    gray900: "#545454",
-    gray600: "#A2A5AA",
-    gray500: "#DFDEE3",
-    gray300: "#ECEBF0",
-    gray200: "#F3F4F6",
-    gray100: "#FFF9F6",
-    bluegray: "#464A55",
-    purple900: "#720237",
-    purple500: "#ED145B",
-    purple400: "#D10F43",
-    salmon: "#F95C5C"
+    background: "#040200",
+    black: "#111111",
+    black2: "#000000",
+    white: "#F2F2F2",
+    white2: "#d4d4d4",
+    yellow: "#FEA500",
+    yellowOpacity55: "RGBA(254, 165, 0, 0.55)",
+    orange: "#E93700",
+    orange2:"#F25D00",
+    orange3:"#c93a09",
   }
 }; 
