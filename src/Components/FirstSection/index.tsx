@@ -10,7 +10,7 @@ import {
 export const FirstSection: React.FC = () => {
   return (
     <FirstContainer>
-      <BgPascoa src="/images/pascoa.svg" />
+      <BgPascoa src="/images/maes.png" />
       <InfosContainer>
         <PrincipalText data-aos="fade-right" data-aos-duration="600">
           Muito mais que adesivos, somos uma equipe.

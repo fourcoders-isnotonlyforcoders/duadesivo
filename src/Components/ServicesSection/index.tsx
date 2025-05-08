@@ -28,7 +28,7 @@ export const ServicesSection: React.FC = () => {
       </TitleContainer>
 
       <PrincipalBannerContainer data-aos="zoom-in-up" data-aos-duration="700">
-        <PrincipalBanner src="/images/bannerHolografico.avif" />
+        <PrincipalBanner src="/images/bannerHolografico.png" />
       </PrincipalBannerContainer>
       <Carrousel />
       <Carrousel2 />
