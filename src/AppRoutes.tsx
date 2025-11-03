@@ -3,6 +3,7 @@ import { Home } from "./pages/Home";
 import { Politicas } from "./pages/Politicas";
 import { ScrollToTop } from "./utils/ScrollToTop";
 import { Termos } from "./pages/Termos";
+import { Calculadora } from "./pages/Calculadora";
 
 export const AppRoutes: React.FC = () => {
     return (
@@ -12,6 +13,7 @@ export const AppRoutes: React.FC = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/politicas" element={<Politicas />} />
                 <Route path="/termos" element={<Termos />} />
+                <Route path="/calculadora" element={<Calculadora />} />
             </Routes>
         </BrowserRouter>
     )
