@@ -123,11 +123,67 @@ export const SelectField = styled.select`
   color: #f2f2f2;
   border-radius: 8px;
   font-size: 1.7rem;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 `;
 
 export const Options = styled.option`
   background-color: black;
   color: #fff;
+`;
+
+export const PriceResult = styled.div`
+  margin-top: 1rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(254, 165, 0, 0.1) 0%, rgba(254, 165, 0, 0.05) 100%);
+  border: 2px solid ${(props) => props.theme.colors.yellow};
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+`;
+
+export const PriceValue = styled.div`
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.yellow};
+  text-align: center;
+  
+  @media screen and (max-width: 480px) {
+    font-size: 2rem;
+  }
+`;
+
+export const PriceDetails = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(254, 165, 0, 0.3);
+`;
+
+export const PriceDetailItem = styled.div`
+  font-size: 1.4rem;
+  color: ${(props) => props.theme.colors.white2};
+  display: flex;
+  justify-content: space-between;
+  
+  strong {
+    color: ${(props) => props.theme.colors.white};
+  }
+  
+  @media screen and (max-width: 480px) {
+    font-size: 1.2rem;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
 `;
 
 export const Submit = styled.input`
