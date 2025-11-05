@@ -28,27 +28,28 @@ import {
 import { Cards } from "./Cards";
 import { calculatePrice, CalculationResult } from "../../utils/calculatePrice";
 import { WA_LINK, WA_NUMBER } from "../../constants/social";
-import { BRAZILIAN_STATES } from "../../constants/calculator";
+import { BRAZILIAN_STATES, AVAILABLE_SIZES } from "../../constants/calculator";
 
 export const CalculatorSection: React.FC = () => {
   const [tipo, setTipo] = useState("Não Selecionado");
+  const [tamanho, setTamanho] = useState<string>("");
   const [quantidade, setQuantidade] = useState<string>("");
   const [nome, setNome] = useState<string>("");
   const [estado, setEstado] = useState<string>("");
   const [result, setResult] = useState<CalculationResult | null>(null);
   const [showResult, setShowResult] = useState(false);
 
-  // Calcula automaticamente quando tipo ou quantidade mudam
+  // Calcula automaticamente quando tipo, tamanho ou quantidade mudam
   useEffect(() => {
-    if (tipo !== "Não Selecionado" && quantidade && parseInt(quantidade) >= 50) {
-      const calculation = calculatePrice(tipo, parseInt(quantidade));
+    if (tipo !== "Não Selecionado" && tamanho && quantidade && parseInt(quantidade) >= 50) {
+      const calculation = calculatePrice(tipo, tamanho, parseInt(quantidade));
       setResult(calculation);
       setShowResult(calculation.isValid);
     } else {
       setShowResult(false);
       setResult(null);
     }
-  }, [tipo, quantidade]);
+  }, [tipo, tamanho, quantidade]);
 
   const handleCalculate = () => {
     if (!quantidade || parseInt(quantidade) < 50) {
@@ -73,7 +74,18 @@ export const CalculatorSection: React.FC = () => {
       return;
     }
 
-    const calculation = calculatePrice(tipo, parseInt(quantidade));
+    if (!tamanho) {
+      setResult({
+        unitPrice: 0,
+        totalPrice: 0,
+        isValid: false,
+        error: "Selecione o tamanho do adesivo"
+      });
+      setShowResult(true);
+      return;
+    }
+
+    const calculation = calculatePrice(tipo, tamanho, parseInt(quantidade));
     setResult(calculation);
     setShowResult(true);
   };
@@ -85,6 +97,7 @@ export const CalculatorSection: React.FC = () => {
       `Nome: ${nome || "Não informado"}\n` +
       `Estado: ${estado || "Não informado"}\n` +
       `Tipo: ${tipo}\n` +
+      `Tamanho: ${tamanho || "Não informado"}\n` +
       `Quantidade: ${quantidade} unidades\n` +
       `Preço Unitário: ${formatCurrency(result.unitPrice)}\n` +
       `Valor Total: ${formatCurrency(result.totalPrice)}`;
@@ -184,13 +197,31 @@ export const CalculatorSection: React.FC = () => {
             <SectionLabel>Opções do Produto</SectionLabel>
             <SelectField
               value={tipo}
-              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setTipo(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+                setTipo(e.target.value);
+                setTamanho(""); // Reset tamanho quando muda o tipo
+              }}
             >
               <Options value="Não Selecionado" disabled>
                 Tipo do Adesivo
               </Options>
               <Options value="Vinil Holográfico">Vinil Holográfico</Options>
               <Options value="Vinil Branco">Vinil Branco</Options>
+            </SelectField>
+            <SelectField
+              value={tamanho}
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setTamanho(e.target.value)}
+              disabled={tipo === "Não Selecionado"}
+            >
+              {AVAILABLE_SIZES.map((size) => (
+                <Options
+                  key={size.value}
+                  value={size.value}
+                  disabled={size.value === ""}
+                >
+                  {size.label}
+                </Options>
+              ))}
             </SelectField>
             <InputField
               type="number"
@@ -227,6 +258,11 @@ export const CalculatorSection: React.FC = () => {
                     <ResultDetailItem>
                       <strong>Tipo:</strong> {tipo}
                     </ResultDetailItem>
+                    {tamanho && (
+                      <ResultDetailItem>
+                        <strong>Tamanho:</strong> {AVAILABLE_SIZES.find(s => s.value === tamanho)?.label || tamanho}
+                      </ResultDetailItem>
+                    )}
                     {nome && (
                       <ResultDetailItem>
                         <strong>Nome:</strong> {nome}

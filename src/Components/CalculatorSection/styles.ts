@@ -152,6 +152,13 @@ export const SelectField = styled.select`
   border-radius: 8px;
   font-size: 1.7rem;
   width: 100%;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 `;
 
 export const Options = styled.option`
