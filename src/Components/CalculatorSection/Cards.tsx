@@ -17,6 +17,7 @@ interface CardsProps extends CardProps {
 const Card = styled.div<{ selected: boolean }>`
   border: 1.5px solid ${({ theme, selected }) => theme.colors[selected ? "yellow" : "white"]};
   width: 100%;
+  max-width: 100%;
   border-radius: 8px;
   height: auto;
   padding: 2rem 1rem;

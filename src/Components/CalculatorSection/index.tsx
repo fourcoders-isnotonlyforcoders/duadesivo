@@ -21,15 +21,20 @@ import {
   CalculateButton,
   WAButton,
   BtnImg,
-  BtnImgWrapper
+  BtnImgWrapper,
+  FormSection,
+  SectionLabel
 } from "./styles";
 import { Cards } from "./Cards";
 import { calculatePrice, CalculationResult } from "../../utils/calculatePrice";
 import { WA_LINK, WA_NUMBER } from "../../constants/social";
+import { BRAZILIAN_STATES } from "../../constants/calculator";
 
 export const CalculatorSection: React.FC = () => {
   const [tipo, setTipo] = useState("Não Selecionado");
   const [quantidade, setQuantidade] = useState<string>("");
+  const [nome, setNome] = useState<string>("");
+  const [estado, setEstado] = useState<string>("");
   const [result, setResult] = useState<CalculationResult | null>(null);
   const [showResult, setShowResult] = useState(false);
 
@@ -77,6 +82,8 @@ export const CalculatorSection: React.FC = () => {
     if (!result || !result.isValid) return;
 
     const messageText = `Olá! Gostaria de solicitar um orçamento:\n\n` +
+      `Nome: ${nome || "Não informado"}\n` +
+      `Estado: ${estado || "Não informado"}\n` +
       `Tipo: ${tipo}\n` +
       `Quantidade: ${quantidade} unidades\n` +
       `Preço Unitário: ${formatCurrency(result.unitPrice)}\n` +
@@ -149,28 +156,50 @@ export const CalculatorSection: React.FC = () => {
             </CalculatorSubTitle>
           </CalculatorInfo>
 
-          <SelectField
-            data-aos="fade-left"
-            data-aos-duration="700"
-            value={tipo}
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setTipo(e.target.value)}
-          >
-            <Options value="Não Selecionado" disabled>
-              Tipo do Adesivo
-            </Options>
-            <Options value="Vinil Holográfico">Vinil Holográfico</Options>
-            <Options value="Vinil Branco">Vinil Branco</Options>
-          </SelectField>
+          <FormSection data-aos="fade-up" data-aos-duration="600">
+            <SectionLabel>Dados Pessoais</SectionLabel>
+            <InputField
+              type="text"
+              placeholder="Nome completo"
+              value={nome}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNome(e.target.value)}
+            />
+            <SelectField
+              value={estado}
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setEstado(e.target.value)}
+            >
+              {BRAZILIAN_STATES.map((state) => (
+                <Options
+                  key={state.value}
+                  value={state.value}
+                  disabled={state.value === ""}
+                >
+                  {state.label}
+                </Options>
+              ))}
+            </SelectField>
+          </FormSection>
 
-          <InputField
-            type="number"
-            placeholder="Quantidade (mínimo 50 unidades)"
-            data-aos="fade-right"
-            data-aos-duration="700"
-            value={quantidade}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setQuantidade(e.target.value)}
-            min="50"
-          />
+          <FormSection data-aos="fade-up" data-aos-duration="700">
+            <SectionLabel>Opções do Produto</SectionLabel>
+            <SelectField
+              value={tipo}
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setTipo(e.target.value)}
+            >
+              <Options value="Não Selecionado" disabled>
+                Tipo do Adesivo
+              </Options>
+              <Options value="Vinil Holográfico">Vinil Holográfico</Options>
+              <Options value="Vinil Branco">Vinil Branco</Options>
+            </SelectField>
+            <InputField
+              type="number"
+              placeholder="Quantidade (mínimo 50 unidades)"
+              value={quantidade}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setQuantidade(e.target.value)}
+              min="50"
+            />
+          </FormSection>
 
           <CalculateButton
             type="button"
@@ -198,6 +227,16 @@ export const CalculatorSection: React.FC = () => {
                     <ResultDetailItem>
                       <strong>Tipo:</strong> {tipo}
                     </ResultDetailItem>
+                    {nome && (
+                      <ResultDetailItem>
+                        <strong>Nome:</strong> {nome}
+                      </ResultDetailItem>
+                    )}
+                    {estado && (
+                      <ResultDetailItem>
+                        <strong>Estado:</strong> {BRAZILIAN_STATES.find(s => s.value === estado)?.label || estado}
+                      </ResultDetailItem>
+                    )}
                   </ResultDetails>
                   <WAButton onClick={handleWhatsApp}>
                     <span>Solicitar Orçamento via WhatsApp</span>

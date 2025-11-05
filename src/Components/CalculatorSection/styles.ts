@@ -33,6 +33,7 @@ export const InfoContainer = styled.div`
 export const CardsContainer = styled.aside`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 2rem;
   width: 40%;
   padding: 1rem;
@@ -47,6 +48,12 @@ export const CalculatorContainer = styled.div`
   padding: 1rem 0;
   @media screen and (max-width: 906px) {
     width: 100%;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+  }
+  
+  @media screen and (max-width: 480px) {
+    padding: 1rem 1.5rem;
   }
 `;
 
@@ -107,6 +114,33 @@ export const Inputs = styled.div`
   width: 100%;
 `;
 
+export const SectionLabel = styled.h3`
+  font-size: 1.8rem;
+  color: ${(props) => props.theme.colors.yellow};
+  margin: 0 0 1.5rem 0;
+  font-weight: 600;
+  
+  @media screen and (max-width: 480px) {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+`;
+
+export const FormSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 3.5rem;
+  
+  & > *:not(:last-child):not(${SectionLabel}) {
+    margin-bottom: 2rem;
+  }
+  
+  @media screen and (max-width: 906px) {
+    margin-bottom: 3rem;
+  }
+`;
+
 export const SelectField = styled.select`
   appearance: none;
   -webkit-appearance: none;
@@ -117,7 +151,7 @@ export const SelectField = styled.select`
   color: #f2f2f2;
   border-radius: 8px;
   font-size: 1.7rem;
-  margin-bottom: 2rem;
+  width: 100%;
 `;
 
 export const Options = styled.option`
@@ -249,11 +283,17 @@ export const WAButton = styled.button`
   span {
     flex: 1;
     text-align: center;
+    color: white;
   }
   
   &:hover {
     background-color: #128c7e;
     transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    
+    span {
+      color: white;
+    }
   }
   
   @media screen and (max-width: 680px) {
@@ -283,9 +323,14 @@ export const BtnImgWrapper = styled.div`
   position: relative;
   width: 2.4rem;
   height: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
   .default {
     display: block;
+    filter: brightness(0) invert(1);
+    transition: filter 0.3s ease;
   }
   
   .hover {
@@ -294,11 +339,13 @@ export const BtnImgWrapper = styled.div`
   
   ${WAButton}:hover & {
     .default {
-      display: none;
+      display: block;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
     }
     
     .hover {
-      display: block;
+      display: none;
     }
   }
   
