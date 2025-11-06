@@ -11,7 +11,7 @@ const SplashScreenWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;  
+  z-index: 99999;  
   transition: opacity 1s ease-out;
 `;
 
@@ -38,18 +38,18 @@ const SplashScreen: React.FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoaded(true);
-    }, 3000); 
+    }, 3000);
 
-    return () => clearTimeout(timer); 
+    return () => clearTimeout(timer);
   }, []);
 
   if (isLoaded) {
-    return null; 
+    return null;
   }
 
   return (
     <SplashScreenWrapper>
-      <Logo src="/images/DuLogo2.svg"/>
+      <Logo src="/images/DuLogo2.svg" />
     </SplashScreenWrapper>
   );
 };

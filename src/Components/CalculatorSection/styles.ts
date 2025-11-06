@@ -6,7 +6,11 @@ export const SectionContainer = styled.section`
   box-sizing: border-box;
   padding: 4rem 2rem;
   @media screen and (max-width: 906px) {
-    padding: 2rem 1rem;
+    padding: 2rem 1.5rem;
+  }
+  
+  @media screen and (max-width: 480px) {
+    padding: 2rem 1.5rem;
   }
 `;
 
@@ -26,7 +30,8 @@ export const InfoContainer = styled.div`
   width: 60%;
   margin-bottom: 3rem;
   @media screen and (max-width: 906px) {
-    width: 90%;
+    width: 100%;
+    padding: 0;
   }
 `;
 
@@ -38,7 +43,8 @@ export const CardsContainer = styled.aside`
   width: 40%;
   padding: 1rem;
   @media screen and (max-width: 906px) {
-    width: 90%;
+    width: 100%;
+    padding: 0;
     box-sizing: border-box;
   }
 `;
@@ -48,12 +54,8 @@ export const CalculatorContainer = styled.div`
   padding: 1rem 0;
   @media screen and (max-width: 906px) {
     width: 100%;
-    padding: 1rem 2rem;
+    padding: 1rem 0;
     box-sizing: border-box;
-  }
-  
-  @media screen and (max-width: 480px) {
-    padding: 1rem 1.5rem;
   }
 `;
 
