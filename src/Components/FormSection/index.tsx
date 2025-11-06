@@ -21,19 +21,21 @@ import {
   PriceDetailItem
 } from "./styles";
 import { Cards } from "./Cards";
-import { useEnviarForm } from "../../hooks/useEnviarForm";
 import { useFormContext } from "../../contexts/FormContext";
 import { calculatePrice, CalculationResult } from "../../utils/calculatePrice";
 import { mapFormTypeToPriceType } from "../../utils/formPriceHelper";
 import { AVAILABLE_SIZES } from "../../constants/calculator";
-import { formatPhone, removePhoneMask } from "../../utils/phoneMask";
+import { formatPhone } from "../../utils/phoneMask";
+import { WA_LINK, WA_NUMBER } from "../../constants/social";
 
 export const FormSection: React.FC = () => {
-  const { save: originalSave } = useEnviarForm();
   const { tipo, setTipo } = useFormContext();
+  const [nome, setNome] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
   const [quantidade, setQuantidade] = useState<string>("");
   const [tamanho, setTamanho] = useState<string>("");
   const [telefone, setTelefone] = useState<string>("");
+  const [modelo, setModelo] = useState<string>("Não Selecionado");
   const [priceResult, setPriceResult] = useState<CalculationResult | null>(null);
 
   // Função para formatar moeda
@@ -44,14 +46,50 @@ export const FormSection: React.FC = () => {
     }).format(value);
   };
 
-  // Wrapper para limpar os estados após envio
-  const save = (event: React.FormEvent<HTMLFormElement>) => {
-    originalSave(event);
+  // Função para enviar por WhatsApp
+  const handleWhatsApp = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const messageText = `Olá! Gostaria de solicitar um orçamento:\n\n` +
+      `Nome: ${nome || "Não informado"}\n` +
+      `E-mail: ${email || "Não informado"}\n` +
+      `Telefone: ${telefone || "Não informado"}\n` +
+      `Tipo: ${tipo || "Não informado"}\n` +
+      `Tamanho: ${AVAILABLE_SIZES.find(s => s.value === tamanho)?.label || tamanho || "Não informado"}\n` +
+      `Modelo: ${modelo || "Não informado"}\n` +
+      `Quantidade: ${quantidade || "Não informado"} unidades` +
+      (priceResult && priceResult.isValid
+        ? `\nPreço Unitário: ${formatCurrency(priceResult.unitPrice)}\nValor Total: ${formatCurrency(priceResult.totalPrice)}`
+        : '');
+
+    const encodedMessage = encodeURIComponent(messageText);
+
+    // Constrói a URL do WhatsApp corretamente
+    let whatsappUrl: string;
+    if (WA_NUMBER) {
+      // Se tiver número, constrói do zero
+      const phoneNumber = WA_NUMBER.replace(/\D/g, ''); // Remove caracteres não numéricos
+      whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    } else if (WA_LINK) {
+      // Se já tiver link, adiciona o text
+      const separator = WA_LINK.includes('?') ? '&' : '?';
+      whatsappUrl = `${WA_LINK}${separator}text=${encodedMessage}`;
+    } else {
+      // Fallback
+      whatsappUrl = `https://wa.me/?text=${encodedMessage}`;
+    }
+
+    window.open(whatsappUrl, "_blank");
+
     // Limpa os estados após o envio
+    setNome("");
+    setEmail("");
     setQuantidade("");
     setTamanho("");
     setTelefone("");
+    setModelo("Não Selecionado");
     setPriceResult(null);
+    event.currentTarget.reset();
   };
 
   // Calcula o preço automaticamente quando os campos mudam
@@ -139,13 +177,27 @@ export const FormSection: React.FC = () => {
             </FormSubTitle>
           </FormInfo>
 
-          <Form onSubmit={save}>
+          <Form onSubmit={handleWhatsApp}>
             <FormInputs>
-              <InputField type="text" placeholder="Nome" data-aos="fade-left"
-                data-aos-duration="700" name="nome" required />
+              <InputField
+                type="text"
+                placeholder="Nome"
+                data-aos="fade-left"
+                data-aos-duration="700"
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
+                required
+              />
               <Inputs>
-                <InputField type="email" placeholder="E-mail" data-aos="fade-right"
-                  data-aos-duration="700" name="email" required />
+                <InputField
+                  type="email"
+                  placeholder="E-mail"
+                  data-aos="fade-right"
+                  data-aos-duration="700"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
                 <InputField
                   type="tel"
                   placeholder="Telefone (ex: (11) 99999-9999)"
@@ -159,16 +211,14 @@ export const FormSection: React.FC = () => {
                   maxLength={15}
                   required
                 />
-                {/* Campo hidden para enviar apenas números */}
-                <input
-                  type="hidden"
-                  name="telefone"
-                  value={removePhoneMask(telefone)}
-                />
               </Inputs>
             </FormInputs>
-            <SelectField data-aos="fade-left" data-aos-duration="700" name="tipo" required
-              defaultValue="Não Selecionado" value={tipo} onChange={(e) => {
+            <SelectField
+              data-aos="fade-left"
+              data-aos-duration="700"
+              required
+              value={tipo}
+              onChange={(e) => {
                 setTipo(e.target.value);
                 setTamanho(""); // Reset tamanho quando muda o tipo
               }}>
@@ -184,7 +234,6 @@ export const FormSection: React.FC = () => {
               value={tamanho}
               onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setTamanho(e.target.value)}
               disabled={tipo === "Não Selecionado"}
-              name="tamanho"
               required
             >
               {AVAILABLE_SIZES.map((size) => (
@@ -197,8 +246,13 @@ export const FormSection: React.FC = () => {
                 </Options>
               ))}
             </SelectField>
-            <SelectField data-aos="fade-right"
-              data-aos-duration="700" name="modelo" required defaultValue="Não Selecionado">
+            <SelectField
+              data-aos="fade-right"
+              data-aos-duration="700"
+              required
+              value={modelo}
+              onChange={(e) => setModelo(e.target.value)}
+            >
               <Options value="Não Selecionado" disabled>Modelo Desejado (corte do adesivo)</Options>
               <Options value="redondo">redondo</Options>
               <Options value="quadrado">quadrado</Options>
@@ -209,7 +263,6 @@ export const FormSection: React.FC = () => {
               placeholder="Quantidade (mínimo 50 unidades)"
               data-aos="fade-left"
               data-aos-duration="700"
-              name="quantidade"
               value={quantidade}
               onChange={(e) => setQuantidade(e.target.value)}
               min="50"
@@ -220,6 +273,11 @@ export const FormSection: React.FC = () => {
               <PriceResult data-aos="fade-up" data-aos-duration="600">
                 <PriceValue>{formatCurrency(priceResult.totalPrice)}</PriceValue>
                 <PriceDetails>
+                  {nome && (
+                    <PriceDetailItem>
+                      <strong>Nome:</strong> {nome}
+                    </PriceDetailItem>
+                  )}
                   <PriceDetailItem>
                     <strong>Preço Unitário:</strong> {formatCurrency(priceResult.unitPrice)}
                   </PriceDetailItem>
@@ -232,6 +290,11 @@ export const FormSection: React.FC = () => {
                   <PriceDetailItem>
                     <strong>Tipo:</strong> {tipo}
                   </PriceDetailItem>
+                  {modelo && modelo !== "Não Selecionado" && (
+                    <PriceDetailItem>
+                      <strong>Modelo:</strong> {modelo}
+                    </PriceDetailItem>
+                  )}
                 </PriceDetails>
               </PriceResult>
             )}
@@ -244,18 +307,8 @@ export const FormSection: React.FC = () => {
               </PriceResult>
             )}
 
-            {/* Campos hidden para enviar valores calculados no email */}
-            {priceResult && priceResult.isValid && (
-              <>
-                <input type="hidden" name="preco_unitario" value={formatCurrency(priceResult.unitPrice)} />
-                <input type="hidden" name="preco_total" value={formatCurrency(priceResult.totalPrice)} />
-                <input type="hidden" name="tamanho_selecionado" value={AVAILABLE_SIZES.find(s => s.value === tamanho)?.label || tamanho} />
-                <input type="hidden" name="quantidade_unidades" value={quantidade} />
-              </>
-            )}
-
             <Submit type="submit" data-aos="fade-up"
-              data-aos-duration="500" value="Enviar" />
+              data-aos-duration="500" value="Enviar por WhatsApp" />
           </Form>
         </FormContainer>
       </Container>
