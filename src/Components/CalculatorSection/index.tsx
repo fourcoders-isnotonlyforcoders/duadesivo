@@ -28,11 +28,12 @@ import {
 import { Cards } from "./Cards";
 import { calculatePrice, CalculationResult } from "../../utils/calculatePrice";
 import { WA_LINK, WA_NUMBER } from "../../constants/social";
-import { BRAZILIAN_STATES, AVAILABLE_SIZES } from "../../constants/calculator";
+import { BRAZILIAN_STATES, AVAILABLE_SIZES, CUSTOM_SIZE_VALUE } from "../../constants/calculator";
 
 export const CalculatorSection: React.FC = () => {
   const [tipo, setTipo] = useState("Não Selecionado");
   const [tamanho, setTamanho] = useState<string>("");
+  const [tamanhoPersonalizado, setTamanhoPersonalizado] = useState<string>("");
   const [quantidade, setQuantidade] = useState<string>("");
   const [nome, setNome] = useState<string>("");
   const [estado, setEstado] = useState<string>("");
@@ -41,10 +42,20 @@ export const CalculatorSection: React.FC = () => {
 
   // Calcula automaticamente quando tipo, tamanho ou quantidade mudam
   useEffect(() => {
-    if (tipo !== "Não Selecionado" && tamanho && quantidade && parseInt(quantidade) >= 50) {
-      const calculation = calculatePrice(tipo, tamanho, parseInt(quantidade));
-      setResult(calculation);
-      setShowResult(calculation.isValid);
+    if (tipo !== "Não Selecionado" && tamanho) {
+      // Se for tamanho personalizado, não precisa de quantidade para mostrar resultado
+      if (tamanho === CUSTOM_SIZE_VALUE) {
+        const calculation = calculatePrice(tipo, tamanho, 0);
+        setResult(calculation);
+        setShowResult(calculation.isValid);
+      } else if (quantidade && parseInt(quantidade) >= 50) {
+        const calculation = calculatePrice(tipo, tamanho, parseInt(quantidade));
+        setResult(calculation);
+        setShowResult(calculation.isValid);
+      } else {
+        setShowResult(false);
+        setResult(null);
+      }
     } else {
       setShowResult(false);
       setResult(null);
@@ -85,6 +96,14 @@ export const CalculatorSection: React.FC = () => {
       return;
     }
 
+    // Se for tamanho personalizado, não precisa validar quantidade
+    if (tamanho === CUSTOM_SIZE_VALUE) {
+      const calculation = calculatePrice(tipo, tamanho, 0);
+      setResult(calculation);
+      setShowResult(true);
+      return;
+    }
+
     const calculation = calculatePrice(tipo, tamanho, parseInt(quantidade));
     setResult(calculation);
     setShowResult(true);
@@ -93,14 +112,21 @@ export const CalculatorSection: React.FC = () => {
   const handleWhatsApp = () => {
     if (!result || !result.isValid) return;
 
+    const tamanhoLabel = tamanho === CUSTOM_SIZE_VALUE
+      ? tamanhoPersonalizado || "Tamanho Personalizado"
+      : AVAILABLE_SIZES.find(s => s.value === tamanho)?.label || tamanho || "Não informado";
     const messageText = `Olá! Gostaria de solicitar um orçamento:\n\n` +
       `Nome: ${nome || "Não informado"}\n` +
       `Estado: ${estado || "Não informado"}\n` +
       `Tipo: ${tipo}\n` +
-      `Tamanho: ${tamanho || "Não informado"}\n` +
-      `Quantidade: ${quantidade} unidades\n` +
-      `Preço Unitário: ${formatCurrency(result.unitPrice)}\n` +
-      `Valor Total: ${formatCurrency(result.totalPrice)}`;
+      `Tamanho: ${tamanho === CUSTOM_SIZE_VALUE ? "Personalizado - " : ""}${tamanhoLabel}\n` +
+      (result.isCustomSize
+        ? `Quantidade: ${quantidade || "A combinar"} unidades\n` +
+        `Preço: A combinar`
+        : `Quantidade: ${quantidade} unidades\n` +
+        `Preço Unitário: ${formatCurrency(result.unitPrice)}\n` +
+        `Valor Total: ${formatCurrency(result.totalPrice)}`
+      );
 
     const encodedMessage = encodeURIComponent(messageText);
 
@@ -210,7 +236,12 @@ export const CalculatorSection: React.FC = () => {
             </SelectField>
             <SelectField
               value={tamanho}
-              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setTamanho(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+                setTamanho(e.target.value);
+                if (e.target.value !== CUSTOM_SIZE_VALUE) {
+                  setTamanhoPersonalizado("");
+                }
+              }}
               disabled={tipo === "Não Selecionado"}
             >
               {AVAILABLE_SIZES.map((size) => (
@@ -223,12 +254,22 @@ export const CalculatorSection: React.FC = () => {
                 </Options>
               ))}
             </SelectField>
+            {tamanho === CUSTOM_SIZE_VALUE && (
+              <InputField
+                type="text"
+                placeholder="Digite o tamanho (ex: 15x20 cm)"
+                value={tamanhoPersonalizado}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTamanhoPersonalizado(e.target.value)}
+                data-aos="fade-up"
+                data-aos-duration="700"
+              />
+            )}
             <InputField
               type="number"
-              placeholder="Quantidade (mínimo 50 unidades)"
+              placeholder={tamanho === CUSTOM_SIZE_VALUE ? "Quantidade (opcional)" : "Quantidade (mínimo 50 unidades)"}
               value={quantidade}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setQuantidade(e.target.value)}
-              min="50"
+              min={tamanho === CUSTOM_SIZE_VALUE ? undefined : "50"}
             />
           </FormSection>
 
@@ -246,21 +287,33 @@ export const CalculatorSection: React.FC = () => {
               {result.isValid ? (
                 <>
                   <ResultTitle>Resultado do Cálculo</ResultTitle>
-                  <ResultValue>{formatCurrency(result.totalPrice)}</ResultValue>
+                  {result.isCustomSize ? (
+                    <ResultValue style={{ fontSize: "2rem", color: "#4a90e2" }}>
+                      Preço a combinar
+                    </ResultValue>
+                  ) : (
+                    <ResultValue>{formatCurrency(result.totalPrice)}</ResultValue>
+                  )}
                   <ResultDetails>
-                    <ResultDetailItem>
-                      <strong>Preço Unitário:</strong>{" "}
-                      {formatCurrency(result.unitPrice)}
-                    </ResultDetailItem>
-                    <ResultDetailItem>
-                      <strong>Quantidade:</strong> {quantidade} unidades
-                    </ResultDetailItem>
+                    {!result.isCustomSize && (
+                      <>
+                        <ResultDetailItem>
+                          <strong>Preço Unitário:</strong>{" "}
+                          {formatCurrency(result.unitPrice)}
+                        </ResultDetailItem>
+                        <ResultDetailItem>
+                          <strong>Quantidade:</strong> {quantidade} unidades
+                        </ResultDetailItem>
+                      </>
+                    )}
                     <ResultDetailItem>
                       <strong>Tipo:</strong> {tipo}
                     </ResultDetailItem>
                     {tamanho && (
                       <ResultDetailItem>
-                        <strong>Tamanho:</strong> {AVAILABLE_SIZES.find(s => s.value === tamanho)?.label || tamanho}
+                        <strong>Tamanho:</strong> {tamanho === CUSTOM_SIZE_VALUE
+                          ? tamanhoPersonalizado || "Tamanho Personalizado"
+                          : AVAILABLE_SIZES.find(s => s.value === tamanho)?.label || tamanho}
                       </ResultDetailItem>
                     )}
                     {nome && (

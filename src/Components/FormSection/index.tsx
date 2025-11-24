@@ -24,7 +24,7 @@ import { Cards } from "./Cards";
 import { useFormContext } from "../../contexts/FormContext";
 import { calculatePrice, CalculationResult } from "../../utils/calculatePrice";
 import { mapFormTypeToPriceType } from "../../utils/formPriceHelper";
-import { AVAILABLE_SIZES } from "../../constants/calculator";
+import { AVAILABLE_SIZES, CUSTOM_SIZE_VALUE } from "../../constants/calculator";
 import { formatPhone } from "../../utils/phoneMask";
 import { WA_LINK, WA_NUMBER } from "../../constants/social";
 
@@ -34,8 +34,9 @@ export const FormSection: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [quantidade, setQuantidade] = useState<string>("");
   const [tamanho, setTamanho] = useState<string>("");
+  const [tamanhoPersonalizado, setTamanhoPersonalizado] = useState<string>("");
   const [telefone, setTelefone] = useState<string>("");
-  const [modelo, setModelo] = useState<string>("Não Selecionado");
+  const [modelo, setModelo] = useState<string>("");
   const [priceResult, setPriceResult] = useState<CalculationResult | null>(null);
 
   // Função para formatar moeda
@@ -50,16 +51,27 @@ export const FormSection: React.FC = () => {
   const handleWhatsApp = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    // Validação do modelo
+    if (!modelo || modelo === "") {
+      alert("Por favor, selecione o modelo desejado (corte do adesivo)");
+      return;
+    }
+
+    const tamanhoLabel = tamanho === CUSTOM_SIZE_VALUE
+      ? tamanhoPersonalizado || "Tamanho Personalizado"
+      : AVAILABLE_SIZES.find(s => s.value === tamanho)?.label || tamanho || "Não informado";
     const messageText = `Olá! Gostaria de solicitar um orçamento:\n\n` +
       `Nome: ${nome || "Não informado"}\n` +
       `E-mail: ${email || "Não informado"}\n` +
       `Telefone: ${telefone || "Não informado"}\n` +
       `Tipo: ${tipo || "Não informado"}\n` +
-      `Tamanho: ${AVAILABLE_SIZES.find(s => s.value === tamanho)?.label || tamanho || "Não informado"}\n` +
-      `Modelo: ${modelo || "Não informado"}\n` +
-      `Quantidade: ${quantidade || "Não informado"} unidades` +
+      `Tamanho: ${tamanho === CUSTOM_SIZE_VALUE ? "Personalizado - " : ""}${tamanhoLabel}\n` +
+      `Modelo: ${modelo}\n` +
+      `Quantidade: ${quantidade || "A combinar"} unidades` +
       (priceResult && priceResult.isValid
-        ? `\nPreço Unitário: ${formatCurrency(priceResult.unitPrice)}\nValor Total: ${formatCurrency(priceResult.totalPrice)}`
+        ? priceResult.isCustomSize
+          ? `\nPreço: A combinar`
+          : `\nPreço Unitário: ${formatCurrency(priceResult.unitPrice)}\nValor Total: ${formatCurrency(priceResult.totalPrice)}`
         : '');
 
     const encodedMessage = encodeURIComponent(messageText);
@@ -86,8 +98,9 @@ export const FormSection: React.FC = () => {
     setEmail("");
     setQuantidade("");
     setTamanho("");
+    setTamanhoPersonalizado("");
     setTelefone("");
-    setModelo("Não Selecionado");
+    setModelo("");
     setPriceResult(null);
     event.currentTarget.reset();
   };
@@ -97,9 +110,7 @@ export const FormSection: React.FC = () => {
     if (
       tipo &&
       tipo !== "Não Selecionado" &&
-      tamanho &&
-      quantidade &&
-      parseInt(quantidade) >= 50
+      tamanho
     ) {
       try {
         // Mapeia o tipo do formulário para o tipo da tabela
@@ -115,8 +126,20 @@ export const FormSection: React.FC = () => {
           return;
         }
 
-        const result = calculatePrice(priceType, tamanho, parseInt(quantidade));
-        setPriceResult(result);
+        // Se for tamanho personalizado, não precisa de quantidade
+        if (tamanho === CUSTOM_SIZE_VALUE) {
+          const result = calculatePrice(priceType, tamanho, 0);
+          setPriceResult(result);
+          return;
+        }
+
+        // Para tamanhos normais, precisa de quantidade válida
+        if (quantidade && parseInt(quantidade) >= 50) {
+          const result = calculatePrice(priceType, tamanho, parseInt(quantidade));
+          setPriceResult(result);
+        } else {
+          setPriceResult(null);
+        }
       } catch (error) {
         setPriceResult({
           unitPrice: 0,
@@ -232,7 +255,12 @@ export const FormSection: React.FC = () => {
               data-aos="fade-left"
               data-aos-duration="700"
               value={tamanho}
-              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setTamanho(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+                setTamanho(e.target.value);
+                if (e.target.value !== CUSTOM_SIZE_VALUE) {
+                  setTamanhoPersonalizado("");
+                }
+              }}
               disabled={tipo === "Não Selecionado"}
               required
             >
@@ -246,6 +274,17 @@ export const FormSection: React.FC = () => {
                 </Options>
               ))}
             </SelectField>
+            {tamanho === CUSTOM_SIZE_VALUE && (
+              <InputField
+                type="text"
+                placeholder="Digite o tamanho (ex: 15x20 cm)"
+                data-aos="fade-left"
+                data-aos-duration="700"
+                value={tamanhoPersonalizado}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTamanhoPersonalizado(e.target.value)}
+                required
+              />
+            )}
             <SelectField
               data-aos="fade-right"
               data-aos-duration="700"
@@ -253,44 +292,56 @@ export const FormSection: React.FC = () => {
               value={modelo}
               onChange={(e) => setModelo(e.target.value)}
             >
-              <Options value="Não Selecionado" disabled>Modelo Desejado (corte do adesivo)</Options>
+              <Options value="" disabled>Modelo Desejado (corte do adesivo)</Options>
               <Options value="redondo">redondo</Options>
               <Options value="quadrado">quadrado</Options>
               <Options value="personalizado">personalizado</Options>
             </SelectField>
             <InputField
               type="number"
-              placeholder="Quantidade (mínimo 50 unidades)"
+              placeholder={tamanho === CUSTOM_SIZE_VALUE ? "Quantidade (opcional)" : "Quantidade (mínimo 50 unidades)"}
               data-aos="fade-left"
               data-aos-duration="700"
               value={quantidade}
               onChange={(e) => setQuantidade(e.target.value)}
-              min="50"
-              required
+              min={tamanho === CUSTOM_SIZE_VALUE ? undefined : "50"}
+              required={tamanho !== CUSTOM_SIZE_VALUE}
             />
 
             {priceResult && priceResult.isValid && (
               <PriceResult data-aos="fade-up" data-aos-duration="600">
-                <PriceValue>{formatCurrency(priceResult.totalPrice)}</PriceValue>
+                {priceResult.isCustomSize ? (
+                  <PriceValue style={{ fontSize: "2rem", color: "#4a90e2" }}>
+                    Preço a combinar
+                  </PriceValue>
+                ) : (
+                  <PriceValue>{formatCurrency(priceResult.totalPrice)}</PriceValue>
+                )}
                 <PriceDetails>
                   {nome && (
                     <PriceDetailItem>
                       <strong>Nome:</strong> {nome}
                     </PriceDetailItem>
                   )}
+                  {!priceResult.isCustomSize && (
+                    <>
+                      <PriceDetailItem>
+                        <strong>Preço Unitário:</strong> {formatCurrency(priceResult.unitPrice)}
+                      </PriceDetailItem>
+                      <PriceDetailItem>
+                        <strong>Quantidade:</strong> {quantidade} unidades
+                      </PriceDetailItem>
+                    </>
+                  )}
                   <PriceDetailItem>
-                    <strong>Preço Unitário:</strong> {formatCurrency(priceResult.unitPrice)}
-                  </PriceDetailItem>
-                  <PriceDetailItem>
-                    <strong>Quantidade:</strong> {quantidade} unidades
-                  </PriceDetailItem>
-                  <PriceDetailItem>
-                    <strong>Tamanho:</strong> {AVAILABLE_SIZES.find(s => s.value === tamanho)?.label || tamanho}
+                    <strong>Tamanho:</strong> {tamanho === CUSTOM_SIZE_VALUE
+                      ? tamanhoPersonalizado || "Tamanho Personalizado"
+                      : AVAILABLE_SIZES.find(s => s.value === tamanho)?.label || tamanho}
                   </PriceDetailItem>
                   <PriceDetailItem>
                     <strong>Tipo:</strong> {tipo}
                   </PriceDetailItem>
-                  {modelo && modelo !== "Não Selecionado" && (
+                  {modelo && (
                     <PriceDetailItem>
                       <strong>Modelo:</strong> {modelo}
                     </PriceDetailItem>

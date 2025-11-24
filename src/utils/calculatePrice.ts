@@ -1,10 +1,11 @@
-import { MATERIAL_PRICES, MIN_QUANTITY } from "../constants/calculator";
+import { MATERIAL_PRICES, MIN_QUANTITY, CUSTOM_SIZE_VALUE } from "../constants/calculator";
 
 export interface CalculationResult {
   unitPrice: number;
   totalPrice: number;
   isValid: boolean;
   error?: string;
+  isCustomSize?: boolean;
 }
 
 export const calculatePrice = (
@@ -12,6 +13,16 @@ export const calculatePrice = (
   size: string,
   quantity: number
 ): CalculationResult => {
+  // Se for tamanho personalizado, retorna resultado especial
+  if (size === CUSTOM_SIZE_VALUE) {
+    return {
+      unitPrice: 0,
+      totalPrice: 0,
+      isValid: true,
+      isCustomSize: true
+    };
+  }
+
   // Validação de quantidade mínima
   if (quantity < MIN_QUANTITY) {
     return {

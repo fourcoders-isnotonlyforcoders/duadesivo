@@ -170,8 +170,11 @@ export const AVAILABLE_SIZES = [
   { value: "9x9", label: "9x9 cm" },
   { value: "10x10", label: "10x10 cm" },
   { value: "11x11", label: "11x11 cm" },
-  { value: "12x12", label: "12x12 cm" }
+  { value: "12x12", label: "12x12 cm" },
+  { value: "personalizado", label: "Tamanho Personalizado" }
 ];
+
+export const CUSTOM_SIZE_VALUE = "personalizado";
 
 export const MIN_QUANTITY = 50;
 
