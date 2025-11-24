@@ -37,11 +37,10 @@ export const CalculatorSection: React.FC = () => {
   const [quantidade, setQuantidade] = useState<string>("");
   const [nome, setNome] = useState<string>("");
   const [estado, setEstado] = useState<string>("");
-  const [cep, setCep] = useState<string>(""); // 🆕 Novo campo de CEP
+  const [cep, setCep] = useState<string>("");
   const [result, setResult] = useState<CalculationResult | null>(null);
   const [showResult, setShowResult] = useState(false);
 
-  // Máscara simples para o CEP (00000-000)
   const formatCep = (value: string) => {
     return value
       .replace(/\D/g, "")
@@ -49,10 +48,8 @@ export const CalculatorSection: React.FC = () => {
       .slice(0, 9);
   };
 
-  // Calcula automaticamente quando tipo, tamanho ou quantidade mudam
   useEffect(() => {
     if (tipo !== "Não Selecionado" && tamanho) {
-      // Se for tamanho personalizado, não precisa de quantidade para mostrar resultado
       if (tamanho === CUSTOM_SIZE_VALUE) {
         const calculation = calculatePrice(tipo, tamanho, 0);
         setResult(calculation);
@@ -72,17 +69,6 @@ export const CalculatorSection: React.FC = () => {
   }, [tipo, tamanho, quantidade]);
 
   const handleCalculate = () => {
-    if (!quantidade || parseInt(quantidade) < 50) {
-      setResult({
-        unitPrice: 0,
-        totalPrice: 0,
-        isValid: false,
-        error: "Quantidade mínima é de 50 unidades"
-      });
-      setShowResult(true);
-      return;
-    }
-
     if (tipo === "Não Selecionado") {
       setResult({
         unitPrice: 0,
@@ -105,10 +91,20 @@ export const CalculatorSection: React.FC = () => {
       return;
     }
 
-    // Se for tamanho personalizado, não precisa validar quantidade
     if (tamanho === CUSTOM_SIZE_VALUE) {
       const calculation = calculatePrice(tipo, tamanho, 0);
       setResult(calculation);
+      setShowResult(true);
+      return;
+    }
+
+    if (!quantidade || parseInt(quantidade) < 50) {
+      setResult({
+        unitPrice: 0,
+        totalPrice: 0,
+        isValid: false,
+        error: "Quantidade mínima é de 50 unidades"
+      });
       setShowResult(true);
       return;
     }
@@ -127,7 +123,7 @@ export const CalculatorSection: React.FC = () => {
     const messageText = `Olá! Gostaria de solicitar um orçamento:\n\n` +
       `Nome: ${nome || "Não informado"}\n` +
       `Estado: ${estado || "Não informado"}\n` +
-      `CEP: ${cep || "Não informado"}\n` + // 🆕 Adicionado no texto
+      `CEP: ${cep || "Não informado"}\n` +
       `Tipo: ${tipo}\n` +
       `Tamanho: ${tamanho === CUSTOM_SIZE_VALUE ? "Personalizado - " : ""}${tamanhoLabel}\n` +
       (result.isCustomSize
@@ -187,6 +183,15 @@ export const CalculatorSection: React.FC = () => {
             sub="Brilho ou Fosco"
             value="Vinil Branco"
             selected={tipo === "Vinil Branco"}
+            onSelect={setTipo}
+          />
+          <Cards
+            src="./images/transparent.png"
+            alt="imagem de um adesivo transparente"
+            title="Vinil Transparente"
+            sub="Laminação Brilho"
+            value="Vinil Transparente"
+            selected={tipo === "Vinil Transparente"}
             onSelect={setTipo}
           />
         </CardsContainer>
@@ -256,6 +261,7 @@ export const CalculatorSection: React.FC = () => {
               </Options>
               <Options value="Vinil Holográfico">Vinil Holográfico</Options>
               <Options value="Vinil Branco">Vinil Branco</Options>
+              <Options value="Vinil Transparente">Vinil Transparente</Options>
             </SelectField>
 
             <SelectField
@@ -292,8 +298,22 @@ export const CalculatorSection: React.FC = () => {
               type="number"
               placeholder={tamanho === CUSTOM_SIZE_VALUE ? "Quantidade (opcional)" : "Quantidade (mínimo 50 unidades)"}
               value={quantidade}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setQuantidade(e.target.value)}
-              min={tamanho === CUSTOM_SIZE_VALUE ? undefined : "50"}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                const value = e.target.value;
+                if (tamanho !== CUSTOM_SIZE_VALUE && value !== "") {
+                  const numValue = parseInt(value);
+                  if (!isNaN(numValue)) {
+                    if (value.length >= 2 && numValue < 50) {
+                      return;
+                    }
+                    if (value.length === 1 && numValue < 5) {
+                      return;
+                    }
+                  }
+                }
+                setQuantidade(value);
+              }}
+              min={tamanho === CUSTOM_SIZE_VALUE ? undefined : 50}
             />
           </FormSection>
 
@@ -312,7 +332,7 @@ export const CalculatorSection: React.FC = () => {
                 <>
                   <ResultTitle>Resultado do Cálculo</ResultTitle>
                   {result.isCustomSize ? (
-                    <ResultValue style={{ fontSize: "2rem", color: "#4a90e2" }}>
+                    <ResultValue style={{ fontSize: "2rem" }}>
                       Preço a combinar
                     </ResultValue>
                   ) : (
@@ -320,15 +340,15 @@ export const CalculatorSection: React.FC = () => {
                   )}
                   <ResultDetails>
                     {!result.isCustomSize && (
-                      <>
-                        <ResultDetailItem>
-                          <strong>Preço Unitário:</strong>{" "}
-                          {formatCurrency(result.unitPrice)}
-                        </ResultDetailItem>
-                        <ResultDetailItem>
-                          <strong>Quantidade:</strong> {quantidade} unidades
-                        </ResultDetailItem>
-                      </>
+                      <ResultDetailItem>
+                        <strong>Preço Unitário:</strong>{" "}
+                        {formatCurrency(result.unitPrice)}
+                      </ResultDetailItem>
+                    )}
+                    {quantidade && (
+                      <ResultDetailItem>
+                        <strong>Quantidade:</strong> {quantidade} unidades
+                      </ResultDetailItem>
                     )}
                     <ResultDetailItem>
                       <strong>Tipo:</strong> {tipo}

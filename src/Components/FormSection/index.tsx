@@ -29,7 +29,6 @@ import { AVAILABLE_SIZES, CUSTOM_SIZE_VALUE } from "../../constants/calculator";
 import { formatPhone } from "../../utils/phoneMask";
 import { WA_LINK, WA_NUMBER } from "../../constants/social";
 
-// 👉 Nova função utilitária local (máscara de CEP)
 const formatCEP = (value: string): string => {
   return value
     .replace(/\D/g, "")
@@ -59,7 +58,6 @@ export const FormSection: React.FC = () => {
   const handleWhatsApp = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    // Validação do modelo
     if (!modelo || modelo === "") {
       alert("Por favor, selecione o modelo desejado (corte do adesivo)");
       return;
@@ -98,7 +96,6 @@ export const FormSection: React.FC = () => {
 
     window.open(whatsappUrl, "_blank");
 
-    // Limpa tudo
     setNome("");
     setEmail("");
     setTelefone("");
@@ -129,14 +126,12 @@ export const FormSection: React.FC = () => {
           return;
         }
 
-        // Se for tamanho personalizado, não precisa de quantidade
         if (tamanho === CUSTOM_SIZE_VALUE) {
           const result = calculatePrice(priceType, tamanho, 0);
           setPriceResult(result);
           return;
         }
 
-        // Para tamanhos normais, precisa de quantidade válida
         if (quantidade && parseInt(quantidade) >= 50) {
           const result = calculatePrice(priceType, tamanho, parseInt(quantidade));
           setPriceResult(result);
@@ -290,15 +285,29 @@ export const FormSection: React.FC = () => {
               data-aos="fade-left"
               data-aos-duration="700"
               value={quantidade}
-              onChange={(e) => setQuantidade(e.target.value)}
-              min={tamanho === CUSTOM_SIZE_VALUE ? undefined : "50"}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                const value = e.target.value;
+                if (tamanho !== CUSTOM_SIZE_VALUE && value !== "") {
+                  const numValue = parseInt(value);
+                  if (!isNaN(numValue)) {
+                    if (value.length >= 2 && numValue < 50) {
+                      return;
+                    }
+                    if (value.length === 1 && numValue < 5) {
+                      return;
+                    }
+                  }
+                }
+                setQuantidade(value);
+              }}
+              min={tamanho === CUSTOM_SIZE_VALUE ? undefined : 50}
               required={tamanho !== CUSTOM_SIZE_VALUE}
             />
 
             {priceResult && priceResult.isValid && (
               <PriceResult data-aos="fade-up" data-aos-duration="600">
                 {priceResult.isCustomSize ? (
-                  <PriceValue style={{ fontSize: "2rem", color: "#4a90e2" }}>
+                  <PriceValue style={{ fontSize: "2rem" }}>
                     Preço a combinar
                   </PriceValue>
                 ) : (
@@ -309,14 +318,14 @@ export const FormSection: React.FC = () => {
                     <PriceDetailItem><strong>Nome:</strong> {nome}</PriceDetailItem>
                   )}
                   {!priceResult.isCustomSize && (
-                    <>
-                      <PriceDetailItem>
-                        <strong>Preço Unitário:</strong> {formatCurrency(priceResult.unitPrice)}
-                      </PriceDetailItem>
-                      <PriceDetailItem>
-                        <strong>Quantidade:</strong> {quantidade} unidades
-                      </PriceDetailItem>
-                    </>
+                    <PriceDetailItem>
+                      <strong>Preço Unitário:</strong> {formatCurrency(priceResult.unitPrice)}
+                    </PriceDetailItem>
+                  )}
+                  {quantidade && (
+                    <PriceDetailItem>
+                      <strong>Quantidade:</strong> {quantidade} unidades
+                    </PriceDetailItem>
                   )}
                   <PriceDetailItem>
                     <strong>Tamanho:</strong> {tamanho === CUSTOM_SIZE_VALUE

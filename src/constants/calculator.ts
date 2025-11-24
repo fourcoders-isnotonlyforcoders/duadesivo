@@ -156,6 +156,78 @@ export const MATERIAL_PRICES: MaterialPrices = {
       { min: 500, max: 999, price: 2.160 },
       { min: 1000, max: null, price: 1.728 }
     ]
+  },
+  "Vinil Transparente": {
+    "3x3": [
+      { min: 50, max: 99, price: 0.225 },
+      { min: 100, max: 249, price: 0.162 },
+      { min: 250, max: 499, price: 0.135 },
+      { min: 500, max: 999, price: 0.090 },
+      { min: 1000, max: null, price: 0.063 }
+    ],
+    "4x4": [
+      { min: 50, max: 99, price: 0.400 },
+      { min: 100, max: 249, price: 0.288 },
+      { min: 250, max: 499, price: 0.240 },
+      { min: 500, max: 999, price: 0.160 },
+      { min: 1000, max: null, price: 0.112 }
+    ],
+    "5x5": [
+      { min: 50, max: 99, price: 0.625 },
+      { min: 100, max: 249, price: 0.450 },
+      { min: 250, max: 499, price: 0.375 },
+      { min: 500, max: 999, price: 0.250 },
+      { min: 1000, max: null, price: 0.175 }
+    ],
+    "6x6": [
+      { min: 50, max: 99, price: 0.900 },
+      { min: 100, max: 249, price: 0.648 },
+      { min: 250, max: 499, price: 0.540 },
+      { min: 500, max: 999, price: 0.360 },
+      { min: 1000, max: null, price: 0.252 }
+    ],
+    "7x7": [
+      { min: 50, max: 99, price: 1.225 },
+      { min: 100, max: 249, price: 0.882 },
+      { min: 250, max: 499, price: 0.735 },
+      { min: 500, max: 999, price: 0.490 },
+      { min: 1000, max: null, price: 0.343 }
+    ],
+    "8x8": [
+      { min: 50, max: 99, price: 1.600 },
+      { min: 100, max: 249, price: 1.152 },
+      { min: 250, max: 499, price: 0.960 },
+      { min: 500, max: 999, price: 0.640 },
+      { min: 1000, max: null, price: 0.448 }
+    ],
+    "9x9": [
+      { min: 50, max: 99, price: 2.025 },
+      { min: 100, max: 249, price: 1.458 },
+      { min: 250, max: 499, price: 1.215 },
+      { min: 500, max: 999, price: 0.810 },
+      { min: 1000, max: null, price: 0.567 }
+    ],
+    "10x10": [
+      { min: 50, max: 99, price: 2.500 },
+      { min: 100, max: 249, price: 1.800 },
+      { min: 250, max: 499, price: 1.500 },
+      { min: 500, max: 999, price: 1.000 },
+      { min: 1000, max: null, price: 0.700 }
+    ],
+    "11x11": [
+      { min: 50, max: 99, price: 3.025 },
+      { min: 100, max: 249, price: 2.178 },
+      { min: 250, max: 499, price: 1.815 },
+      { min: 500, max: 999, price: 1.210 },
+      { min: 1000, max: null, price: 0.847 }
+    ],
+    "12x12": [
+      { min: 50, max: 99, price: 3.600 },
+      { min: 100, max: 249, price: 2.592 },
+      { min: 250, max: 499, price: 2.160 },
+      { min: 500, max: 999, price: 1.440 },
+      { min: 1000, max: null, price: 1.008 }
+    ]
   }
 };
 
