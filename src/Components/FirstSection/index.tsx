@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import {
   FirstContainer,
   InfosContainer,
@@ -8,9 +9,11 @@ import {
   BgPascoa,
 } from "./styles";
 export const FirstSection: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <FirstContainer>
-      <BgPascoa src="/images/maes.png" />
+      <BgPascoa src="/images/logodu.png" />
       <InfosContainer>
         <PrincipalText data-aos="fade-right" data-aos-duration="600">
           Muito mais que adesivos, somos uma equipe.
@@ -19,13 +22,7 @@ export const FirstSection: React.FC = () => {
           Cartelas e adesivos personalizados com envio para todo o Brasil.{" "}
           <SubStrong>Em até 24h</SubStrong>
         </SubTitle>
-        <Button
-          onClick={() =>
-            document
-              .getElementById("criar")
-              ?.scrollIntoView({ behavior: "smooth" })
-          }
-        >
+        <Button onClick={() => navigate("/calculadora")}>
           Criar Meu Adesivo Agora
         </Button>
       </InfosContainer>

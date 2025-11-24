@@ -102,11 +102,8 @@ export const Navbar: React.FC<Props> = ({ readonly }) => {
               <NavLi data-aos="fade-down" data-aos-duration="800">
                 <a href="#cases" onClick={(e) => handleNavClick("#cases", e)}>Cartelas</a>
               </NavLi>
-              <NavLi data-aos="fade-down" data-aos-duration="900">
-                <a href="#criar" onClick={(e) => handleNavClick("#criar", e)}>Criar</a>
-              </NavLi>
               <NavLi data-aos="fade-down" data-aos-duration="1000">
-                <a href="/calculadora" onClick={(e) => handleNavClick("/calculadora", e)}>Calculadora</a>
+                <a href="/calculadora" onClick={(e) => handleNavClick("/calculadora", e)}>Orçamento</a>
               </NavLi>
             </NavUl>
           </NavLinks>

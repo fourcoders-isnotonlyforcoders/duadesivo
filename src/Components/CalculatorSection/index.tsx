@@ -37,8 +37,17 @@ export const CalculatorSection: React.FC = () => {
   const [quantidade, setQuantidade] = useState<string>("");
   const [nome, setNome] = useState<string>("");
   const [estado, setEstado] = useState<string>("");
+  const [cep, setCep] = useState<string>(""); // 🆕 Novo campo de CEP
   const [result, setResult] = useState<CalculationResult | null>(null);
   const [showResult, setShowResult] = useState(false);
+
+  // Máscara simples para o CEP (00000-000)
+  const formatCep = (value: string) => {
+    return value
+      .replace(/\D/g, "")
+      .replace(/^(\d{5})(\d{1,3})$/, "$1-$2")
+      .slice(0, 9);
+  };
 
   // Calcula automaticamente quando tipo, tamanho ou quantidade mudam
   useEffect(() => {
@@ -118,6 +127,7 @@ export const CalculatorSection: React.FC = () => {
     const messageText = `Olá! Gostaria de solicitar um orçamento:\n\n` +
       `Nome: ${nome || "Não informado"}\n` +
       `Estado: ${estado || "Não informado"}\n` +
+      `CEP: ${cep || "Não informado"}\n` + // 🆕 Adicionado no texto
       `Tipo: ${tipo}\n` +
       `Tamanho: ${tamanho === CUSTOM_SIZE_VALUE ? "Personalizado - " : ""}${tamanhoLabel}\n` +
       (result.isCustomSize
@@ -130,18 +140,14 @@ export const CalculatorSection: React.FC = () => {
 
     const encodedMessage = encodeURIComponent(messageText);
 
-    // Constrói a URL do WhatsApp corretamente
     let whatsappUrl: string;
     if (WA_NUMBER) {
-      // Se tiver número, constrói do zero
-      const phoneNumber = WA_NUMBER.replace(/\D/g, ''); // Remove caracteres não numéricos
+      const phoneNumber = WA_NUMBER.replace(/\D/g, "");
       whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
     } else if (WA_LINK) {
-      // Se já tiver link, adiciona o text
       const separator = WA_LINK.includes('?') ? '&' : '?';
       whatsappUrl = `${WA_LINK}${separator}text=${encodedMessage}`;
     } else {
-      // Fallback
       whatsappUrl = `https://wa.me/?text=${encodedMessage}`;
     }
 
@@ -195,14 +201,17 @@ export const CalculatorSection: React.FC = () => {
             </CalculatorSubTitle>
           </CalculatorInfo>
 
+          {/* --- DADOS PESSOAIS --- */}
           <FormSection data-aos="fade-up" data-aos-duration="600">
             <SectionLabel>Dados Pessoais</SectionLabel>
+
             <InputField
               type="text"
               placeholder="Nome completo"
               value={nome}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNome(e.target.value)}
             />
+
             <SelectField
               value={estado}
               onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setEstado(e.target.value)}
@@ -217,15 +226,29 @@ export const CalculatorSection: React.FC = () => {
                 </Options>
               ))}
             </SelectField>
+
+            {/* 🆕 Campo CEP */}
+            <InputField
+              type="text"
+              placeholder="CEP (apenas Brasil - ex: 01000-000)"
+              value={cep}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setCep(formatCep(e.target.value))
+              }
+              maxLength={9}
+              pattern="\d{5}-\d{3}"
+            />
           </FormSection>
 
+          {/* --- OPÇÕES DO PRODUTO --- */}
           <FormSection data-aos="fade-up" data-aos-duration="700">
             <SectionLabel>Opções do Produto</SectionLabel>
+
             <SelectField
               value={tipo}
               onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
                 setTipo(e.target.value);
-                setTamanho(""); // Reset tamanho quando muda o tipo
+                setTamanho("");
               }}
             >
               <Options value="Não Selecionado" disabled>
@@ -234,6 +257,7 @@ export const CalculatorSection: React.FC = () => {
               <Options value="Vinil Holográfico">Vinil Holográfico</Options>
               <Options value="Vinil Branco">Vinil Branco</Options>
             </SelectField>
+
             <SelectField
               value={tamanho}
               onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -323,7 +347,13 @@ export const CalculatorSection: React.FC = () => {
                     )}
                     {estado && (
                       <ResultDetailItem>
-                        <strong>Estado:</strong> {BRAZILIAN_STATES.find(s => s.value === estado)?.label || estado}
+                        <strong>Estado:</strong>{" "}
+                        {BRAZILIAN_STATES.find(s => s.value === estado)?.label || estado}
+                      </ResultDetailItem>
+                    )}
+                    {cep && (
+                      <ResultDetailItem>
+                        <strong>CEP:</strong> {cep}
                       </ResultDetailItem>
                     )}
                   </ResultDetails>
@@ -353,4 +383,3 @@ export const CalculatorSection: React.FC = () => {
     </SectionContainer>
   );
 };
-
