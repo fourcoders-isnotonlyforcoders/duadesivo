@@ -109,9 +109,9 @@ export const SubStrong = styled.strong`
 export const BgPascoa = styled.img`
   position: absolute;
   right: -70px;
-  top: -50px;
+  top: -40px;
   width: auto;
-  height: 540px;
+  height: 444px;
   pointer-events: none;
   animation: pulseImage 11s infinite;
 
@@ -138,7 +138,7 @@ export const BgPascoa = styled.img`
   right: -44px;
 }
   @media screen and (max-width: 600px) {
-  height: 250px;
+  height: 222px;
   top: 2px;
   right: -44px;
   opacity: .7!important;

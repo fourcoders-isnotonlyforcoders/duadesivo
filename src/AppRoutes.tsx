@@ -4,17 +4,20 @@ import { Politicas } from "./pages/Politicas";
 import { ScrollToTop } from "./utils/ScrollToTop";
 import { Termos } from "./pages/Termos";
 import { Calculadora } from "./pages/Calculadora";
+import { Agregador } from "./pages/Agregador";
 
 export const AppRoutes: React.FC = () => {
-    return (
-        <BrowserRouter>
-            <ScrollToTop />
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/politicas" element={<Politicas />} />
-                <Route path="/termos" element={<Termos />} />
-                <Route path="/calculadora" element={<Calculadora />} />
-            </Routes>
-        </BrowserRouter>
-    )
+  return (
+    <BrowserRouter>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/politicas" element={<Politicas />} />
+        <Route path="/termos" element={<Termos />} />
+        <Route path="/calculadora" element={<Calculadora />} />
+        <Route path="/agregador" element={<Agregador />} />
+        <Route path="/Agregador" element={<Agregador />} />
+      </Routes>
+    </BrowserRouter>
+  );
 };

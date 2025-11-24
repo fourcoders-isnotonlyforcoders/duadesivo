@@ -7,22 +7,24 @@ export const NavbarContainer = styled.div`
   align-items: center;
   height: 100px;
   padding: 0 7rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   position: relative;
   z-index: 9999;
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
   box-sizing: border-box;
 
   @media (max-width: 906px) {
     padding: 0 2rem;
     height: auto;
     min-height: 80px;
+    overflow: hidden;
   }
 
   @media (max-width: 780px) {
     padding: 0 1.5rem;
+    overflow: hidden;
   }
 `;
 export const NavLogo = styled.img`

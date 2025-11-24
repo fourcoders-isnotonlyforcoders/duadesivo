@@ -14,7 +14,8 @@ import {
   Inputs,
   Container,
   SelectField,
-  Options, Submit,
+  Options, 
+  Submit,
   PriceResult,
   PriceValue,
   PriceDetails,
@@ -28,17 +29,25 @@ import { AVAILABLE_SIZES } from "../../constants/calculator";
 import { formatPhone } from "../../utils/phoneMask";
 import { WA_LINK, WA_NUMBER } from "../../constants/social";
 
+// 👉 Nova função utilitária local (máscara de CEP)
+const formatCEP = (value: string): string => {
+  return value
+    .replace(/\D/g, "")
+    .replace(/(\d{5})(\d{1,3})/, "$1-$2")
+    .slice(0, 9);
+};
+
 export const FormSection: React.FC = () => {
   const { tipo, setTipo } = useFormContext();
   const [nome, setNome] = useState<string>("");
   const [email, setEmail] = useState<string>("");
+  const [telefone, setTelefone] = useState<string>("");
+  const [cep, setCep] = useState<string>(""); // ✅ novo campo
   const [quantidade, setQuantidade] = useState<string>("");
   const [tamanho, setTamanho] = useState<string>("");
-  const [telefone, setTelefone] = useState<string>("");
   const [modelo, setModelo] = useState<string>("Não Selecionado");
   const [priceResult, setPriceResult] = useState<CalculationResult | null>(null);
 
-  // Função para formatar moeda
   const formatCurrency = (value: number) => {
     return new Intl.NumberFormat("pt-BR", {
       style: "currency",
@@ -46,65 +55,54 @@ export const FormSection: React.FC = () => {
     }).format(value);
   };
 
-  // Função para enviar por WhatsApp
   const handleWhatsApp = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const messageText = `Olá! Gostaria de solicitar um orçamento:\n\n` +
+    const messageText =
+      `Olá! Gostaria de solicitar um orçamento:\n\n` +
       `Nome: ${nome || "Não informado"}\n` +
       `E-mail: ${email || "Não informado"}\n` +
       `Telefone: ${telefone || "Não informado"}\n` +
+      `CEP: ${cep || "Não informado"}\n` + // ✅ incluído na mensagem
       `Tipo: ${tipo || "Não informado"}\n` +
       `Tamanho: ${AVAILABLE_SIZES.find(s => s.value === tamanho)?.label || tamanho || "Não informado"}\n` +
       `Modelo: ${modelo || "Não informado"}\n` +
       `Quantidade: ${quantidade || "Não informado"} unidades` +
       (priceResult && priceResult.isValid
         ? `\nPreço Unitário: ${formatCurrency(priceResult.unitPrice)}\nValor Total: ${formatCurrency(priceResult.totalPrice)}`
-        : '');
+        : "");
 
     const encodedMessage = encodeURIComponent(messageText);
 
-    // Constrói a URL do WhatsApp corretamente
     let whatsappUrl: string;
     if (WA_NUMBER) {
-      // Se tiver número, constrói do zero
-      const phoneNumber = WA_NUMBER.replace(/\D/g, ''); // Remove caracteres não numéricos
+      const phoneNumber = WA_NUMBER.replace(/\D/g, "");
       whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
     } else if (WA_LINK) {
-      // Se já tiver link, adiciona o text
-      const separator = WA_LINK.includes('?') ? '&' : '?';
+      const separator = WA_LINK.includes("?") ? "&" : "?";
       whatsappUrl = `${WA_LINK}${separator}text=${encodedMessage}`;
     } else {
-      // Fallback
       whatsappUrl = `https://wa.me/?text=${encodedMessage}`;
     }
 
     window.open(whatsappUrl, "_blank");
 
-    // Limpa os estados após o envio
+    // Limpa tudo
     setNome("");
     setEmail("");
+    setTelefone("");
+    setCep("");
     setQuantidade("");
     setTamanho("");
-    setTelefone("");
     setModelo("Não Selecionado");
     setPriceResult(null);
     event.currentTarget.reset();
   };
 
-  // Calcula o preço automaticamente quando os campos mudam
   useEffect(() => {
-    if (
-      tipo &&
-      tipo !== "Não Selecionado" &&
-      tamanho &&
-      quantidade &&
-      parseInt(quantidade) >= 50
-    ) {
+    if (tipo && tipo !== "Não Selecionado" && tamanho && quantidade && parseInt(quantidade) >= 50) {
       try {
-        // Mapeia o tipo do formulário para o tipo da tabela
         const priceType = mapFormTypeToPriceType(tipo);
-
         if (!priceType) {
           setPriceResult({
             unitPrice: 0,
@@ -139,39 +137,16 @@ export const FormSection: React.FC = () => {
         />
       </InfoContainer>
       <Container>
-        <CardsContainer >
-          <Cards
-            src="./images/holografico.png"
-            alt="imagem de uma cor holográfica"
-            title="Holográfico"
-            sub="Laminação Brilho"
-            value="Holográfico (Brilho)"
-          />
-          <Cards
-            src="./images/branco.png"
-            alt="imagem de uma cor holográfica"
-            title="Vinil Branco "
-            sub="Laminação Brilho"
-            value="Vinil Branco (Brilho)"
-          />
-          <Cards
-            src="./images/branco.png"
-            alt="imagem de uma cor holográfica"
-            title="Vinil Branco "
-            sub="Laminação Fosca "
-            value="Vinil Branco (Fosco)"
-          />
-          <Cards
-            src="./images/transparent.png"
-            alt="imagem de uma cor holográfica"
-            title="Transparente"
-            sub=" Laminação Brilho"
-            value="Transparente (Brilho)"
-          />
+        <CardsContainer>
+          <Cards src="./images/holografico.png" alt="imagem holográfica" title="Holográfico" sub="Laminação Brilho" value="Holográfico (Brilho)" />
+          <Cards src="./images/branco.png" alt="imagem vinil branco" title="Vinil Branco" sub="Laminação Brilho" value="Vinil Branco (Brilho)" />
+          <Cards src="./images/branco.png" alt="imagem vinil branco fosco" title="Vinil Branco" sub="Laminação Fosca" value="Vinil Branco (Fosco)" />
+          <Cards src="./images/transparent.png" alt="imagem transparente" title="Transparente" sub="Laminação Brilho" value="Transparente (Brilho)" />
         </CardsContainer>
+
         <FormContainer>
           <FormInfo>
-            <FormTitle data-aos="fade-left" >Preencha o formulário abaixo</FormTitle>
+            <FormTitle data-aos="fade-left">Preencha o formulário abaixo</FormTitle>
             <FormSubTitle data-aos="fade-up-left">
               Os cards ao lado ajudarão na sua escolha do adesivo.
             </FormSubTitle>
@@ -204,15 +179,25 @@ export const FormSection: React.FC = () => {
                   data-aos="fade-left"
                   data-aos-duration="700"
                   value={telefone}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                    const formatted = formatPhone(e.target.value);
-                    setTelefone(formatted);
-                  }}
+                  onChange={(e) => setTelefone(formatPhone(e.target.value))}
                   maxLength={15}
                   required
                 />
               </Inputs>
+              {/* ✅ Novo campo de CEP */}
+              <InputField
+                type="text"
+                placeholder="CEP (ex: 01001-000)"
+                data-aos="fade-up"
+                data-aos-duration="700"
+                value={cep}
+                onChange={(e) => setCep(formatCEP(e.target.value))}
+                maxLength={9}
+                required
+              />
             </FormInputs>
+
+            {/* Campos abaixo permanecem iguais */}
             <SelectField
               data-aos="fade-left"
               data-aos-duration="700"
@@ -220,7 +205,7 @@ export const FormSection: React.FC = () => {
               value={tipo}
               onChange={(e) => {
                 setTipo(e.target.value);
-                setTamanho(""); // Reset tamanho quando muda o tipo
+                setTamanho("");
               }}>
               <Options value="Não Selecionado" disabled>Tipo do Adesivo</Options>
               <Options value="Holográfico (Brilho / Fosco)">Holográfico (Brilho)</Options>
@@ -228,24 +213,22 @@ export const FormSection: React.FC = () => {
               <Options value="Vinil Branco (Fosco)">Vinil Branco (Fosco)</Options>
               <Options value="Transparente (Brilho)">Transparente (Brilho)</Options>
             </SelectField>
+
             <SelectField
               data-aos="fade-left"
               data-aos-duration="700"
               value={tamanho}
-              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setTamanho(e.target.value)}
+              onChange={(e) => setTamanho(e.target.value)}
               disabled={tipo === "Não Selecionado"}
               required
             >
               {AVAILABLE_SIZES.map((size) => (
-                <Options
-                  key={size.value}
-                  value={size.value}
-                  disabled={size.value === ""}
-                >
+                <Options key={size.value} value={size.value} disabled={size.value === ""}>
                   {size.label}
                 </Options>
               ))}
             </SelectField>
+
             <SelectField
               data-aos="fade-right"
               data-aos-duration="700"
@@ -258,6 +241,7 @@ export const FormSection: React.FC = () => {
               <Options value="quadrado">quadrado</Options>
               <Options value="personalizado">personalizado</Options>
             </SelectField>
+
             <InputField
               type="number"
               placeholder="Quantidade (mínimo 50 unidades)"
@@ -274,41 +258,36 @@ export const FormSection: React.FC = () => {
                 <PriceValue>{formatCurrency(priceResult.totalPrice)}</PriceValue>
                 <PriceDetails>
                   {nome && (
-                    <PriceDetailItem>
-                      <strong>Nome:</strong> {nome}
-                    </PriceDetailItem>
+                    <PriceDetailItem><strong>Nome:</strong> {nome}</PriceDetailItem>
                   )}
-                  <PriceDetailItem>
-                    <strong>Preço Unitário:</strong> {formatCurrency(priceResult.unitPrice)}
-                  </PriceDetailItem>
-                  <PriceDetailItem>
-                    <strong>Quantidade:</strong> {quantidade} unidades
-                  </PriceDetailItem>
-                  <PriceDetailItem>
-                    <strong>Tamanho:</strong> {AVAILABLE_SIZES.find(s => s.value === tamanho)?.label || tamanho}
-                  </PriceDetailItem>
-                  <PriceDetailItem>
-                    <strong>Tipo:</strong> {tipo}
-                  </PriceDetailItem>
+                  <PriceDetailItem><strong>Preço Unitário:</strong> {formatCurrency(priceResult.unitPrice)}</PriceDetailItem>
+                  <PriceDetailItem><strong>Quantidade:</strong> {quantidade} unidades</PriceDetailItem>
+                  <PriceDetailItem><strong>Tamanho:</strong> {AVAILABLE_SIZES.find(s => s.value === tamanho)?.label || tamanho}</PriceDetailItem>
+                  <PriceDetailItem><strong>Tipo:</strong> {tipo}</PriceDetailItem>
                   {modelo && modelo !== "Não Selecionado" && (
-                    <PriceDetailItem>
-                      <strong>Modelo:</strong> {modelo}
-                    </PriceDetailItem>
+                    <PriceDetailItem><strong>Modelo:</strong> {modelo}</PriceDetailItem>
+                  )}
+                  {cep && (
+                    <PriceDetailItem><strong>CEP:</strong> {cep}</PriceDetailItem>
                   )}
                 </PriceDetails>
               </PriceResult>
             )}
 
             {priceResult && !priceResult.isValid && priceResult.error && (
-              <PriceResult style={{ borderColor: '#e93700', background: 'rgba(233, 55, 0, 0.1)' }}>
-                <PriceValue style={{ color: '#e93700', fontSize: '1.6rem' }}>
+              <PriceResult style={{ borderColor: "#e93700", background: "rgba(233,55,0,0.1)" }}>
+                <PriceValue style={{ color: "#e93700", fontSize: "1.6rem" }}>
                   {priceResult.error}
                 </PriceValue>
               </PriceResult>
             )}
 
-            <Submit type="submit" data-aos="fade-up"
-              data-aos-duration="500" value="Enviar por WhatsApp" />
+            <Submit
+              type="submit"
+              data-aos="fade-up"
+              data-aos-duration="500"
+              value="Enviar por WhatsApp"
+            />
           </Form>
         </FormContainer>
       </Container>
