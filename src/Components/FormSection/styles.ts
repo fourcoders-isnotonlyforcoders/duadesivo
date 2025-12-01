@@ -4,6 +4,10 @@ export const SectionContainer = styled.section`
   margin: 0 auto;
   height: auto;
   box-sizing: border-box;
+  margin-top: 4rem;
+  @media screen and (max-width: 906px) {
+    margin-top: 2rem;
+  }
 `;
 
 export const Container = styled.div`
@@ -49,14 +53,14 @@ export const FormInfo = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: .5rem;
+  gap: 0.5rem;
   width: auto;
 `;
 export const FormTitle = styled.h2`
   font-size: 2.2rem;
   margin: 0;
   color: ${(props) => props.theme.colors.yellow};
-  @media screen and (max-width:400px){
+  @media screen and (max-width: 400px) {
     text-align: center;
     font-size: 2rem;
   }
@@ -69,14 +73,14 @@ export const FormSubTitle = styled.p`
   margin: 0;
   color: ${(props) => props.theme.colors.white2};
 
-  @media screen and (max-width:480px){
+  @media screen and (max-width: 480px) {
     padding: 0 4rem;
     font-size: 1.4rem;
   }
 `;
 
 export const Form = styled.form`
-  padding: 2rem ;
+  padding: 2rem;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -87,23 +91,21 @@ export const Form = styled.form`
 export const FormInputs = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 3rem; 
+  gap: 3rem;
   justify-content: center;
   padding: 1rem 0;
 `;
 export const InputField = styled.input`
-
   box-sizing: border-box;
   font-size: 1.7rem;
   padding: 1rem;
   width: 100%;
   background-color: transparent;
-  border: none; 
-  border-bottom: 1px solid #f2f2f2; 
+  border: none;
+  border-bottom: 1px solid #f2f2f2;
   color: ${(props) => props.theme.colors.white2};
-  outline: none; 
-  &::placeholder{
-    
+  outline: none;
+  &::placeholder {
   }
 `;
 export const Inputs = styled.div`
@@ -125,7 +127,7 @@ export const SelectField = styled.select`
   font-size: 1.7rem;
   cursor: pointer;
   transition: opacity 0.3s ease;
-  
+
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
@@ -140,7 +142,11 @@ export const Options = styled.option`
 export const PriceResult = styled.div`
   margin-top: 1rem;
   padding: 2rem;
-  background: linear-gradient(135deg, rgba(254, 165, 0, 0.1) 0%, rgba(254, 165, 0, 0.05) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(254, 165, 0, 0.1) 0%,
+    rgba(254, 165, 0, 0.05) 100%
+  );
   border: 2px solid ${(props) => props.theme.colors.yellow};
   border-radius: 12px;
   display: flex;
@@ -154,7 +160,7 @@ export const PriceValue = styled.div`
   font-weight: bold;
   color: ${(props) => props.theme.colors.yellow};
   text-align: center;
-  
+
   @media screen and (max-width: 480px) {
     font-size: 2rem;
   }
@@ -174,11 +180,11 @@ export const PriceDetailItem = styled.div`
   color: ${(props) => props.theme.colors.white2};
   display: flex;
   justify-content: space-between;
-  
+
   strong {
     color: ${(props) => props.theme.colors.white};
   }
-  
+
   @media screen and (max-width: 480px) {
     font-size: 1.2rem;
     flex-direction: column;
@@ -187,7 +193,7 @@ export const PriceDetailItem = styled.div`
 `;
 
 export const Submit = styled.input`
-   border: 2px solid #000;
+  border: 2px solid #000;
   color: #000;
   font-weight: bolder;
   box-shadow: 0 0 4px 2px #000;
@@ -200,9 +206,9 @@ export const Submit = styled.input`
   margin-top: 1rem;
   cursor: pointer;
   height: fit-content;
-  transition: filter 0.4s, color 0.4s, border 0.4s, box-shadow 0.4s, background 0.4s, opacity 0.5s,
-    transform 0.5s !important;
-  &:hover{
+  transition: filter 0.4s, color 0.4s, border 0.4s, box-shadow 0.4s,
+    background 0.4s, opacity 0.5s, transform 0.5s !important;
+  &:hover {
     transform: scale(1.02);
     box-shadow: 0 0 7px 2px rgba(254, 165, 0, 0.22);
     filter: brightness(1);
@@ -212,13 +218,15 @@ export const Submit = styled.input`
   }
   animation: pulse4 4s infinite;
 
-  @keyframes pulse4{
-    0%{
+  @keyframes pulse4 {
+    0% {
       transform: scale(1);
-    }50%{
+    }
+    50% {
       transform: scale(1.04);
       box-shadow: 0 0 11px 1px rgba(254, 165, 0, 0.22);
-    }100%{
+    }
+    100% {
       transform: scale(1);
     }
   }

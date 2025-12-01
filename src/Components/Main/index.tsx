@@ -2,7 +2,7 @@ import { MainContainer } from "./styles";
 import { FirstSection } from "../FirstSection";
 import { ServicesSection } from "../ServicesSection";
 import { ProcessSection } from "../ProcessSection";
-import { DepoimentsSection } from "../DepoimentsSection";
+// import { DepoimentsSection } from "../DepoimentsSection";
 import { FormSection } from "../FormSection";
 export const Main: React.FC = () => {
   return (
@@ -10,7 +10,7 @@ export const Main: React.FC = () => {
       <FirstSection />
       <ServicesSection/>
       <ProcessSection/>
-      <DepoimentsSection/>
+      {/* <DepoimentsSection/> */}
       <FormSection/>
     </MainContainer>
   );
